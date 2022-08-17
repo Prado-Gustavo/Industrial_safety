@@ -20,7 +20,7 @@
 |:14:       |:RA6:     |                 |            |
 |:15:       |:RC0:     |:CLP_WARNING:    |:CLP:       |
 |:16:       |:RC1:     |:CLP_STOP:       |:CLP:       |
-|:17:       |:RC2:     |                 |            |
+|:17:       |:RC2:     |:PIR_OUT:        |:PIR        |
 |:18:       |:RC3:     |:RFID_SCK:       |:RFID:      |
 |:19:       |:RD0:     |:US_TRIGGER:     |:ULTRASONIC:|
 |:20:       |:RD1:     |:US_ECHO:        |:ULTRASONIC:|
@@ -28,7 +28,7 @@
 |:22:       |:RD3:     |:LCD_EN:         |:LCD:       |
 |:23:       |:RC4:     |:RFID_MISO:      |:RFID:      |
 |:24:       |:RC5:     |:RFID_MOSI:      |:RFID:      |
-|:25:       |:RC6:     |                 |            |
+|:25:       |:RC6:     |                 |:PIR:       |
 |:26:       |:RC7:     |                 |            |
 |:27:       |:RD4:     |:LCD_RD4:        |:LCD:       |
 |:28:       |:RD5:     |:LCD_RD5:        |:LCD:       |
