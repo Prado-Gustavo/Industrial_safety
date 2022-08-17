@@ -1,4 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
+[v F1256 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic.h
+[v __delay `JF1256 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -233,27 +237,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"11 outputs.c
-[; ;outputs.c: 11: void aviso ( void )
-[v _aviso `(v ~T0 @X0 1 ef ]
-"12
-[; ;outputs.c: 12: {
+"12 delay.c
+[; ;delay.c: 12: void delay( unsigned int t )
+[v _delay `(v ~T0 @X0 1 ef1`ui ]
+"13
+[; ;delay.c: 13: {
 {
-[e :U _aviso ]
+[e :U _delay ]
+"12
+[; ;delay.c: 12: void delay( unsigned int t )
+[v _t `ui ~T0 @X0 1 r1 ]
+"13
+[; ;delay.c: 13: {
 [f ]
 "14
-[; ;outputs.c: 14: }
-[e :UE 138 ]
-}
-"16
-[; ;outputs.c: 16: void parada ( void )
-[v _parada `(v ~T0 @X0 1 ef ]
-"17
-[; ;outputs.c: 17: {
+[; ;delay.c: 14:     while( t )
+[e $U 139  ]
+[e :U 140 ]
+"15
+[; ;delay.c: 15:     {
 {
-[e :U _parada ]
-[f ]
+"16
+[; ;delay.c: 16:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"17
+[; ;delay.c: 17:         --t;
+[e =- _t -> -> 1 `i `ui ]
+"18
+[; ;delay.c: 18:     }
+}
+[e :U 139 ]
+"14
+[; ;delay.c: 14:     while( t )
+[e $ != _t -> -> 0 `i `ui 140  ]
+[e :U 141 ]
 "19
-[; ;outputs.c: 19: }
-[e :UE 139 ]
+[; ;delay.c: 19: }
+[e :UE 138 ]
 }

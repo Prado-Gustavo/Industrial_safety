@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "delay.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
+# 1 "delay.c" 2
 
 
 
@@ -2499,26 +2499,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 9 "main.c" 2
-
-# 1 "./config.h" 1
-# 10 "./config.h"
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-# 10 "main.c" 2
-
+# 10 "delay.c" 2
 # 1 "./delay.h" 1
 
 
@@ -2526,21 +2507,13 @@ extern __bank0 __bit __timeout;
 
 
 void delay( unsigned int t );
-# 11 "main.c" 2
+# 11 "delay.c" 2
 
-# 1 "./lcd.h" 1
-
-
-
-void lcd_init( void );
-void lcd_clr( void );
-void lcd_print( unsigned char lin, unsigned char col, const char * str );
-void lcd_num( unsigned char lin, unsigned char col,
-                    int num, unsigned char tam );
-# 12 "main.c" 2
-
-
-void main(void)
+void delay( unsigned int t )
 {
-    return;
+    while( t )
+    {
+        _delay((unsigned long)((1)*(4000000/4000.0)));
+        --t;
+    }
 }

@@ -8,7 +8,8 @@
 
 #include <xc.h>
 #include "config.h"
-
+#include "delay.h"
+#include "lcd.h"
 
 void main(void) 
 {

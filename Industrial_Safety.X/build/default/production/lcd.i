@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "lcd.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,15 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-
-
-
-
-
-
-
-
+# 1 "lcd.c" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2499,35 +2491,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 9 "main.c" 2
-
-# 1 "./config.h" 1
-# 10 "./config.h"
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-# 10 "main.c" 2
-
-# 1 "./delay.h" 1
-
-
-
-
-
-void delay( unsigned int t );
-# 11 "main.c" 2
-
+# 2 "lcd.c" 2
 # 1 "./lcd.h" 1
 
 
@@ -2537,10 +2501,158 @@ void lcd_clr( void );
 void lcd_print( unsigned char lin, unsigned char col, const char * str );
 void lcd_num( unsigned char lin, unsigned char col,
                     int num, unsigned char tam );
-# 12 "main.c" 2
+# 3 "lcd.c" 2
+# 1 "./delay.h" 1
 
 
-void main(void)
+
+
+
+void delay( unsigned int t );
+# 4 "lcd.c" 2
+# 58 "lcd.c"
+void lcd_instReg( unsigned char i )
 {
-    return;
+    PORTDbits.RD2 = 0;
+    PORTD = ((PORTD & 0x0F)|(i>>4<<4));
+
+    PORTDbits.RD3 = 0;
+    if( i == 0x01 || i == 0x02 )
+        _delay((unsigned long)((2)*(4000000/4000.0)));
+    else
+        _delay((unsigned long)((40)*(4000000/4000000.0)));
+    PORTDbits.RD3 = 1;
+
+
+    if( (i & 0xF0) == (0x20 | 0x00) )
+    {
+        PORTDbits.RD2 = 0;
+        PORTD = ((PORTD & 0x0F)|(i>>4<<4));
+        PORTDbits.RD3 = 0;
+        _delay((unsigned long)((40)*(4000000/4000000.0)));
+        PORTDbits.RD3 = 1;
+    }
+
+    PORTDbits.RD2 = 0;
+    PORTD = ((PORTD & 0x0F)|(i<<4));
+    PORTDbits.RD3 = 0;
+    if( i == 0x01 || i == 0x02 )
+        _delay((unsigned long)((2)*(4000000/4000.0)));
+    else
+        _delay((unsigned long)((40)*(4000000/4000000.0)));
+    PORTDbits.RD3 = 1;
+}
+
+
+
+
+void lcd_dataReg( unsigned char d )
+{
+    PORTDbits.RD2 = 1;
+    PORTD = ((PORTD & 0x0F)|(d >> 4<<4));
+    PORTDbits.RD3 = 0;
+    _delay((unsigned long)((40)*(4000000/4000000.0)));
+    PORTDbits.RD3 = 1;
+
+    PORTDbits.RD2 = 1;
+    PORTD = ((PORTD & 0x0F)|(d<<4));
+    PORTDbits.RD3 = 0;
+    _delay((unsigned long)((40)*(4000000/4000000.0)));
+    PORTDbits.RD3 = 1;
+}
+
+
+
+
+void lcd_lincol( unsigned char lin, unsigned char col)
+{
+    lcd_instReg( (0x80+((0x40 * lin) + (col + 0x00) & 0x7F)) );
+}
+
+
+
+
+
+
+void lcd_init( void )
+{
+    delay(100);
+    TRISDbits.TRISD2 = 0;
+    TRISDbits.TRISD3 = 0;
+    TRISDbits.TRISD4 = 0;
+    TRISDbits.TRISD5 = 0;
+    TRISDbits.TRISD6 = 0;
+    TRISDbits.TRISD7 = 0;
+
+    delay(100);
+    PORTDbits.RD3 = 1;
+    lcd_instReg( 0x20|0x00|0x08 );
+    lcd_instReg( 0x08|0x04|0x00|0x00 );
+    lcd_instReg( 0x01 );
+    lcd_instReg( 0x02 );
+    delay(100);
+}
+
+
+
+
+
+void lcd_clr( void )
+{
+    lcd_instReg(0x01);
+}
+# 156 "lcd.c"
+void lcd_print( unsigned char lin, unsigned char col, const char * str )
+{
+    char pos = col;
+    lcd_lincol( lin, col );
+
+    while( *str )
+    {
+        lcd_dataReg( *str );
+        ++str;
+        ++pos;
+    }
+}
+# 178 "lcd.c"
+void lcd_num( unsigned char lin, unsigned char col,
+                    int num, unsigned char tam )
+{
+    int div;
+    unsigned char size;
+    char sinal;
+
+    sinal = num < 0;
+    if( sinal )
+        num = (~num) + 1;
+
+    lcd_lincol(lin, col);
+
+    div=10000;
+    size = 5;
+    while( div >= 1 )
+    {
+        if( num/div == 0 )
+            --size;
+        else
+            break;
+        div/=10;
+    }
+
+    while( tam > (size+sinal) && tam > 1 )
+    {
+        lcd_dataReg(' ');
+        --tam;
+    }
+
+    if( sinal )
+        lcd_dataReg('-');
+
+    do
+    {
+        lcd_dataReg( (unsigned char)(num / div) + '0' );
+        num = num % div;
+        div/=10;
+    }
+    while( div >= 1 );
 }

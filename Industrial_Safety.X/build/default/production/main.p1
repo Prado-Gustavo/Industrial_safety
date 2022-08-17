@@ -259,18 +259,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23
 [p x WRT = OFF ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"13 main.c
-[; ;main.c: 13: void main(void)
+"14 main.c
+[; ;main.c: 14: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"14
-[; ;main.c: 14: {
+"15
+[; ;main.c: 15: {
 {
 [e :U _main ]
 [f ]
-"15
-[; ;main.c: 15:     return;
-[e $UE 138  ]
 "16
-[; ;main.c: 16: }
+[; ;main.c: 16:     return;
+[e $UE 138  ]
+"17
+[; ;main.c: 17: }
 [e :UE 138 ]
 }

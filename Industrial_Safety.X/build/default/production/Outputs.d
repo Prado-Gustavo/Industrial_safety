@@ -1,1 +1,1 @@
-build/default/production\Outputs.p1: Outputs.c
+build/default/production\outputs.p1: outputs.c

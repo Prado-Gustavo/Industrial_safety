@@ -1,1 +1,1 @@
-build/default/production\Inputs.p1: Inputs.c
+build/default/production\inputs.p1: inputs.c

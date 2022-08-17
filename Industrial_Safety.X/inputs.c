@@ -1,5 +1,5 @@
 /*
- * File:   Inputs.c
+ * File:   inputs.c
  * Author: 21193442
  *
  * Created on 17 de Agosto de 2022, 08:13
@@ -8,6 +8,7 @@
 
 #include <xc.h>
 
-void abule (void) {
+void abule (void)
+{
     return;
 }
