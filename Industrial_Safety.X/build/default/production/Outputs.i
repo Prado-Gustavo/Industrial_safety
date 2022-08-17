@@ -2502,6 +2502,11 @@ extern __bank0 __bit __timeout;
 # 9 "outputs.c" 2
 
 
+
+
+
+
+
 void aviso ( void )
 {
 

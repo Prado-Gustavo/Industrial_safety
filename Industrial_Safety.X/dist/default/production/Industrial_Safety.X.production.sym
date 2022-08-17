@@ -44,6 +44,7 @@ __end_of_main 7FC 0 CODE 0
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 end_of_initialization 7FC 0 CODE 0
+_TRISCbits 87 0 ABS 0
 _TRISDbits 88 0 ABS 0
 _PORTDbits 8 0 ABS 0
 __Hstrings 0 0 ABS 0
@@ -112,12 +113,12 @@ config 400E 4011 CONFIG 400E 0
 maintext FF2 FF7 CODE FF2 0
 %locals
 dist/default/production\Industrial_Safety.X.production.o
-C:\Users\21193442\AppData\Local\Temp\sf9s.
-1060 7FC 0 CODE 0
-1063 7FC 0 CODE 0
-1069 7FC 0 CODE 0
+C:\Users\21193442\AppData\Local\Temp\sbok.
+1062 7FC 0 CODE 0
+1065 7FC 0 CODE 0
 1071 7FC 0 CODE 0
-1072 7FD 0 CODE 0
+1073 7FC 0 CODE 0
+1074 7FD 0 CODE 0
 main.c
 14 7F9 0 CODE 0
 16 7F9 0 CODE 0

@@ -2501,8 +2501,40 @@ extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
 # 9 "inputs.c" 2
 
+# 1 "./delay.h" 1
 
-void abule (void)
+
+
+
+
+void delay( unsigned int t );
+# 10 "inputs.c" 2
+
+
+
+
+
+
+void in_init (void)
 {
-    return;
+    TRISDbits.TRISD0 = 1;
+    TRISDbits.TRISD1 = 0;
+    TRISCbits.TRISC2 = 0;
+}
+
+void us_trigger (void)
+{
+        PORTDbits.RD1 = 1;
+        delay(1);
+        PORTDbits.RD1 = 0;
+}
+
+int us_distance ()
+{
+    if(PORTDbits.RD0 == 1)
+    {
+
+    }
+
+
 }

@@ -8,9 +8,14 @@
 
 #include <xc.h>
 
+#define AVISO  PORTDbits.RD0
+#define PARADA PORTDbits.RD1
+
+
+
 void aviso ( void ) 
 {
-    
+
 }
 
 void parada ( void )
