@@ -9,9 +9,11 @@
 #include <xc.h>
 #include "delay.h"
 
-#define US_ECHO    PORTDbits.RD0
-#define US_TRIGGER PORTDbits.RD1
+#define UTS_ECHO    PORTDbits.RD0
+#define UTS_TRIGGER PORTDbits.RD1
 #define PIR_OUT    PORTDbits.RC2
+
+int modo ; 
 
 void in_init (void)
 {
@@ -20,22 +22,28 @@ void in_init (void)
     TRISCbits.TRISC2 = 0;
 }
 
-void us_trigger (void)
+void uts_trigger (void)
 {
-        US_TRIGGER = 1;
-        delay(1);
-        US_TRIGGER = 0;
+        UTS_TRIGGER = 1;
+        delay_us(10);
+        UTS_TRIGGER = 0;
+        delay_us(10);
+        
 }
 
-int us_distance ()
+int uts_distance ()
 {
     if(US_ECHO == 1)
     {
-        
+        *5
     }
     
     
 }
+CCP2IF_
+
+
+
 
 
 

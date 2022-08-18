@@ -8,8 +8,14 @@
 
 #include <xc.h>
 
+#define RFID_NSS        PORTCbits.RC4
+#define RFID_SCK        PORTCbits.RC3
 
-#define IDLE            0x00
+#define RFID_MISO       PORTCbits.RC4
+#define RFID_MOSI       PORTCbits.RC5
+
+
+#define IDLE            0x00          
 //Cancela comandos atuais e coloca o MFCR em estado de repouso
 //Cancel current command and puts MFCR in idle state
 #define MEMORY          0x01
@@ -36,3 +42,11 @@ can be used to manipulate any bit except the CommandReg register*/
 #define TRANSCEIVE      0x0C
 #define MF_AUTHENT      0x0E
 #define SOFT_RESET      0x0F
+
+
+void idle_command (void)
+{
+    RFID_MOSI == IDLE;
+}
+
+

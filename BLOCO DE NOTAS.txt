@@ -1,0 +1,1 @@
+enable_interrupts( INT_CCP1 ou INT_CCP2 )  
