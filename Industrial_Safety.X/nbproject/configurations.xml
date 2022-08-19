@@ -9,6 +9,7 @@
       <itemPath>lcd.h</itemPath>
       <itemPath>outputs.h</itemPath>
       <itemPath>inputs.h</itemPath>
+      <itemPath>prs.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -23,6 +24,7 @@
       <itemPath>outputs.c</itemPath>
       <itemPath>inputs.c</itemPath>
       <itemPath>rfid.c</itemPath>
+      <itemPath>prs.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

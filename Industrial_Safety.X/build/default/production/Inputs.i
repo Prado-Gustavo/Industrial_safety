@@ -2507,13 +2507,15 @@ extern __bank0 __bit __timeout;
 
 
 
-void delay( unsigned int t );
+void delay_ms( unsigned int t );
 # 10 "inputs.c" 2
 
 
 
 
 
+
+int modo ;
 
 void in_init (void)
 {
@@ -2522,19 +2524,11 @@ void in_init (void)
     TRISCbits.TRISC2 = 0;
 }
 
-void us_trigger (void)
+void uts_trigger (void)
 {
         PORTDbits.RD1 = 1;
-        delay(1);
+        _delay((unsigned long)((10)*(4000000/4000000.0)));
         PORTDbits.RD1 = 0;
-}
-
-int us_distance ()
-{
-    if(PORTDbits.RD0 == 1)
-    {
-
-    }
-
+        _delay((unsigned long)((10)*(4000000/4000000.0)));
 
 }

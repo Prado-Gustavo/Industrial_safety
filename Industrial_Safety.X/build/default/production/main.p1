@@ -1,5 +1,17 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
+"4 ./lcd.h
+[; ;./lcd.h: 4: void lcd_init( void );
+[v _lcd_init `(v ~T0 @X0 0 ef ]
+"4 ./prs.h
+[; ;./prs.h: 4: void prs_init (void);
+[v _prs_init `(v ~T0 @X0 0 ef ]
+"6
+[; ;./prs.h: 6: void prs_detect (unsigned char s, unsigned char w);
+[v _prs_detect `(v ~T0 @X0 0 ef2`uc`uc ]
+"6 ./lcd.h
+[; ;./lcd.h: 6: void lcd_print( unsigned char lin, unsigned char col, const char * str );
+[v _lcd_print `(v ~T0 @X0 0 ef3`uc`uc`*Cuc ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -258,19 +270,66 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x BOR4V = BOR40V ]
 "23
 [p x WRT = OFF ]
+"15 main.c
+[; ;main.c: 15: int num ;
+[v _num `i ~T0 @X0 1 e ]
+"17
+[; ;main.c: 17: char aviso;
+[v _aviso `uc ~T0 @X0 1 e ]
+"18
+[; ;main.c: 18: char prs;
+[v _prs `uc ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"14 main.c
-[; ;main.c: 14: void main(void)
+"20
+[; ;main.c: 20: void main (void)
 [v _main `(v ~T0 @X0 1 ef ]
-"15
-[; ;main.c: 15: {
+"21
+[; ;main.c: 21: {
 {
 [e :U _main ]
 [f ]
-"16
-[; ;main.c: 16:     return;
-[e $UE 138  ]
-"17
-[; ;main.c: 17: }
+"22
+[; ;main.c: 22:     num = 0;
+[e = _num -> 0 `i ]
+"23
+[; ;main.c: 23:     prs = 0;
+[e = _prs -> -> 0 `i `uc ]
+"25
+[; ;main.c: 25:     lcd_init();
+[e ( _lcd_init ..  ]
+"26
+[; ;main.c: 26:     prs_init();
+[e ( _prs_init ..  ]
+"28
+[; ;main.c: 28:     while(1)
+[e :U 140 ]
+"29
+[; ;main.c: 29:     {
+{
+"31
+[; ;main.c: 31:         prs_detect( prs, aviso);
+[e ( _prs_detect (2 , -> _prs `uc -> _aviso `uc ]
+"33
+[; ;main.c: 33:         if( prs == 1)
+[e $ ! == -> _prs `i -> 1 `i 142  ]
+"34
+[; ;main.c: 34:         {
+{
+"35
+[; ;main.c: 35:          lcd_print(0, 1, "aviso" );
+[e ( _lcd_print (3 , , -> -> 0 `i `uc -> -> 1 `i `uc :s 1C ]
+"36
+[; ;main.c: 36:         }
+}
+[e :U 142 ]
+"37
+[; ;main.c: 37:     }
+}
+[e :U 139 ]
+[e $U 140  ]
+[e :U 141 ]
+"38
+[; ;main.c: 38: }
 [e :UE 138 ]
 }
+[a 1C 97 118 105 115 111 0 ]

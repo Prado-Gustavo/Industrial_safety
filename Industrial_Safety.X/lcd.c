@@ -1,6 +1,7 @@
 #include <xc.h>
 #include "lcd.h"
 #include "delay.h"
+#include "config.h"
 
 //****************** Interface com PORTs/Pinos
 #define LCD_BUS( x )    PORTD = ((PORTD & 0x0F)|(x<<4))
@@ -120,7 +121,7 @@ void lcd_lincol( unsigned char lin, unsigned char col)
 // o proprio display
 void lcd_init( void )
 {
-    delay(100);
+    delay_ms(100);
     TRISDbits.TRISD2 = 0;   // RS
     TRISDbits.TRISD3 = 0;   // EN
     TRISDbits.TRISD4 = 0;   // R4
@@ -128,13 +129,13 @@ void lcd_init( void )
     TRISDbits.TRISD6 = 0;   // D6
     TRISDbits.TRISD7 = 0;   // D7
     
-    delay(100);
+    delay_ms(100);
     LCD_EN = 1;
     lcd_instReg( LCD_FUNCTION_SET|LCD_FS_DATA_LENGTH_4|LCD_FS_LINE_NUMBER_2 );
     lcd_instReg( LCD_DISPLAY_CONTROL|LCD_DC_DISPLAY_ON|LCD_DC_CURSOR_OFF|LCD_DC_BLINK_OFF );
     lcd_instReg( LCD_CLEAR_DISPLAY );
     lcd_instReg( LCD_RETURN_HOME );
-    delay(100);
+    delay_ms(100);
 }
 
 

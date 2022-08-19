@@ -1,4 +1,4 @@
-# 1 "outputs.c"
+# 1 "prs.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "outputs.c" 2
+# 1 "prs.c" 2
 
 
 
@@ -2499,5 +2499,56 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 9 "outputs.c" 2
+# 9 "prs.c" 2
 
+# 1 "./delay.h" 1
+
+
+
+
+
+void delay_ms( unsigned int t );
+# 10 "prs.c" 2
+
+
+
+
+
+int t_sensor;
+
+void prs_init (void)
+{
+    TRISCbits.TRISC2 = 1;
+    TRISCbits.TRISC0 = 0;
+    t_sensor = 0;
+
+    PORTCbits.RC0 = 0;
+    PORTCbits.RC2 = 0;
+
+}
+
+void prs_detect (unsigned char s, unsigned char w)
+{
+
+    PORTCbits.RC2 = s;
+
+
+    if (s == 1)
+    {
+        t_sensor = 4500;
+        PORTCbits.RC0 = 1;
+        PORTCbits.RC0 = w;
+    }
+
+    if(s == 0)
+    {
+        --t_sensor;
+        _delay((unsigned long)((1)*(4000000/4000.0)));
+
+        if(t_sensor <=0)
+        {
+            PORTCbits.RC0 = 0;
+            PORTCbits.RC0 = w;
+        }
+    }
+}

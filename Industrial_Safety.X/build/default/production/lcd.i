@@ -2491,7 +2491,8 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 2 "lcd.c" 2
+# 1 "lcd.c" 2
+
 # 1 "./lcd.h" 1
 
 
@@ -2501,16 +2502,35 @@ void lcd_clr( void );
 void lcd_print( unsigned char lin, unsigned char col, const char * str );
 void lcd_num( unsigned char lin, unsigned char col,
                     int num, unsigned char tam );
-# 3 "lcd.c" 2
+# 2 "lcd.c" 2
+
 # 1 "./delay.h" 1
 
 
 
 
 
-void delay( unsigned int t );
+void delay_ms( unsigned int t );
+# 3 "lcd.c" 2
+
+# 1 "./config.h" 1
+# 10 "./config.h"
+#pragma config FOSC = INTRC_NOCLKOUT
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config CPD = OFF
+#pragma config BOREN = OFF
+#pragma config IESO = OFF
+#pragma config FCMEN = OFF
+#pragma config LVP = OFF
+
+
+#pragma config BOR4V = BOR40V
+#pragma config WRT = OFF
 # 4 "lcd.c" 2
-# 58 "lcd.c"
+# 59 "lcd.c"
 void lcd_instReg( unsigned char i )
 {
     PORTDbits.RD2 = 0;
@@ -2576,7 +2596,7 @@ void lcd_lincol( unsigned char lin, unsigned char col)
 
 void lcd_init( void )
 {
-    delay(100);
+    delay_ms(100);
     TRISDbits.TRISD2 = 0;
     TRISDbits.TRISD3 = 0;
     TRISDbits.TRISD4 = 0;
@@ -2584,13 +2604,13 @@ void lcd_init( void )
     TRISDbits.TRISD6 = 0;
     TRISDbits.TRISD7 = 0;
 
-    delay(100);
+    delay_ms(100);
     PORTDbits.RD3 = 1;
     lcd_instReg( 0x20|0x00|0x08 );
     lcd_instReg( 0x08|0x04|0x00|0x00 );
     lcd_instReg( 0x01 );
     lcd_instReg( 0x02 );
-    delay(100);
+    delay_ms(100);
 }
 
 
@@ -2601,7 +2621,7 @@ void lcd_clr( void )
 {
     lcd_instReg(0x01);
 }
-# 156 "lcd.c"
+# 157 "lcd.c"
 void lcd_print( unsigned char lin, unsigned char col, const char * str )
 {
     char pos = col;
@@ -2614,7 +2634,7 @@ void lcd_print( unsigned char lin, unsigned char col, const char * str )
         ++pos;
     }
 }
-# 178 "lcd.c"
+# 179 "lcd.c"
 void lcd_num( unsigned char lin, unsigned char col,
                     int num, unsigned char tam )
 {

@@ -2499,17 +2499,19 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 10 "delay.c" 2
+# 9 "delay.c" 2
+
 # 1 "./delay.h" 1
 
 
 
 
 
-void delay( unsigned int t );
-# 11 "delay.c" 2
+void delay_ms( unsigned int t );
+# 10 "delay.c" 2
 
-void delay( unsigned int t )
+
+void delay_ms( unsigned int t )
 {
     while( t )
     {

@@ -46,7 +46,7 @@ can be used to manipulate any bit except the CommandReg register*/
 
 void idle_command (void)
 {
-    RFID_MOSI == IDLE;
+    
 }
 
 

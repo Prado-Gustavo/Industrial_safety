@@ -10,8 +10,29 @@
 #include "config.h"
 #include "delay.h"
 #include "lcd.h"
+#include "prs.h"
 
-void main(void) 
+int num ;
+
+char aviso;
+char prs;
+
+void main (void) 
 {
-    return;
+    num = 0;
+    prs = 0;
+    
+    lcd_init();
+    prs_init();
+    
+    while(1)
+    {    
+         
+        prs_detect( prs, aviso);
+        
+        if( prs == 1)
+        {  
+         lcd_print(0, 1, "aviso" );
+        }
+    }
 }

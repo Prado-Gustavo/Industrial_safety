@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.00\pic\dat\en_msgs.txt \
   -cs -h+dist/default/production\Industrial_Safety.X.production.sym \
   --cmf=dist/default/production\Industrial_Safety.X.production.cmf -z \
-  -Q16F887 -oC:\Users\21193442\AppData\Local\Temp\sbok.2 \
+  -Q16F887 -oC:\Users\21193442\AppData\Local\Temp\sf2c.2 \
   -Mdist/default/production/Industrial_Safety.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=0110h-016fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -pfunctab=ENTRY -ACONFIG=02007h-02008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k C:\Users\21193442\AppData\Local\Temp\sbok.o \
+  -DENTRY=2 -k C:\Users\21193442\AppData\Local\Temp\sf2c.o \
   dist/default/production\Industrial_Safety.X.production.o 
 
 Object code version is 3.11
@@ -28,32 +28,56 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\21193442\AppData\Local\Temp\sbok.o
+C:\Users\21193442\AppData\Local\Temp\sf2c.o
                 end_init                              0        0        3        0       0
                 config                             2007     2007        2     400E       0
 dist/default/production\Industrial_Safety.X.production.o
-                cinit                               7FC      7FC        4      FF8       0
-                maintext                            7F9      7F9        3      FF2       0
+                cinit                               7F2      7F2        E      FE4       0
+                text8                               633      633       17      C66       0
+                text7                               767      767       8B      ECE       0
+                text6                               6E4      6E4       3F      DC8       0
+                text5                               6AE      6AE       36      D5C       0
+                text4                               620      620       13      C40       0
+                text3                               67B      67B       33      CF6       0
+                text2                               723      723       44      E46       0
+                text1                               615      615        B      C2A       0
+                maintext                            64A      64A       31      C94       0
+                cstackCOMMON                         70       70        C       70       1
+                bssBANK0                             20       20        6       20       1
+                bssCOMMON                            7C       7C        2       70       1
+                strings                               3        3        C        6       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
                 end_init                              0        0        3         0
-                cinit                               7FC      7FC        4         0
-                maintext                            7F9      7F9        3         0
+                cinit                               7F2      7F2        E         0
+                text8                               633      633       17         0
+                text7                               767      767       8B         0
+                text6                               6E4      6E4       3F         0
+                text5                               6AE      6AE       36         0
+                text4                               620      620       13         0
+                text3                               67B      67B       33         0
+                text2                               723      723       44         0
+                text1                               615      615        B         0
+                maintext                            64A      64A       31         0
 
         CLASS   STRCODE        
 
         CLASS   STRING         
+                strings                               3        3        C         0
 
         CLASS   CONST          
 
         CLASS   ENTRY          
 
         CLASS   COMMON         
+                cstackCOMMON                         70       70        C         1
+                bssCOMMON                            7C       7C        2         1
 
         CLASS   BANK0          
+                bssBANK0                             20       20        6         1
 
         CLASS   BANK1          
 
@@ -86,28 +110,38 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                maintext                       0007F9  000003  0007FC       FF2       0  CODE        2
-                cinit                          0007FC  000004  000800       FF8       0  CODE        2
+                strings                        000003  00000C  00000F         6       0  STRING      2
+                bssBANK0                       000020  000006  000026        20       1  BANK0       1
+                cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
+                text1                          000615  00000B  000620       C2A       0  CODE        2
+                text4                          000620  000013  000633       C40       0  CODE        2
+                text8                          000633  000017  00064A       C66       0  CODE        2
+                maintext                       00064A  000031  00067B       C94       0  CODE        2
+                text3                          00067B  000033  0006AE       CF6       0  CODE        2
+                text5                          0006AE  000036  0006E4       D5C       0  CODE        2
+                text6                          0006E4  00003F  000723       DC8       0  CODE        2
+                text2                          000723  000044  000767       E46       0  CODE        2
+                text7                          000767  00008B  0007F2       ECE       0  CODE        2
+                cinit                          0007F2  00000E  000800       FE4       0  CODE        2
                 config                         002007  000002  002009      400E       0  CONFIG      2
 
 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            0020-006F             50           1
+        BANK0            0026-006F             4A           1
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
-        CODE             0003-07F8            7F6           2
+        CODE             000F-0614            606           2
                          0800-1FFF            800
-        COMMON           0070-007D              E           1
-        CONST            0003-07F8            100           2
+        CONST            000F-0614            100           2
                          0800-1FFF            100
         EEDATA           2100-21FF            100           2
-        ENTRY            0003-07F8            100           2
+        ENTRY            000F-0614            100           2
                          0800-1FFF            100
         IDLOC            2000-2003              4           2
-        RAM              0020-006F             50           1
+        RAM              0026-006F             4A           1
                          00A0-00EF             50
                          0110-016F             60
                          0190-01EF             60
@@ -116,13 +150,14 @@ UNUSED ADDRESS RANGES
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
         STACK            0110-016F             60           1
-        STRCODE          0003-07F8            7F6           2
+        STRCODE          000F-0614            606           2
                          0800-1FFF           1800
-        STRING           0003-07F8            100           2
+        STRING           000F-0614            100           2
                          0800-1FFF            100
 
                                   Symbol Table
 
+_PORTCbits                (abs)        0007
 _PORTD                    (abs)        0008
 _PORTDbits                (abs)        0008
 _TRISCbits                (abs)        0087
@@ -144,6 +179,8 @@ __Hbank0                  bank0        0000
 __Hbank1                  bank1        0000
 __Hbank2                  bank2        0000
 __Hbank3                  bank3        0000
+__HbssBANK0               bssBANK0     0000
+__HbssCOMMON              bssCOMMON    0000
 __Hcinit                  cinit        0800
 __Hclrtext                clrtext      0000
 __Hcode                   code         0000
@@ -165,7 +202,7 @@ __Hsfr1                   sfr1         0000
 __Hsfr2                   sfr2         0000
 __Hsfr3                   sfr3         0000
 __Hspace_0                (abs)        2009
-__Hspace_1                (abs)        0000
+__Hspace_1                (abs)        007E
 __Hspace_2                (abs)        0000
 __Hspace_3                (abs)        0000
 __Hstack                  stack        0000
@@ -176,7 +213,9 @@ __Lbank0                  bank0        0000
 __Lbank1                  bank1        0000
 __Lbank2                  bank2        0000
 __Lbank3                  bank3        0000
-__Lcinit                  cinit        07FC
+__LbssBANK0               bssBANK0     0000
+__LbssCOMMON              bssCOMMON    0000
+__Lcinit                  cinit        07F2
 __Lclrtext                clrtext      0000
 __Lcode                   code         0000
 __Lcommon                 common       0000
@@ -204,20 +243,63 @@ __Lstack                  stack        0000
 __Lstrings                strings      0000
 __Ltext                   text         0000
 __S0                      (abs)        2009
-__S1                      (abs)        0000
+__S1                      (abs)        007E
 __S2                      (abs)        0000
 __S3                      (abs)        0000
 ___int_sp                 stack        0000
 ___latbits                (abs)        0002
 ___sp                     stack        0000
 __end_of__initialization  cinit        07FC
-__end_of_main             maintext     07FC
-__initialization          cinit        07FC
-__pcstackCOMMON           cstackCOMMON 0000
-__pmaintext               maintext     07F9
+__end_of__stringtab       strings      0009
+__end_of_delay_ms         text8        064A
+__end_of_lcd_dataReg      text5        06E4
+__end_of_lcd_init         text6        0723
+__end_of_lcd_instReg      text7        07F2
+__end_of_lcd_lincol       text4        0633
+__end_of_lcd_print        text3        06AE
+__end_of_main             maintext     067B
+__end_of_prs_detect       text2        0767
+__end_of_prs_init         text1        0620
+__initialization          cinit        07F2
+__pbssBANK0               bssBANK0     0020
+__pbssCOMMON              bssCOMMON    007C
+__pcstackCOMMON           cstackCOMMON 0070
+__pmaintext               maintext     064A
+__pstrings                strings      0003
+__ptext1                  text1        0615
+__ptext2                  text2        0723
+__ptext3                  text3        067B
+__ptext4                  text4        0620
+__ptext5                  text5        06AE
+__ptext6                  text6        06E4
+__ptext7                  text7        0767
+__ptext8                  text8        0633
+__size_of_delay_ms        (abs)        0000
+__size_of_lcd_dataReg     (abs)        0000
+__size_of_lcd_init        (abs)        0000
+__size_of_lcd_instReg     (abs)        0000
+__size_of_lcd_lincol      (abs)        0000
+__size_of_lcd_print       (abs)        0000
 __size_of_main            (abs)        0000
-_main                     maintext     07F9
+__size_of_prs_detect      (abs)        0000
+__size_of_prs_init        (abs)        0000
+__stringbase              strings      0008
+__stringtab               strings      0003
+_aviso                    bssCOMMON    007D
+_delay_ms                 text8        0633
+_lcd_dataReg              text5        06AE
+_lcd_init                 text6        06E4
+_lcd_instReg              text7        0767
+_lcd_lincol               text4        0620
+_lcd_print                text3        067B
+_main                     maintext     064A
+_num                      bssBANK0     0024
+_prs                      bssCOMMON    007C
+_prs_detect               text2        0723
+_prs_init                 text1        0615
+_t_sensor                 bssBANK0     0020
 btemp                     (abs)        007E
+delay_ms@t                cstackCOMMON 0070
 end_of_initialization     cinit        07FC
 intlevel0                 functab      0000
 intlevel1                 functab      0000
@@ -225,11 +307,21 @@ intlevel2                 functab      0000
 intlevel3                 functab      0000
 intlevel4                 functab      0000
 intlevel5                 functab      0000
+lcd_dataReg@d             cstackCOMMON 0072
+lcd_instReg@i             cstackCOMMON 0072
+lcd_lincol@col            cstackCOMMON 0073
+lcd_lincol@lin            cstackCOMMON 0075
+lcd_print@col             cstackCOMMON 0076
+lcd_print@lin             cstackCOMMON 007A
+lcd_print@pos             cstackCOMMON 0079
+lcd_print@str             cstackCOMMON 0077
+prs_detect@s              cstackCOMMON 0072
+prs_detect@w              cstackCOMMON 0070
 reset_vec                 reset_vec    0000
 stackhi                   (abs)        0000
 stacklo                   (abs)        0000
 start                     init         0000
-start_initialization      cinit        07FC
+start_initialization      cinit        07F2
 wtemp0                    (abs)        007E
 
 
@@ -237,7 +329,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 14 in file "main.c"
+		line 20 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -245,7 +337,39 @@ FUNCTION INFORMATION:
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       0       0       0
+      Locals:         0       0       0       0       0
+      Temps:          1       0       0       0       0
+      Totals:         1       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels required when called:    3
+ This function calls:
+		_lcd_init
+		_lcd_print
+		_prs_detect
+		_prs_init
+ This function is called by:
+		Startup code after reset
+ This function uses a non-reentrant model
+
+
+ *************** function _prs_init *****************
+ Defined at:
+		line 17 in file "prs.c"
+ Parameters:    Size  Location     Type
 		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		status,2
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -256,10 +380,229 @@ FUNCTION INFORMATION:
       Temps:          0       0       0       0       0
       Totals:         0       0       0       0       0
 Total ram usage:        0 bytes
+ Hardware stack levels used:    1
  This function calls:
 		Nothing
  This function is called by:
-		Startup code after reset
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _prs_detect *****************
+ Defined at:
+		line 28 in file "prs.c"
+ Parameters:    Size  Location     Type
+  s               1    wreg     unsigned char 
+  w               1    0[COMMON] unsigned char 
+ Auto vars:     Size  Location     Type
+  s               1    2[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0, btemp+1
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         1       0       0       0       0
+      Locals:         1       0       0       0       0
+      Temps:          1       0       0       0       0
+      Totals:         3       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _lcd_print *****************
+ Defined at:
+		line 157 in file "lcd.c"
+ Parameters:    Size  Location     Type
+  lin             1    wreg     unsigned char 
+  col             1    6[COMMON] unsigned char 
+  str             1    7[COMMON] PTR const unsigned char 
+		 -> STR_1(6), 
+ Auto vars:     Size  Location     Type
+  lin             1   10[COMMON] unsigned char 
+  pos             1    9[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         2       0       0       0       0
+      Locals:         2       0       0       0       0
+      Temps:          1       0       0       0       0
+      Totals:         5       0       0       0       0
+Total ram usage:        5 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_lcd_dataReg
+		_lcd_lincol
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _lcd_lincol *****************
+ Defined at:
+		line 112 in file "lcd.c"
+ Parameters:    Size  Location     Type
+  lin             1    wreg     unsigned char 
+  col             1    3[COMMON] unsigned char 
+ Auto vars:     Size  Location     Type
+  lin             1    5[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         1       0       0       0       0
+      Locals:         1       0       0       0       0
+      Temps:          1       0       0       0       0
+      Totals:         3       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_lcd_instReg
+ This function is called by:
+		_lcd_print
+		_lcd_num
+ This function uses a non-reentrant model
+
+
+ *************** function _lcd_dataReg *****************
+ Defined at:
+		line 94 in file "lcd.c"
+ Parameters:    Size  Location     Type
+  d               1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  d               1    2[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       0       0       0
+      Locals:         1       0       0       0       0
+      Temps:          2       0       0       0       0
+      Totals:         3       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_lcd_print
+		_lcd_num
+ This function uses a non-reentrant model
+
+
+ *************** function _lcd_init *****************
+ Defined at:
+		line 122 in file "lcd.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       0       0       0
+      Locals:         0       0       0       0       0
+      Temps:          0       0       0       0       0
+      Totals:         0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_delay_ms
+		_lcd_instReg
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _lcd_instReg *****************
+ Defined at:
+		line 59 in file "lcd.c"
+ Parameters:    Size  Location     Type
+  i               1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  i               1    2[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       0       0       0
+      Locals:         1       0       0       0       0
+      Temps:          2       0       0       0       0
+      Totals:         3       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_lcd_lincol
+		_lcd_init
+		_lcd_clr
+ This function uses a non-reentrant model
+
+
+ *************** function _delay_ms *****************
+ Defined at:
+		line 12 in file "delay.c"
+ Parameters:    Size  Location     Type
+  t               2    0[COMMON] unsigned int 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         2       0       0       0       0
+      Locals:         0       0       0       0       0
+      Temps:          1       0       0       0       0
+      Totals:         3       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_lcd_init
  This function uses a non-reentrant model
 
 
@@ -267,13 +610,34 @@ Total ram usage:        0 bytes
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
-shared
-		__initialization		CODE           	07FC	0000	1
+delay.c
+		_delay_ms      		CODE           	0633	0000	24
 
-shared estimated size: 1
+delay.c estimated size: 24
+
+prs.c
+		_prs_detect    		CODE           	0723	0000	69
+		_prs_init      		CODE           	0615	0000	12
+
+prs.c estimated size: 81
+
+shared
+		__stringtab    		STRING         	0003	0000	7
+		__initialization		CODE           	07F2	0000	11
+
+shared estimated size: 18
+
+lcd.c
+		_lcd_lincol    		CODE           	0620	0000	20
+		_lcd_dataReg   		CODE           	06AE	0000	55
+		_lcd_print     		CODE           	067B	0000	52
+		_lcd_instReg   		CODE           	0767	0000	140
+		_lcd_init      		CODE           	06E4	0000	64
+
+lcd.c estimated size: 331
 
 main.c
-		_main          		CODE           	07F9	0000	4
+		_main          		CODE           	064A	0000	50
 
-main.c estimated size: 4
+main.c estimated size: 50
 

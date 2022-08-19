@@ -25,25 +25,8 @@ void in_init (void)
 void uts_trigger (void)
 {
         UTS_TRIGGER = 1;
-        delay_us(10);
+        __delay_us(10);
         UTS_TRIGGER = 0;
-        delay_us(10);
+        __delay_us(10);
         
 }
-
-int uts_distance ()
-{
-    if(US_ECHO == 1)
-    {
-        *5
-    }
-    
-    
-}
-CCP2IF_
-
-
-
-
-
-

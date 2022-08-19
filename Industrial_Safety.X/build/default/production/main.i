@@ -2525,7 +2525,7 @@ extern __bank0 __bit __timeout;
 
 
 
-void delay( unsigned int t );
+void delay_ms( unsigned int t );
 # 11 "main.c" 2
 
 # 1 "./lcd.h" 1
@@ -2539,8 +2539,37 @@ void lcd_num( unsigned char lin, unsigned char col,
                     int num, unsigned char tam );
 # 12 "main.c" 2
 
+# 1 "./prs.h" 1
 
-void main(void)
+
+
+void prs_init (void);
+
+void prs_detect (unsigned char s, unsigned char w);
+# 13 "main.c" 2
+
+
+int num ;
+
+char aviso;
+char prs;
+
+void main (void)
 {
-    return;
+    num = 0;
+    prs = 0;
+
+    lcd_init();
+    prs_init();
+
+    while(1)
+    {
+
+        prs_detect( prs, aviso);
+
+        if( prs == 1)
+        {
+         lcd_print(0, 1, "aviso" );
+        }
+    }
 }

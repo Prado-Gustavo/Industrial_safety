@@ -238,14 +238,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "12 delay.c
-[; ;delay.c: 12: void delay( unsigned int t )
-[v _delay `(v ~T0 @X0 1 ef1`ui ]
+[; ;delay.c: 12: void delay_ms( unsigned int t )
+[v _delay_ms `(v ~T0 @X0 1 ef1`ui ]
 "13
 [; ;delay.c: 13: {
 {
-[e :U _delay ]
+[e :U _delay_ms ]
 "12
-[; ;delay.c: 12: void delay( unsigned int t )
+[; ;delay.c: 12: void delay_ms( unsigned int t )
 [v _t `ui ~T0 @X0 1 r1 ]
 "13
 [; ;delay.c: 13: {

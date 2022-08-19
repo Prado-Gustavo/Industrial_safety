@@ -3,7 +3,6 @@
 
 #define _XTAL_FREQ  4000000
 
-void delay( unsigned int t );
-void delay_us( unsigned int tus );
+void delay_ms( unsigned int t );
 
 #endif

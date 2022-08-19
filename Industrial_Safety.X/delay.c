@@ -17,12 +17,3 @@ void delay_ms( unsigned int t )
         --t;
     }
 }
-
-void delay_us( unsigned int tus )
-{
-    while( tus )
-    {
-        __delay_us( 1 );
-        --tus;
-    }
-}

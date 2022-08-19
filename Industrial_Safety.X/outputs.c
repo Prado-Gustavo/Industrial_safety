@@ -13,7 +13,7 @@
 
 
 
-void aviso ( void ) 
+/*void aviso ( void ) 
 {
 
 }
@@ -21,5 +21,5 @@ void aviso ( void )
 void parada ( void )
 {
     
-}
+}*/
     
