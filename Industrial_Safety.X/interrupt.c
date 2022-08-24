@@ -7,7 +7,7 @@
 
 
 #include <xc.h>
-#include "timers.h"
+#include "timer.h"
 
 
 void __interrupt() ilsr(void)

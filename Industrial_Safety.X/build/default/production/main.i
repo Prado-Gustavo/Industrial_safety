@@ -2579,6 +2579,12 @@ unsigned int T2_status( void );
 void main (void)
 {
     unsigned seg = 0;
+    unsigned block = 0;
+    int psr_ant = 0;
+
+    TRISCbits.TRISC0 = 0;
+
+
     lcd_init();
     prs_init();
     T0_init();
@@ -2590,17 +2596,33 @@ void main (void)
 
     while(1)
     {
-        if( T0_status() == 0 )
+# 48 "main.c"
+        if( prs_detect() )
         {
-            T0_start( 1000 );
-            seg = ++seg % 60;
-            lcd_num(1,0, seg, 2 );
+             lcd_print(0, 1, "BLOQUEADO");
+             block = 1;
         }
-        if (seg == 60)
+        else
         {
-            PORTCbits.RC0 = 0;
+            if( block == 0 )
+            {
+                lcd_print(0, 1, "LIVRE     ");
+            }
+            else
+            {
+                T0_start(1000);
+                block = ++block % 60;
+                lcd_print(0, 1, "BLOQUEADO");
+                lcd_num(1,0, block - 1, 2 );
+                while( T0_status() )
+                    ;
+                if(block >= 4)
+                {
+                    block = 0;
+                }
+            }
         }
-
+# 91 "main.c"
     }
 
 }
