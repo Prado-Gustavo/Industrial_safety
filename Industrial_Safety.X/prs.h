@@ -3,6 +3,7 @@
 
 void prs_init (void);
 
-void prs_detect (unsigned char s, unsigned char w);
+//void prs_detect (unsigned char s, unsigned char w);
+unsigned char prs_detect( void );
 
 #endif

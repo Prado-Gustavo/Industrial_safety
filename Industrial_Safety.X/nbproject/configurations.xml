@@ -10,6 +10,7 @@
       <itemPath>outputs.h</itemPath>
       <itemPath>inputs.h</itemPath>
       <itemPath>prs.h</itemPath>
+      <itemPath>timer.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -25,6 +26,8 @@
       <itemPath>inputs.c</itemPath>
       <itemPath>rfid.c</itemPath>
       <itemPath>prs.c</itemPath>
+      <itemPath>timer.c</itemPath>
+      <itemPath>interrupt.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

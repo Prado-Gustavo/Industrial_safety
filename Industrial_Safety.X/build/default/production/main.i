@@ -2545,31 +2545,62 @@ void lcd_num( unsigned char lin, unsigned char col,
 
 void prs_init (void);
 
-void prs_detect (unsigned char s, unsigned char w);
+
+unsigned char prs_detect( void );
 # 13 "main.c" 2
 
+# 1 "./timer.h" 1
 
-int num ;
 
-char aviso;
-char prs;
+
+void T0_init( void );
+void T0_int( void );
+void T0_start( unsigned int c );
+void T0_pause( void );
+void T0_play( void );
+unsigned int T0_status( void );
+
+void T1_init(void);
+void T1_int( void );
+void T1_start( unsigned int c );
+void T1_pause( void );
+void T1_play( void );
+unsigned int T1_status( void );
+
+void T2_init(void);
+void T2_int( void );
+void T2_start( unsigned int c );
+void T2_pause( void );
+void T2_play( void );
+unsigned int T2_status( void );
+# 14 "main.c" 2
+
 
 void main (void)
 {
-    num = 0;
-    prs = 0;
-
+    unsigned seg = 0;
     lcd_init();
     prs_init();
+    T0_init();
+
+    T0_start( 1000 );
+    lcd_num(1,0, (int)seg, 2 );
+
+    lcd_print(0, 1, "Pronto" );
 
     while(1)
     {
-
-        prs_detect( prs, aviso);
-
-        if( prs == 1)
+        if( T0_status() == 0 )
         {
-         lcd_print(0, 1, "aviso" );
+            T0_start( 1000 );
+            seg = ++seg % 60;
+            lcd_num(1,0, seg, 2 );
         }
+        if (seg == 60)
+        {
+            PORTCbits.RC0 = 0;
+        }
+
     }
+
 }

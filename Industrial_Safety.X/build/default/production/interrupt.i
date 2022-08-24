@@ -1,4 +1,4 @@
-# 1 "prs.c"
+# 1 "interrupt.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "prs.c" 2
+# 1 "interrupt.c" 2
 
 
 
@@ -2499,35 +2499,51 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 9 "prs.c" 2
+# 9 "interrupt.c" 2
 
-# 1 "./delay.h" 1
-
-
+# 1 "./timers.h" 1
 
 
 
-void delay_ms( unsigned int t );
-# 10 "prs.c" 2
+void T0_init( void );
+void T0_int( void );
+void T0_start( unsigned int c );
+void T0_pause( void );
+void T0_play( void );
+unsigned int T0_status( void );
+
+void T1_init(void);
+void T1_int( void );
+void T1_start( unsigned int c );
+void T1_pause( void );
+void T1_play( void );
+unsigned int T1_status( void );
+
+void T2_init(void);
+void T2_int( void );
+void T2_start( unsigned int c );
+void T2_pause( void );
+void T2_play( void );
+unsigned int T2_status( void );
+# 10 "interrupt.c" 2
 
 
 
-
-
-int t_sensor;
-
-void prs_init (void)
+void __attribute__((picinterrupt(""))) ilsr(void)
 {
-    TRISCbits.TRISC2 = 1;
-    TRISCbits.TRISC0 = 0;
-    t_sensor = 0;
-
-    PORTCbits.RC0 = 0;
-    PORTCbits.RC2 = 0;
-
-}
-
-unsigned char prs_detect( void )
-{
-    return( PORTCbits.RC0 = PORTCbits.RC2 );
+    if( INTCONbits.T0IF )
+    {
+        INTCONbits.T0IF = 0;
+        T0_int();
+    }
+    if( PIR1bits.TMR1IF )
+    {
+        PIR1bits.TMR1IF = 0;
+        T1_int();
+    }
+    if( PIR1bits.TMR2IF )
+    {
+        PIR1bits.TMR2IF = 0;
+        T2_int();
+    }
 }

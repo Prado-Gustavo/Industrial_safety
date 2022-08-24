@@ -16,8 +16,8 @@ int t_sensor;
 
 void prs_init (void) 
 {
-    TRISCbits.TRISC2  = 1; // Define a porta RD2 como entrada
-    TRISCbits.TRISC0  = 0; // Define a porta RD1 como saida
+    TRISCbits.TRISC2  = 1; // Define a porta RC2 como entrada
+    TRISCbits.TRISC0  = 0; // Define a porta RC0 como saida
     t_sensor = 0;
     
     AVISO = 0;
@@ -25,30 +25,34 @@ void prs_init (void)
 
 }
 
-void prs_detect (unsigned char s, unsigned char w)
+unsigned char prs_detect( void )
 {
- 
-    PRS = s;
-    
-    
-    if (s == 1)
-    {  
-        t_sensor = 4500;
-        AVISO = 1;
-        AVISO = w;
-    }
-        
-    if(s == 0)
-    {   
-        --t_sensor;        
-        __delay_ms(1);           
-
-        if(t_sensor <=0)
-        {
-            AVISO = 0;
-            AVISO = w;
-        }
-    } 
+    return( AVISO = PRS );
 }
+
+
+//void prs_detect (unsigned char s, unsigned char w)
+//{
+//    s = PRS;
+// 
+//    if (s == 1)
+//    {  
+//        t_sensor = 4500;
+//        w = 1;
+//        w = AVISO;
+//    }
+//        
+//    if(s == 0)
+//    {   
+//        --t_sensor;        
+//        delay_ms(1);           
+//
+//        if(t_sensor <=0)
+//        {
+//            w = 0;
+//            w = AVISO;
+//        }
+//    } 
+//}
 
 

@@ -1,4 +1,4 @@
-# 1 "prs.c"
+# 1 "timer.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "prs.c" 2
+# 1 "timer.c" 2
 
 
 
@@ -2499,35 +2499,155 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 9 "prs.c" 2
-
-# 1 "./delay.h" 1
+# 9 "timer.c" 2
 
 
 
 
 
-void delay_ms( unsigned int t );
-# 10 "prs.c" 2
+
+unsigned int T0count;
+unsigned int T1count;
+unsigned int T2count;
 
 
 
-
-
-int t_sensor;
-
-void prs_init (void)
+void T0_init( void )
 {
-    TRISCbits.TRISC2 = 1;
-    TRISCbits.TRISC0 = 0;
-    t_sensor = 0;
-
-    PORTCbits.RC0 = 0;
-    PORTCbits.RC2 = 0;
-
+    INTCONbits.GIE = 0;
+    OPTION_REGbits.PSA = 0;
+    OPTION_REGbits.PS = 0x1;
+    OPTION_REGbits.T0CS = 0;
+    TMR0 = (256-250);
+    INTCONbits.T0IE = 0;
+    INTCONbits.GIE = 1;
 }
 
-unsigned char prs_detect( void )
+
+void T0_int( void )
 {
-    return( PORTCbits.RC0 = PORTCbits.RC2 );
+    TMR0 = (256-250);
+    if( T0count )
+    {
+        --T0count;
+    }
+}
+
+void T0_start( unsigned int c )
+{
+    TMR0 = (256-250);
+    T0count = c;
+    INTCONbits.T0IE = 1;
+}
+
+void T0_pause( void )
+{
+    INTCONbits.T0IE = 0;
+}
+
+void T0_play( void )
+{
+    INTCONbits.T0IE = 1;
+}
+
+unsigned int T0_status( void )
+{
+    return( T0count );
+}
+
+
+
+
+void T1_init(void)
+{
+    INTCONbits.GIE = 0;
+    T1CONbits.TMR1GE = 0;
+    T1CONbits.TMR1ON = 0;
+    T1CONbits.TMR1CS = 0;
+    T1CONbits.T1CKPS = 0;
+    INTCONbits.PEIE = 1;
+    PIE1bits.TMR1IE = 1;
+    INTCONbits.GIE = 1;
+}
+
+
+void T1_int( void )
+{
+    TMR1H = ((0xFFFF-1000+1) >> 8) & 0x00FF;
+    TMR1L = ((0xFFFF-1000+1) >> 0) & 0x00FF;
+    if( T1count )
+    {
+        --T1count;
+    }
+}
+
+void T1_start( unsigned int c )
+{
+    T1CONbits.TMR1ON = 0;
+    TMR1H = ((0xFFFF-1000+1) >> 8) & 0x00FF;
+    TMR1L = ((0xFFFF-1000+1) >> 0) & 0x00FF;
+    T1count = c;
+    T1CONbits.TMR1ON = 1;
+}
+
+void T1_pause( void )
+{
+    T1CONbits.TMR1ON = 0;
+}
+
+void T1_play( void )
+{
+    T1CONbits.TMR1ON = 1;
+}
+
+unsigned int T1_status( void )
+{
+    return( T1count );
+}
+
+
+
+
+
+void T2_init(void)
+{
+    INTCONbits.GIE = 0;
+    PR2 = (100);
+    TMR2 = 0;
+    T2CONbits.T2CKPS = 0x1;
+    T2CONbits.TOUTPS = 0x4;
+    INTCONbits.PEIE = 1;
+    PIE1bits.TMR2IE = 1;
+    INTCONbits.GIE = 1;
+}
+
+
+
+void T2_int( void )
+{
+    if( T2count )
+    {
+        --T2count;
+    }
+}
+
+void T2_start( unsigned int c )
+{
+    T2count = c;
+    T2CONbits.TMR2ON = 1;
+}
+
+void T2_pause( void )
+{
+    T2CONbits.TMR2ON = 0;
+}
+
+void T2_play( void )
+{
+    T2CONbits.TMR2ON = 1;
+}
+
+unsigned int T2_status( void )
+{
+    return( T2count );
 }
