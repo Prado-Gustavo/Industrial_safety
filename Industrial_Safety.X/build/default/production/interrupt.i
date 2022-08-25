@@ -2511,14 +2511,7 @@ void T0_start( unsigned int c );
 void T0_pause( void );
 void T0_play( void );
 unsigned int T0_status( void );
-
-void T1_init(void);
-void T1_int( void );
-void T1_start( unsigned int c );
-void T1_pause( void );
-void T1_play( void );
-unsigned int T1_status( void );
-
+# 18 "./timer.h"
 void T2_init(void);
 void T2_int( void );
 void T2_start( unsigned int c );
@@ -2536,11 +2529,11 @@ void __attribute__((picinterrupt(""))) ilsr(void)
         INTCONbits.T0IF = 0;
         T0_int();
     }
-    if( PIR1bits.TMR1IF )
-    {
-        PIR1bits.TMR1IF = 0;
-        T1_int();
-    }
+
+
+
+
+
     if( PIR1bits.TMR2IF )
     {
         PIR1bits.TMR2IF = 0;

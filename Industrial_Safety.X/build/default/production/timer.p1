@@ -32,42 +32,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "59
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 59: extern volatile unsigned char TMR0 __attribute__((address(0x001)));
 [v _TMR0 `Vuc ~T0 @X0 0 e@1 ]
-"677
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 677:     struct {
-[s S23 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S23 . TMR1ON TMR1CS nT1SYNC T1OSCEN T1CKPS TMR1GE T1GINV ]
-"686
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 686:     struct {
-[s S24 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S24 . . T1INSYNC . T1CKPS0 T1CKPS1 . T1GIV ]
-"695
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 695:     struct {
-[s S25 :2 `uc 1 :1 `uc 1 ]
-[n S25 . . T1SYNC ]
-"676
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 676: typedef union {
-[u S22 `S23 1 `S24 1 `S25 1 ]
-[n S22 . . . . ]
-"700
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 700: extern volatile T1CONbits_t T1CONbits __attribute__((address(0x010)));
-[v _T1CONbits `VS22 ~T0 @X0 0 e@16 ]
-"1708
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1708:     struct {
-[s S63 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S63 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
-"1707
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1707: typedef union {
-[u S62 `S63 1 ]
-[n S62 . . ]
-"1718
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1718: extern volatile PIE1bits_t PIE1bits __attribute__((address(0x08C)));
-[v _PIE1bits `VS62 ~T0 @X0 0 e@140 ]
-"664
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 664: extern volatile unsigned char TMR1H __attribute__((address(0x00F)));
-[v _TMR1H `Vuc ~T0 @X0 0 e@15 ]
-"657
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 657: extern volatile unsigned char TMR1L __attribute__((address(0x00E)));
-[v _TMR1L `Vuc ~T0 @X0 0 e@14 ]
 "2041
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2041: extern volatile unsigned char PR2 __attribute__((address(0x092)));
 [v _PR2 `Vuc ~T0 @X0 0 e@146 ]
@@ -89,6 +53,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "793
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 793: extern volatile T2CONbits_t T2CONbits __attribute__((address(0x012)));
 [v _T2CONbits `VS26 ~T0 @X0 0 e@18 ]
+"1708
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1708:     struct {
+[s S63 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S63 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
+"1707
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1707: typedef union {
+[u S62 `S63 1 ]
+[n S62 . . ]
+"1718
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1718: extern volatile PIE1bits_t PIE1bits __attribute__((address(0x08C)));
+[v _PIE1bits `VS62 ~T0 @X0 0 e@140 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -465,151 +440,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;timer.c: 62: }
 [e :UE 144 ]
 }
-"67
-[; ;timer.c: 67: void T1_init(void)
-[v _T1_init `(v ~T0 @X0 1 ef ]
-"68
-[; ;timer.c: 68: {
-{
-[e :U _T1_init ]
-[f ]
-"69
-[; ;timer.c: 69:     INTCONbits.GIE = 0;
-[e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
-"70
-[; ;timer.c: 70:     T1CONbits.TMR1GE = 0;
-[e = . . _T1CONbits 0 5 -> -> 0 `i `uc ]
-"71
-[; ;timer.c: 71:     T1CONbits.TMR1ON = 0;
-[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
-"72
-[; ;timer.c: 72:     T1CONbits.TMR1CS = 0;
-[e = . . _T1CONbits 0 1 -> -> 0 `i `uc ]
-"73
-[; ;timer.c: 73:     T1CONbits.T1CKPS = 0;
-[e = . . _T1CONbits 0 4 -> -> 0 `i `uc ]
-"74
-[; ;timer.c: 74:     INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-"75
-[; ;timer.c: 75:     PIE1bits.TMR1IE = 1;
-[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
-"76
-[; ;timer.c: 76:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"77
-[; ;timer.c: 77: }
-[e :UE 145 ]
-}
-"80
-[; ;timer.c: 80: void T1_int( void )
-[v _T1_int `(v ~T0 @X0 1 ef ]
-"81
-[; ;timer.c: 81: {
-{
-[e :U _T1_int ]
-[f ]
-"82
-[; ;timer.c: 82:     TMR1H = ((0xFFFF-1000+1) >> 8) & 0x00FF;
-[e = _TMR1H -> & >> + - -> 65535 `ui -> -> 1000 `i `ui -> -> 1 `i `ui -> 8 `i -> -> 255 `i `ui `uc ]
-"83
-[; ;timer.c: 83:     TMR1L = ((0xFFFF-1000+1) >> 0) & 0x00FF;
-[e = _TMR1L -> & >> + - -> 65535 `ui -> -> 1000 `i `ui -> -> 1 `i `ui -> 0 `i -> -> 255 `i `ui `uc ]
-"84
-[; ;timer.c: 84:     if( T1count )
-[e $ ! != _T1count -> -> 0 `i `ui 147  ]
-"85
-[; ;timer.c: 85:     {
-{
-"86
-[; ;timer.c: 86:         --T1count;
-[e =- _T1count -> -> 1 `i `ui ]
-"87
-[; ;timer.c: 87:     }
-}
-[e :U 147 ]
-"88
-[; ;timer.c: 88: }
-[e :UE 146 ]
-}
-"90
-[; ;timer.c: 90: void T1_start( unsigned int c )
-[v _T1_start `(v ~T0 @X0 1 ef1`ui ]
-"91
-[; ;timer.c: 91: {
-{
-[e :U _T1_start ]
-"90
-[; ;timer.c: 90: void T1_start( unsigned int c )
-[v _c `ui ~T0 @X0 1 r1 ]
-"91
-[; ;timer.c: 91: {
-[f ]
-"92
-[; ;timer.c: 92:     T1CONbits.TMR1ON = 0;
-[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
-"93
-[; ;timer.c: 93:     TMR1H = ((0xFFFF-1000+1) >> 8) & 0x00FF;
-[e = _TMR1H -> & >> + - -> 65535 `ui -> -> 1000 `i `ui -> -> 1 `i `ui -> 8 `i -> -> 255 `i `ui `uc ]
-"94
-[; ;timer.c: 94:     TMR1L = ((0xFFFF-1000+1) >> 0) & 0x00FF;
-[e = _TMR1L -> & >> + - -> 65535 `ui -> -> 1000 `i `ui -> -> 1 `i `ui -> 0 `i -> -> 255 `i `ui `uc ]
-"95
-[; ;timer.c: 95:     T1count = c;
-[e = _T1count _c ]
-"96
-[; ;timer.c: 96:     T1CONbits.TMR1ON = 1;
-[e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
-"97
-[; ;timer.c: 97: }
-[e :UE 148 ]
-}
-"99
-[; ;timer.c: 99: void T1_pause( void )
-[v _T1_pause `(v ~T0 @X0 1 ef ]
-"100
-[; ;timer.c: 100: {
-{
-[e :U _T1_pause ]
-[f ]
-"101
-[; ;timer.c: 101:     T1CONbits.TMR1ON = 0;
-[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
-"102
-[; ;timer.c: 102: }
-[e :UE 149 ]
-}
-"104
-[; ;timer.c: 104: void T1_play( void )
-[v _T1_play `(v ~T0 @X0 1 ef ]
-"105
-[; ;timer.c: 105: {
-{
-[e :U _T1_play ]
-[f ]
-"106
-[; ;timer.c: 106:     T1CONbits.TMR1ON = 1;
-[e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
-"107
-[; ;timer.c: 107: }
-[e :UE 150 ]
-}
-"109
-[; ;timer.c: 109: unsigned int T1_status( void )
-[v _T1_status `(ui ~T0 @X0 1 ef ]
-"110
-[; ;timer.c: 110: {
-{
-[e :U _T1_status ]
-[f ]
-"111
-[; ;timer.c: 111:     return( T1count );
-[e ) _T1count ]
-[e $UE 151  ]
-"112
-[; ;timer.c: 112: }
-[e :UE 151 ]
-}
 "118
 [; ;timer.c: 118: void T2_init(void)
 [v _T2_init `(v ~T0 @X0 1 ef ]
@@ -644,7 +474,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
 "128
 [; ;timer.c: 128: }
-[e :UE 152 ]
+[e :UE 145 ]
 }
 "132
 [; ;timer.c: 132: void T2_int( void )
@@ -656,7 +486,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "134
 [; ;timer.c: 134:     if( T2count )
-[e $ ! != _T2count -> -> 0 `i `ui 154  ]
+[e $ ! != _T2count -> -> 0 `i `ui 147  ]
 "135
 [; ;timer.c: 135:     {
 {
@@ -666,10 +496,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "137
 [; ;timer.c: 137:     }
 }
-[e :U 154 ]
+[e :U 147 ]
 "138
 [; ;timer.c: 138: }
-[e :UE 153 ]
+[e :UE 146 ]
 }
 "140
 [; ;timer.c: 140: void T2_start( unsigned int c )
@@ -692,7 +522,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
 "144
 [; ;timer.c: 144: }
-[e :UE 155 ]
+[e :UE 148 ]
 }
 "146
 [; ;timer.c: 146: void T2_pause( void )
@@ -707,7 +537,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
 "149
 [; ;timer.c: 149: }
-[e :UE 156 ]
+[e :UE 149 ]
 }
 "151
 [; ;timer.c: 151: void T2_play( void )
@@ -722,7 +552,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
 "154
 [; ;timer.c: 154: }
-[e :UE 157 ]
+[e :UE 150 ]
 }
 "156
 [; ;timer.c: 156: unsigned int T2_status( void )
@@ -735,8 +565,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "158
 [; ;timer.c: 158:     return( T2count );
 [e ) _T2count ]
-[e $UE 158  ]
+[e $UE 151  ]
 "159
 [; ;timer.c: 159: }
-[e :UE 158 ]
+[e :UE 151 ]
 }

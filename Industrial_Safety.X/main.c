@@ -12,6 +12,8 @@
 #include "lcd.h"
 #include "prs.h"
 #include "timer.h"
+#include "ccp.h"
+#include "inputs.h"
 
 void main (void) 
 {
@@ -25,7 +27,8 @@ void main (void)
     lcd_init();
     prs_init();
     T0_init();
-
+    tmr1_init();
+    
     T0_start( 1000 );
     lcd_num(1,0, (int)seg, 2 );
     
@@ -33,6 +36,13 @@ void main (void)
 
     while(1)
     {
+        
+        uts_trigger(0, 0);
+        echo_time(0, 0);
+        
+        lcd_num( 0,0, t1, 3 );
+        lcd_num( 0,8, t2, 3 );
+        lcd_num( 1,8, ( t2 - t1 ), 3);
 //        if( T0_status() == 0 && block == 0 )
 //        {
 //            PORTCbits.RC0 = 0;
@@ -44,32 +54,35 @@ void main (void)
 //        }    
         
 //        prs_detect();
+
         
-        if( prs_detect() )
-        {
-             lcd_print(0, 1, "BLOQUEADO");
-             block = 1;
-        }
-        else
-        {
-            if( block == 0 )
-            {
-                lcd_print(0, 1, "LIVRE     ");
-            }
-            else
-            {
-                T0_start(1000);
-                block = ++block % 60;
-                lcd_print(0, 1, "BLOQUEADO");
-                lcd_num(1,0, block - 1, 2 );
-                while( T0_status() )
-                    ;
-                if(block >= 4)
-                {
-                    block = 0;
-                }
-            }
-        }
+//        if( prs_detect() )
+//        {
+//             lcd_print(0, 1, "BLOQUEADO");
+//             block = 1;
+//        }
+//        else
+//        {
+//            if( block == 0 )
+//            {
+//                lcd_print(0, 1, "LIVRE     ");
+//            }
+//            else
+//            {
+//                T0_start(1000);
+//                block = ++block % 60;
+//                lcd_print(0, 1, "BLOQUEADO");
+//                lcd_num(1,0, block - 1, 2 );
+//                while( T0_status() )
+//                    ;
+//                if(block >= 4)
+//                {
+//                    block = 0;
+//                }
+//            }
+//        }
+        
+        
 //        if(prs_detect() == 0 && block == 0)
 //        {
 //            lcd_print(0, 1, "LIVRE     ");

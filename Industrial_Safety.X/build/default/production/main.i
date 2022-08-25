@@ -2559,14 +2559,7 @@ void T0_start( unsigned int c );
 void T0_pause( void );
 void T0_play( void );
 unsigned int T0_status( void );
-
-void T1_init(void);
-void T1_int( void );
-void T1_start( unsigned int c );
-void T1_pause( void );
-void T1_play( void );
-unsigned int T1_status( void );
-
+# 18 "./timer.h"
 void T2_init(void);
 void T2_int( void );
 void T2_start( unsigned int c );
@@ -2574,6 +2567,20 @@ void T2_pause( void );
 void T2_play( void );
 unsigned int T2_status( void );
 # 14 "main.c" 2
+
+# 1 "./ccp.h" 1
+# 11 "./ccp.h"
+void tmr1_init (void);
+void ccp_rise (void);
+void ccp_fall (void);
+# 15 "main.c" 2
+
+# 1 "./inputs.h" 1
+
+
+
+long echo_time (int t1, int t2);
+# 16 "main.c" 2
 
 
 void main (void)
@@ -2588,6 +2595,7 @@ void main (void)
     lcd_init();
     prs_init();
     T0_init();
+    tmr1_init();
 
     T0_start( 1000 );
     lcd_num(1,0, (int)seg, 2 );
@@ -2596,33 +2604,14 @@ void main (void)
 
     while(1)
     {
-# 48 "main.c"
-        if( prs_detect() )
-        {
-             lcd_print(0, 1, "BLOQUEADO");
-             block = 1;
-        }
-        else
-        {
-            if( block == 0 )
-            {
-                lcd_print(0, 1, "LIVRE     ");
-            }
-            else
-            {
-                T0_start(1000);
-                block = ++block % 60;
-                lcd_print(0, 1, "BLOQUEADO");
-                lcd_num(1,0, block - 1, 2 );
-                while( T0_status() )
-                    ;
-                if(block >= 4)
-                {
-                    block = 0;
-                }
-            }
-        }
-# 91 "main.c"
+
+        uts_trigger(0, 0);
+        echo_time(0, 0);
+
+        lcd_num( 0,0, t1, 3 );
+        lcd_num( 0,8, t2, 3 );
+        lcd_num( 1,8, (t2-t1), 3);
+# 104 "main.c"
     }
 
 }

@@ -8,12 +8,12 @@ void T0_pause( void );
 void T0_play( void );
 unsigned int T0_status( void );
 
-void T1_init(void);
-void T1_int( void );
-void T1_start( unsigned int c );
-void T1_pause( void );
-void T1_play( void );
-unsigned int T1_status( void );
+//void T1_init(void);
+//void T1_int( void );
+//void T1_start( unsigned int c );
+//void T1_pause( void );
+//void T1_play( void );
+//unsigned int T1_status( void );
 
 void T2_init(void);
 void T2_int( void );

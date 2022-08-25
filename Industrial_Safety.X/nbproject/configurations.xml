@@ -11,6 +11,7 @@
       <itemPath>inputs.h</itemPath>
       <itemPath>prs.h</itemPath>
       <itemPath>timer.h</itemPath>
+      <itemPath>ccp.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -28,6 +29,7 @@
       <itemPath>prs.c</itemPath>
       <itemPath>timer.c</itemPath>
       <itemPath>interrupt.c</itemPath>
+      <itemPath>ccp.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

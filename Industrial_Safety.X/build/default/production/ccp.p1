@@ -1,40 +1,37 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"1546 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1546:     struct {
-[s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S57 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"1545
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1545: typedef union {
-[u S56 `S57 1 ]
-[n S56 . . ]
-"1557
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1557: extern volatile TRISCbits_t TRISCbits __attribute__((address(0x087)));
-[v _TRISCbits `VS56 ~T0 @X0 0 e@135 ]
-"4 ./lcd.h
-[; ;./lcd.h: 4: void lcd_init( void );
-[v _lcd_init `(v ~T0 @X0 0 ef ]
-"4 ./prs.h
-[; ;./prs.h: 4: void prs_init (void);
-[v _prs_init `(v ~T0 @X0 0 ef ]
-"4 ./timer.h
-[; ;./timer.h: 4: void T0_init( void );
-[v _T0_init `(v ~T0 @X0 0 ef ]
-"6
-[; ;./timer.h: 6: void T0_start( unsigned int c );
-[v _T0_start `(v ~T0 @X0 0 ef1`ui ]
-"7 ./lcd.h
-[; ;./lcd.h: 7: void lcd_num( unsigned char lin, unsigned char col,
-[v _lcd_num `(v ~T0 @X0 0 ef4`uc`uc`i`uc ]
-"6
-[; ;./lcd.h: 6: void lcd_print( unsigned char lin, unsigned char col, const char * str );
-[v _lcd_print `(v ~T0 @X0 0 ef3`uc`uc`*Cuc ]
-"7 ./prs.h
-[; ;./prs.h: 7: unsigned char prs_detect( void );
-[v _prs_detect `(uc ~T0 @X0 0 ef ]
-"9 ./timer.h
-[; ;./timer.h: 9: unsigned int T0_status( void );
-[v _T0_status `(ui ~T0 @X0 0 ef ]
+"4364 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 4364: extern volatile __bit TMR1CS __attribute__((address(0x81)));
+[v _TMR1CS `Vb ~T0 @X0 0 e@129 ]
+"4346
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 4346: extern volatile __bit T1OSCEN __attribute__((address(0x83)));
+[v _T1OSCEN `Vb ~T0 @X0 0 e@131 ]
+"4331
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 4331: extern volatile __bit T1CKPS1 __attribute__((address(0x85)));
+[v _T1CKPS1 `Vb ~T0 @X0 0 e@133 ]
+"4367
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 4367: extern volatile __bit TMR1GE __attribute__((address(0x86)));
+[v _TMR1GE `Vb ~T0 @X0 0 e@134 ]
+"4334
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 4334: extern volatile __bit T1GINV __attribute__((address(0x87)));
+[v _T1GINV `Vb ~T0 @X0 0 e@135 ]
+"3896
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3896: extern volatile __bit GIE __attribute__((address(0x5F)));
+[v _GIE `Vb ~T0 @X0 0 e@95 ]
+"4040
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 4040: extern volatile __bit PEIE __attribute__((address(0x5E)));
+[v _PEIE `Vb ~T0 @X0 0 e@94 ]
+"3776
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3776: extern volatile __bit CCP1M0 __attribute__((address(0xB8)));
+[v _CCP1M0 `Vb ~T0 @X0 0 e@184 ]
+"3779
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3779: extern volatile __bit CCP1M1 __attribute__((address(0xB9)));
+[v _CCP1M1 `Vb ~T0 @X0 0 e@185 ]
+"3782
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3782: extern volatile __bit CCP1M2 __attribute__((address(0xBA)));
+[v _CCP1M2 `Vb ~T0 @X0 0 e@186 ]
+"3785
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3785: extern volatile __bit CCP1M3 __attribute__((address(0xBB)));
+[v _CCP1M3 `Vb ~T0 @X0 0 e@187 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -269,174 +266,84 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"10 ./config.h
-[p x FOSC = INTRC_NOCLKOUT ]
-"11
-[p x WDTE = OFF ]
-"12
-[p x PWRTE = OFF ]
+"12 ccp.c
+[; ;ccp.c: 12: void tmr1_init (void)
+[v _tmr1_init `(v ~T0 @X0 1 ef ]
 "13
-[p x MCLRE = OFF ]
-"14
-[p x CP = OFF ]
-"15
-[p x CPD = OFF ]
-"16
-[p x BOREN = OFF ]
-"17
-[p x IESO = OFF ]
-"18
-[p x FCMEN = OFF ]
-"19
-[p x LVP = OFF ]
-"22
-[p x BOR4V = BOR40V ]
-"23
-[p x WRT = OFF ]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"16 main.c
-[; ;main.c: 16: void main (void)
-[v _main `(v ~T0 @X0 1 ef ]
-"17
-[; ;main.c: 17: {
+[; ;ccp.c: 13: {
 {
-[e :U _main ]
+[e :U _tmr1_init ]
 [f ]
+"14
+[; ;ccp.c: 14:     TMR1CS = 1;
+[e = _TMR1CS -> -> 1 `i `b ]
+"15
+[; ;ccp.c: 15:     T1OSCEN = 0;
+[e = _T1OSCEN -> -> 0 `i `b ]
+"16
+[; ;ccp.c: 16:     T1CKPS1 = 0;
+[e = _T1CKPS1 -> -> 0 `i `b ]
+"17
+[; ;ccp.c: 17:     TMR1GE = 0;
+[e = _TMR1GE -> -> 0 `i `b ]
 "18
-[; ;main.c: 18:     unsigned seg = 0;
-[v _seg `ui ~T0 @X0 1 a ]
-[e = _seg -> -> 0 `i `ui ]
+[; ;ccp.c: 18:     T1GINV = 0;
+[e = _T1GINV -> -> 0 `i `b ]
 "19
-[; ;main.c: 19:     unsigned block = 0;
-[v _block `ui ~T0 @X0 1 a ]
-[e = _block -> -> 0 `i `ui ]
+[; ;ccp.c: 19:     GIE = 1;
+[e = _GIE -> -> 1 `i `b ]
 "20
-[; ;main.c: 20:     int psr_ant = 0;
-[v _psr_ant `i ~T0 @X0 1 a ]
-[e = _psr_ant -> 0 `i ]
-"22
-[; ;main.c: 22:     TRISCbits.TRISC0 = 0;
-[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
-"25
-[; ;main.c: 25:     lcd_init();
-[e ( _lcd_init ..  ]
-"26
-[; ;main.c: 26:     prs_init();
-[e ( _prs_init ..  ]
-"27
-[; ;main.c: 27:     T0_init();
-[e ( _T0_init ..  ]
-"29
-[; ;main.c: 29:     T0_start( 1000 );
-[e ( _T0_start (1 -> -> 1000 `i `ui ]
-"30
-[; ;main.c: 30:     lcd_num(1,0, (int)seg, 2 );
-[e ( _lcd_num (4 , , , -> -> 1 `i `uc -> -> 0 `i `uc -> _seg `i -> -> 2 `i `uc ]
-"32
-[; ;main.c: 32:     lcd_print(0, 1, "Pronto" );
-[e ( _lcd_print (3 , , -> -> 0 `i `uc -> -> 1 `i `uc :s 1C ]
-"34
-[; ;main.c: 34:     while(1)
-[e :U 140 ]
-"35
-[; ;main.c: 35:     {
-{
-"48
-[; ;main.c: 48:         if( prs_detect() )
-[e $ ! != -> ( _prs_detect ..  `i -> 0 `i 142  ]
-"49
-[; ;main.c: 49:         {
-{
-"50
-[; ;main.c: 50:              lcd_print(0, 1, "BLOQUEADO");
-[e ( _lcd_print (3 , , -> -> 0 `i `uc -> -> 1 `i `uc :s 2C ]
-"51
-[; ;main.c: 51:              block = 1;
-[e = _block -> -> 1 `i `ui ]
-"52
-[; ;main.c: 52:         }
-}
-[e $U 143  ]
-"53
-[; ;main.c: 53:         else
-[e :U 142 ]
-"54
-[; ;main.c: 54:         {
-{
-"55
-[; ;main.c: 55:             if( block == 0 )
-[e $ ! == _block -> -> 0 `i `ui 144  ]
-"56
-[; ;main.c: 56:             {
-{
-"57
-[; ;main.c: 57:                 lcd_print(0, 1, "LIVRE     ");
-[e ( _lcd_print (3 , , -> -> 0 `i `uc -> -> 1 `i `uc :s 3C ]
-"58
-[; ;main.c: 58:             }
-}
-[e $U 145  ]
-"59
-[; ;main.c: 59:             else
-[e :U 144 ]
-"60
-[; ;main.c: 60:             {
-{
-"61
-[; ;main.c: 61:                 T0_start(1000);
-[e ( _T0_start (1 -> -> 1000 `i `ui ]
-"62
-[; ;main.c: 62:                 block = ++block % 60;
-[e = _block % =+ _block -> -> 1 `i `ui -> -> 60 `i `ui ]
-"63
-[; ;main.c: 63:                 lcd_print(0, 1, "BLOQUEADO");
-[e ( _lcd_print (3 , , -> -> 0 `i `uc -> -> 1 `i `uc :s 4C ]
-"64
-[; ;main.c: 64:                 lcd_num(1,0, block - 1, 2 );
-[e ( _lcd_num (4 , , , -> -> 1 `i `uc -> -> 0 `i `uc -> - _block -> -> 1 `i `ui `i -> -> 2 `i `uc ]
-"65
-[; ;main.c: 65:                 while( T0_status() )
-[e $U 146  ]
-[e :U 147 ]
-"66
-[; ;main.c: 66:                     ;
-[e :U 146 ]
-"65
-[; ;main.c: 65:                 while( T0_status() )
-[e $ != ( _T0_status ..  -> -> 0 `i `ui 147  ]
-[e :U 148 ]
-"67
-[; ;main.c: 67:                 if(block >= 4)
-[e $ ! >= _block -> -> 4 `i `ui 149  ]
-"68
-[; ;main.c: 68:                 {
-{
-"69
-[; ;main.c: 69:                     block = 0;
-[e = _block -> -> 0 `i `ui ]
-"70
-[; ;main.c: 70:                 }
-}
-[e :U 149 ]
-"71
-[; ;main.c: 71:             }
-}
-[e :U 145 ]
-"72
-[; ;main.c: 72:         }
-}
-[e :U 143 ]
-"91
-[; ;main.c: 91:     }
-}
-[e :U 139 ]
-[e $U 140  ]
-[e :U 141 ]
-"93
-[; ;main.c: 93: }
+[; ;ccp.c: 20:     PEIE = 1;
+[e = _PEIE -> -> 1 `i `b ]
+"21
+[; ;ccp.c: 21: }
 [e :UE 138 ]
 }
-[a 1C 80 114 111 110 116 111 0 ]
-[a 2C 66 76 79 81 85 69 65 68 79 0 ]
-[a 4C 66 76 79 81 85 69 65 68 79 0 ]
-[a 3C 76 73 86 82 69 32 32 32 32 32 0 ]
+"23
+[; ;ccp.c: 23: void ccp_rise (void)
+[v _ccp_rise `(v ~T0 @X0 1 ef ]
+"24
+[; ;ccp.c: 24: {
+{
+[e :U _ccp_rise ]
+[f ]
+"25
+[; ;ccp.c: 25:     CCP1M0 = 1;
+[e = _CCP1M0 -> -> 1 `i `b ]
+"26
+[; ;ccp.c: 26:     CCP1M1 = 0;
+[e = _CCP1M1 -> -> 0 `i `b ]
+"27
+[; ;ccp.c: 27:     CCP1M2 = 1;
+[e = _CCP1M2 -> -> 1 `i `b ]
+"28
+[; ;ccp.c: 28:     CCP1M3 = 0;
+[e = _CCP1M3 -> -> 0 `i `b ]
+"29
+[; ;ccp.c: 29: }
+[e :UE 139 ]
+}
+"31
+[; ;ccp.c: 31: void ccp_fall (void)
+[v _ccp_fall `(v ~T0 @X0 1 ef ]
+"32
+[; ;ccp.c: 32: {
+{
+[e :U _ccp_fall ]
+[f ]
+"33
+[; ;ccp.c: 33:     CCP1M0 = 0;
+[e = _CCP1M0 -> -> 0 `i `b ]
+"34
+[; ;ccp.c: 34:     CCP1M1 = 0;
+[e = _CCP1M1 -> -> 0 `i `b ]
+"35
+[; ;ccp.c: 35:     CCP1M2 = 1;
+[e = _CCP1M2 -> -> 1 `i `b ]
+"36
+[; ;ccp.c: 36:     CCP1M3 = 0;
+[e = _CCP1M3 -> -> 0 `i `b ]
+"37
+[; ;ccp.c: 37: }
+[e :UE 140 ]
+}

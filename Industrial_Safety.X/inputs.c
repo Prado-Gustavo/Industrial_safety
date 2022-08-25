@@ -8,6 +8,8 @@
 
 #include <xc.h>
 #include "delay.h"
+#include "ccp.h"
+#include "inputs.h"
 
 #define UTS_ECHO    PORTDbits.RD0
 #define UTS_TRIGGER PORTDbits.RD1
@@ -24,9 +26,31 @@ void in_init (void)
 
 void uts_trigger (void)
 {
-        UTS_TRIGGER = 1;
-        __delay_us(10);
-        UTS_TRIGGER = 0;
-        __delay_us(10);
+    UTS_TRIGGER = 1;
+    __delay_us(10);
+    UTS_TRIGGER = 0;
+    __delay_us(10);
         
+}
+
+void echo_time (int t1, int t2)
+{
+    ccp_rise();
+    
+    while (UTS_ECHO)
+    {
+        TMR1ON = 1;
+        t1 = CCPR1H;
+        t1<<=8;
+        t1 |= CCPR1L;
+        ccp_fall();
+    }
+    while (!UTS_ECHO)
+    {
+        TMR1ON = 0;
+        t2 = CCPR1H;
+        t2<<=8;
+        t2 |= CCPR1L;
+    }
+    
 }
