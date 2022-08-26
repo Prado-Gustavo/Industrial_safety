@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\sources\\c90\\pic\\__eeprom.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,15 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-
-
-
-
-
-
-
-
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\sources\\c90\\pic\\__eeprom.c" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2499,130 +2491,176 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 9 "main.c" 2
-
-# 1 "./config.h" 1
-# 10 "./config.h"
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-# 10 "main.c" 2
-
-# 1 "./delay.h" 1
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\sources\\c90\\pic\\__eeprom.c" 2
 
 
 
 
-
-void delay_ms( unsigned int t );
-# 11 "main.c" 2
-
-# 1 "./lcd.h" 1
-
-
-
-void lcd_init( void );
-void lcd_clr( void );
-void lcd_print( unsigned char lin, unsigned char col, const char * str );
-void lcd_num( unsigned char lin, unsigned char col,
-                    int num, unsigned char tam );
-# 12 "main.c" 2
-
-# 1 "./prs.h" 1
-
-
-
-void prs_init (void);
-
-
-unsigned char prs_detect( void );
-# 13 "main.c" 2
-
-# 1 "./timer.h" 1
-
-
-
-void T0_init( void );
-void T0_int( void );
-void T0_start( unsigned int c );
-void T0_pause( void );
-void T0_play( void );
-unsigned int T0_status( void );
-# 18 "./timer.h"
-void T2_init(void);
-void T2_int( void );
-void T2_start( unsigned int c );
-void T2_pause( void );
-void T2_play( void );
-unsigned int T2_status( void );
-# 14 "main.c" 2
-
-# 1 "./ccp.h" 1
-# 11 "./ccp.h"
-struct captura_t
+void
+__eecpymem(volatile unsigned char *to, __eeprom unsigned char * from, unsigned char size)
 {
-    int captura1;
-    int captura2;
-    int super_captura;
-};
+ volatile unsigned char *cp = to;
 
-void ccp1_init( struct captura_t * ptr );
-void ccp_rise(void);
-void ccp_fall(void);
+ while (EECON1bits.WR) continue;
+ EEADR = (unsigned char)from;
+ while(size--) {
+  while (EECON1bits.WR) continue;
 
-void ccp_load( unsigned char hi, unsigned char lo );
-# 15 "main.c" 2
+  EECON1 &= 0x7F;
 
-# 1 "./inputs.h" 1
+  EECON1bits.RD = 1;
+  *cp++ = EEDATA;
+  ++EEADR;
+ }
+# 36 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\sources\\c90\\pic\\__eeprom.c"
+}
 
-
-
-void in_init (void);
-void uts_trigger (void);
-void echo_time (int t1, int t2, struct captura_t *ptr);
-# 16 "main.c" 2
-
-
-struct captura_t captura;
-
-void main (void)
+void
+__memcpyee(__eeprom unsigned char * to, const unsigned char *from, unsigned char size)
 {
-    unsigned seg = 0;
-    unsigned block = 0;
-    int psr_ant = 0;
+ const unsigned char *ptr =from;
 
-    TRISCbits.TRISC0 = 0;
+ while (EECON1bits.WR) continue;
+ EEADR = (unsigned char)to - 1U;
 
-    in_init();
-    lcd_init();
-    prs_init();
-    T0_init();
-    ccp1_init ( &captura );
+ EECON1 &= 0x7F;
 
+ while(size--) {
+  while (EECON1bits.WR) {
+   continue;
+  }
+  EEDATA = *ptr++;
+  ++EEADR;
+  STATUSbits.CARRY = 0;
+  if (INTCONbits.GIE) {
+   STATUSbits.CARRY = 1;
+  }
+  INTCONbits.GIE = 0;
+  EECON1bits.WREN = 1;
+  EECON2 = 0x55;
+  EECON2 = 0xAA;
+  EECON1bits.WR = 1;
+  EECON1bits.WREN = 0;
+  if (STATUSbits.CARRY) {
+   INTCONbits.GIE = 1;
+  }
+ }
+# 101 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\sources\\c90\\pic\\__eeprom.c"
+}
 
+unsigned char
+__eetoc(__eeprom void *addr)
+{
+ unsigned char data;
+ __eecpymem((unsigned char *) &data,addr,1);
+ return data;
+}
 
+unsigned int
+__eetoi(__eeprom void *addr)
+{
+ unsigned int data;
+ __eecpymem((unsigned char *) &data,addr,2);
+ return data;
+}
 
+#pragma warning push
+#pragma warning disable 2040
+__uint24
+__eetom(__eeprom void *addr)
+{
+ __uint24 data;
+ __eecpymem((unsigned char *) &data,addr,3);
+ return data;
+}
+#pragma warning pop
 
+unsigned long
+__eetol(__eeprom void *addr)
+{
+ unsigned long data;
+ __eecpymem((unsigned char *) &data,addr,4);
+ return data;
+}
 
+#pragma warning push
+#pragma warning disable 1516
+unsigned long long
+__eetoo(__eeprom void *addr)
+{
+ unsigned long long data;
+ __eecpymem((unsigned char *) &data,addr,8);
+ return data;
+}
+#pragma warning pop
 
-    while(1)
-    {
+unsigned char
+__ctoee(__eeprom void *addr, unsigned char data)
+{
+ __memcpyee(addr,(unsigned char *) &data,1);
+ return data;
+}
 
-        uts_trigger();
+unsigned int
+__itoee(__eeprom void *addr, unsigned int data)
+{
+ __memcpyee(addr,(unsigned char *) &data,2);
+ return data;
+}
 
-        lcd_num( 0, 0, captura.super_captura, 3);
-# 104 "main.c"
-    }
+#pragma warning push
+#pragma warning disable 2040
+__uint24
+__mtoee(__eeprom void *addr, __uint24 data)
+{
+ __memcpyee(addr,(unsigned char *) &data,3);
+ return data;
+}
+#pragma warning pop
 
+unsigned long
+__ltoee(__eeprom void *addr, unsigned long data)
+{
+ __memcpyee(addr,(unsigned char *) &data,4);
+ return data;
+}
+
+#pragma warning push
+#pragma warning disable 1516
+unsigned long long
+__otoee(__eeprom void *addr, unsigned long long data)
+{
+ __memcpyee(addr,(unsigned char *) &data,8);
+ return data;
+}
+#pragma warning pop
+
+float
+__eetoft(__eeprom void *addr)
+{
+ float data;
+ __eecpymem((unsigned char *) &data,addr,3);
+ return data;
+}
+
+double
+__eetofl(__eeprom void *addr)
+{
+ double data;
+ __eecpymem((unsigned char *) &data,addr,4);
+ return data;
+}
+
+float
+__fttoee(__eeprom void *addr, float data)
+{
+ __memcpyee(addr,(unsigned char *) &data,3);
+ return data;
+}
+
+double
+__fltoee(__eeprom void *addr, double data)
+{
+ __memcpyee(addr,(unsigned char *) &data,4);
+ return data;
 }

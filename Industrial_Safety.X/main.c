@@ -15,6 +15,8 @@
 #include "ccp.h"
 #include "inputs.h"
 
+struct captura_t captura;
+
 void main (void) 
 {
     unsigned seg = 0;
@@ -23,26 +25,24 @@ void main (void)
     
     TRISCbits.TRISC0 = 0;
     
-    
+    in_init();
     lcd_init();
     prs_init();
     T0_init();
-    tmr1_init();
+    ccp1_init ( &captura );
+
     
-    T0_start( 1000 );
-    lcd_num(1,0, (int)seg, 2 );
-    
-    lcd_print(0, 1, "Pronto" );
+//    T0_start( 1000 );
+//    lcd_num(1,0, (int)seg, 2 );
+//    
+//    lcd_print(0, 1, "Pronto" );
 
     while(1)
     {
         
-        uts_trigger(0, 0);
-        echo_time(0, 0);
-        
-        lcd_num( 0,0, t1, 3 );
-        lcd_num( 0,8, t2, 3 );
-        lcd_num( 1,8, ( t2 - t1 ), 3);
+        uts_trigger();
+        //echo_time(0, 0, &captura);
+        lcd_num( 0, 0, captura.super_captura, 3);
 //        if( T0_status() == 0 && block == 0 )
 //        {
 //            PORTCbits.RC0 = 0;

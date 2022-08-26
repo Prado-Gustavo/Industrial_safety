@@ -2503,35 +2503,62 @@ extern __bank0 __bit __timeout;
 
 # 1 "./ccp.h" 1
 # 11 "./ccp.h"
-void tmr1_init (void);
-void ccp_rise (void);
-void ccp_fall (void);
+struct captura_t
+{
+    int captura1;
+    int captura2;
+    int super_captura;
+};
+
+void ccp1_init( struct captura_t * ptr );
+void ccp_rise(void);
+void ccp_fall(void);
+
+void ccp_load( unsigned char hi, unsigned char lo );
 # 10 "ccp.c" 2
 
 
-void tmr1_init (void)
+struct captura_t * ccp_ptr;
+
+void ccp1_init( struct captura_t * ptr )
 {
-    TMR1CS = 1;
-    T1OSCEN = 0;
-    T1CKPS1 = 0;
-    TMR1GE = 0;
-    T1GINV = 0;
-    GIE = 1;
-    PEIE = 1;
+    INTCONbits.GIE = 0;
+    T1CONbits.TMR1CS = 1;
+    T1CONbits.T1OSCEN = 0;
+    T1CONbits.T1CKPS1 = 0;
+    T1CONbits.TMR1GE = 0;
+    T1CONbits.T1GINV = 0;
+    INTCONbits.PEIE = 1;
+    ccp_ptr = ptr;
+    INTCONbits.GIE = 1;
 }
 
 void ccp_rise (void)
 {
-    CCP1M0 = 1;
-    CCP1M1 = 0;
-    CCP1M2 = 1;
-    CCP1M3 = 0;
+    CCP1CONbits.CCP1M = 5;
 }
 
 void ccp_fall (void)
 {
-    CCP1M0 = 0;
-    CCP1M1 = 0;
-    CCP1M2 = 1;
-    CCP1M3 = 0;
+    CCP1CONbits.CCP1M = 4;
+}
+
+void ccp_load( unsigned char hi, unsigned char lo )
+{
+    int ccp;
+    ccp = hi;
+    ccp <<= 8;
+    ccp |= lo;
+
+    if( CCP1CONbits.CCP1M == 5 )
+    {
+        CCP1CONbits.CCP1M = 4;
+        ccp_ptr->captura1 = ccp;
+    }
+    else
+    {
+        CCP1CONbits.CCP1M = 5;
+        ccp_ptr->captura2 = ccp;
+        ccp_ptr->super_captura = ccp_ptr->captura2 - ccp_ptr->captura1;
+    }
 }

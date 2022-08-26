@@ -1,47 +1,41 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[t ~ __interrupt . k ]
-[t T1 __interrupt ]
-"465 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 465:     struct {
-[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S16 . RBIF INTF T0IF RBIE INTE T0IE PEIE GIE ]
-"475
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 475:     struct {
-[s S17 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S17 . . TMR0IF . TMR0IE ]
-"464
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 464: typedef union {
-[u S15 `S16 1 `S17 1 ]
-[n S15 . . . ]
-"482
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 482: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
-[v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
-"5 ./timer.h
-[; ;./timer.h: 5: void T0_int( void );
-[v _T0_int `(v ~T0 @X0 0 ef ]
-"543 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 543:     struct {
-[s S19 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S19 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
-"542
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 542: typedef union {
-[u S18 `S19 1 ]
-[n S18 . . ]
-"553
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 553: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x00C)));
-[v _PIR1bits `VS18 ~T0 @X0 0 e@12 ]
-"19 ./timer.h
-[; ;./timer.h: 19: void T2_int( void );
-[v _T2_int `(v ~T0 @X0 0 ef ]
-"22 ./ccp.h
-[; ;./ccp.h: 22: void ccp_load( unsigned char hi, unsigned char lo );
-[v _ccp_load `(v ~T0 @X0 0 ef2`uc`uc ]
-"934 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 934: extern volatile unsigned char CCPR1H __attribute__((address(0x016)));
-[v _CCPR1H `Vuc ~T0 @X0 0 e@22 ]
-"927
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 927: extern volatile unsigned char CCPR1L __attribute__((address(0x015)));
-[v _CCPR1L `Vuc ~T0 @X0 0 e@21 ]
+"12 ./ccp.h
+[; ;./ccp.h: 12: {
+[s S138 `i 1 `i 1 `i 1 ]
+[n S138 captura_t captura1 captura2 super_captura ]
+[p mainexit ]
+"1546 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1546:     struct {
+[s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S57 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"1545
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1545: typedef union {
+[u S56 `S57 1 ]
+[n S56 . . ]
+"1557
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1557: extern volatile TRISCbits_t TRISCbits __attribute__((address(0x087)));
+[v _TRISCbits `VS56 ~T0 @X0 0 e@135 ]
+"4 ./inputs.h
+[; ;./inputs.h: 4: void in_init (void);
+[v _in_init `(v ~T0 @X0 0 ef ]
+"4 ./lcd.h
+[; ;./lcd.h: 4: void lcd_init( void );
+[v _lcd_init `(v ~T0 @X0 0 ef ]
+"4 ./prs.h
+[; ;./prs.h: 4: void prs_init (void);
+[v _prs_init `(v ~T0 @X0 0 ef ]
+"4 ./timer.h
+[; ;./timer.h: 4: void T0_init( void );
+[v _T0_init `(v ~T0 @X0 0 ef ]
+"18 ./ccp.h
+[; ;./ccp.h: 18: void ccp1_init( struct captura_t * ptr );
+[v _ccp1_init `(v ~T0 @X0 0 ef1`*S138 ]
+"5 ./inputs.h
+[; ;./inputs.h: 5: void uts_trigger (void);
+[v _uts_trigger `(v ~T0 @X0 0 ef ]
+"7 ./lcd.h
+[; ;./lcd.h: 7: void lcd_num( unsigned char lin, unsigned char col,
+[v _lcd_num `(v ~T0 @X0 0 ef4`uc`uc`i`uc ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -276,61 +270,91 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-[v $root$_isr `(v ~T0 @X0 0 e ]
-"14 interrupt.c
-[; ;interrupt.c: 14: void __attribute__((picinterrupt(""))) isr(void)
-[v _isr `(v ~T1 @X0 1 ef ]
+"10 ./config.h
+[p x FOSC = INTRC_NOCLKOUT ]
+"11
+[p x WDTE = OFF ]
+"12
+[p x PWRTE = OFF ]
+"13
+[p x MCLRE = OFF ]
+"14
+[p x CP = OFF ]
 "15
-[; ;interrupt.c: 15: {
-{
-[e :U _isr ]
-[f ]
+[p x CPD = OFF ]
 "16
-[; ;interrupt.c: 16:     if( INTCONbits.T0IF )
-[e $ ! != -> . . _INTCONbits 0 2 `i -> 0 `i 140  ]
+[p x BOREN = OFF ]
 "17
-[; ;interrupt.c: 17:     {
-{
+[p x IESO = OFF ]
 "18
-[; ;interrupt.c: 18:         INTCONbits.T0IF = 0;
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[p x FCMEN = OFF ]
 "19
-[; ;interrupt.c: 19:         T0_int();
-[e ( _T0_int ..  ]
+[p x LVP = OFF ]
+"22
+[p x BOR4V = BOR40V ]
+"23
+[p x WRT = OFF ]
+"18 main.c
+[; ;main.c: 18: struct captura_t captura;
+[v _captura `S138 ~T0 @X0 1 e ]
+[v $root$_main `(v ~T0 @X0 0 e ]
 "20
-[; ;interrupt.c: 20:     }
+[; ;main.c: 20: void main (void)
+[v _main `(v ~T0 @X0 1 ef ]
+"21
+[; ;main.c: 21: {
+{
+[e :U _main ]
+[f ]
+"22
+[; ;main.c: 22:     unsigned seg = 0;
+[v _seg `ui ~T0 @X0 1 a ]
+[e = _seg -> -> 0 `i `ui ]
+"23
+[; ;main.c: 23:     unsigned block = 0;
+[v _block `ui ~T0 @X0 1 a ]
+[e = _block -> -> 0 `i `ui ]
+"24
+[; ;main.c: 24:     int psr_ant = 0;
+[v _psr_ant `i ~T0 @X0 1 a ]
+[e = _psr_ant -> 0 `i ]
+"26
+[; ;main.c: 26:     TRISCbits.TRISC0 = 0;
+[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
+"28
+[; ;main.c: 28:     in_init();
+[e ( _in_init ..  ]
+"29
+[; ;main.c: 29:     lcd_init();
+[e ( _lcd_init ..  ]
+"30
+[; ;main.c: 30:     prs_init();
+[e ( _prs_init ..  ]
+"31
+[; ;main.c: 31:     T0_init();
+[e ( _T0_init ..  ]
+"32
+[; ;main.c: 32:     ccp1_init ( &captura );
+[e ( _ccp1_init (1 &U _captura ]
+"40
+[; ;main.c: 40:     while(1)
+[e :U 141 ]
+"41
+[; ;main.c: 41:     {
+{
+"43
+[; ;main.c: 43:         uts_trigger();
+[e ( _uts_trigger ..  ]
+"45
+[; ;main.c: 45:         lcd_num( 0, 0, captura.super_captura, 3);
+[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc . _captura 2 -> -> 3 `i `uc ]
+"104
+[; ;main.c: 104:     }
 }
 [e :U 140 ]
-"26
-[; ;interrupt.c: 26:     if( PIR1bits.TMR2IF )
-[e $ ! != -> . . _PIR1bits 0 1 `i -> 0 `i 141  ]
-"27
-[; ;interrupt.c: 27:     {
-{
-"28
-[; ;interrupt.c: 28:         PIR1bits.TMR2IF = 0;
-[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
-"29
-[; ;interrupt.c: 29:         T2_int();
-[e ( _T2_int ..  ]
-"30
-[; ;interrupt.c: 30:     }
-}
-[e :U 141 ]
-"32
-[; ;interrupt.c: 32:     if( PIR1bits.CCP1IF )
-[e $ ! != -> . . _PIR1bits 0 2 `i -> 0 `i 142  ]
-"33
-[; ;interrupt.c: 33:     {
-{
-"34
-[; ;interrupt.c: 34:         ccp_load( CCPR1H, CCPR1L );
-[e ( _ccp_load (2 , _CCPR1H _CCPR1L ]
-"35
-[; ;interrupt.c: 35:     }
-}
+[e $U 141  ]
 [e :U 142 ]
-"36
-[; ;interrupt.c: 36: }
+"106
+[; ;main.c: 106: }
 [e :UE 139 ]
 }

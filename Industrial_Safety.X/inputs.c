@@ -33,24 +33,26 @@ void uts_trigger (void)
         
 }
 
-void echo_time (int t1, int t2)
-{
-    ccp_rise();
-    
-    while (UTS_ECHO)
-    {
-        TMR1ON = 1;
-        t1 = CCPR1H;
-        t1<<=8;
-        t1 |= CCPR1L;
-        ccp_fall();
-    }
-    while (!UTS_ECHO)
-    {
-        TMR1ON = 0;
-        t2 = CCPR1H;
-        t2<<=8;
-        t2 |= CCPR1L;
-    }
-    
-}
+//void echo_time (int t1, int t2, struct captura_t *ptr)
+//{
+//    ccp_rise();
+//    
+//    while (UTS_ECHO)
+//    {
+//        TMR1ON = 1;
+//        t1 = CCPR1H;
+//        t1<<=8;
+//        t1 |= CCPR1L;
+//        ccp_fall();
+//        ptr->captura1 = t1;
+//    }
+//    while (!UTS_ECHO)
+//    {
+//        TMR1ON = 0;
+//        t2 = CCPR1H;
+//        t2<<=8;
+//        t2 |= CCPR1L;
+//        ptr->captura2 = t2;
+//    }
+//    ptr->super_captura = (ptr->captura2 - ptr->captura1);
+//}

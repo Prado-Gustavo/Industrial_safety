@@ -2512,16 +2512,27 @@ void delay_ms( unsigned int t );
 
 # 1 "./ccp.h" 1
 # 11 "./ccp.h"
-void tmr1_init (void);
-void ccp_rise (void);
-void ccp_fall (void);
+struct captura_t
+{
+    int captura1;
+    int captura2;
+    int super_captura;
+};
+
+void ccp1_init( struct captura_t * ptr );
+void ccp_rise(void);
+void ccp_fall(void);
+
+void ccp_load( unsigned char hi, unsigned char lo );
 # 11 "inputs.c" 2
 
 # 1 "./inputs.h" 1
 
 
 
-long echo_time (int t1, int t2);
+void in_init (void);
+void uts_trigger (void);
+void echo_time (int t1, int t2, struct captura_t *ptr);
 # 12 "inputs.c" 2
 
 
@@ -2545,26 +2556,4 @@ void uts_trigger (void)
     PORTDbits.RD1 = 0;
     _delay((unsigned long)((10)*(4000000/4000000.0)));
 
-}
-
-long echo_time (int t1, int t2)
-{
-    ccp_rise();
-
-    while (PORTDbits.RD0)
-    {
-        TMR1ON = 1;
-        t1 = CCPR1H;
-        t1<<=8;
-        t1 |= CCPR1L;
-        ccp_fall();
-    }
-    while (!PORTDbits.RD0)
-    {
-        TMR1ON = 0;
-        t2 = CCPR1H;
-        t2<<=8;
-        t2 |= CCPR1L;
-    }
-    return (t1, t2);
 }

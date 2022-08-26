@@ -8,10 +8,18 @@
 #ifndef CCP_H
 #define	CCP_H
 
-void tmr1_init (void);
-void ccp_rise  (void);
-void ccp_fall  (void);
+struct captura_t
+{
+    int captura1;
+    int captura2;
+    int super_captura;
+};
 
+void ccp1_init( struct captura_t * ptr );
+void ccp_rise(void);
+void ccp_fall(void);
+
+void ccp_load( unsigned char hi, unsigned char lo );
 
 #endif	/* CCP_H */
 

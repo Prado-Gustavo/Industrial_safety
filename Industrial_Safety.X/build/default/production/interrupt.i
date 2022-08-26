@@ -2520,9 +2520,25 @@ void T2_play( void );
 unsigned int T2_status( void );
 # 10 "interrupt.c" 2
 
+# 1 "./ccp.h" 1
+# 11 "./ccp.h"
+struct captura_t
+{
+    int captura1;
+    int captura2;
+    int super_captura;
+};
+
+void ccp1_init( struct captura_t * ptr );
+void ccp_rise(void);
+void ccp_fall(void);
+
+void ccp_load( unsigned char hi, unsigned char lo );
+# 11 "interrupt.c" 2
 
 
-void __attribute__((picinterrupt(""))) ilsr(void)
+
+void __attribute__((picinterrupt(""))) isr(void)
 {
     if( INTCONbits.T0IF )
     {
@@ -2538,5 +2554,10 @@ void __attribute__((picinterrupt(""))) ilsr(void)
     {
         PIR1bits.TMR2IF = 0;
         T2_int();
+    }
+
+    if( PIR1bits.CCP1IF )
+    {
+        ccp_load( CCPR1H, CCPR1L );
     }
 }

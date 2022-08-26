@@ -8,9 +8,10 @@
 
 #include <xc.h>
 #include "timer.h"
+#include "ccp.h"
 
 
-void __interrupt() ilsr(void)
+void __interrupt() isr(void)
 {
     if( INTCONbits.T0IF )
     {
@@ -26,5 +27,10 @@ void __interrupt() ilsr(void)
     {
         PIR1bits.TMR2IF = 0;
         T2_int();
+    }
+    
+    if( PIR1bits.CCP1IF )
+    {
+        ccp_load( CCPR1H, CCPR1L );
     }
 }
