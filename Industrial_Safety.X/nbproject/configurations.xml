@@ -12,6 +12,7 @@
       <itemPath>prs.h</itemPath>
       <itemPath>timer.h</itemPath>
       <itemPath>ccp.h</itemPath>
+      <itemPath>spi.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -30,6 +31,8 @@
       <itemPath>timer.c</itemPath>
       <itemPath>interrupt.c</itemPath>
       <itemPath>ccp.c</itemPath>
+      <itemPath>spi.c</itemPath>
+      <itemPath>.gitignore</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c delay.c lcd.c outputs.c inputs.c rfid.c prs.c timer.c interrupt.c ccp.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c delay.c lcd.c outputs.c inputs.c rfid.c prs.c timer.c interrupt.c ccp.c spi.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/delay.p1 ${OBJECTDIR}/lcd.p1 ${OBJECTDIR}/outputs.p1 ${OBJECTDIR}/inputs.p1 ${OBJECTDIR}/rfid.p1 ${OBJECTDIR}/prs.p1 ${OBJECTDIR}/timer.p1 ${OBJECTDIR}/interrupt.p1 ${OBJECTDIR}/ccp.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/delay.p1.d ${OBJECTDIR}/lcd.p1.d ${OBJECTDIR}/outputs.p1.d ${OBJECTDIR}/inputs.p1.d ${OBJECTDIR}/rfid.p1.d ${OBJECTDIR}/prs.p1.d ${OBJECTDIR}/timer.p1.d ${OBJECTDIR}/interrupt.p1.d ${OBJECTDIR}/ccp.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/delay.p1 ${OBJECTDIR}/lcd.p1 ${OBJECTDIR}/outputs.p1 ${OBJECTDIR}/inputs.p1 ${OBJECTDIR}/rfid.p1 ${OBJECTDIR}/prs.p1 ${OBJECTDIR}/timer.p1 ${OBJECTDIR}/interrupt.p1 ${OBJECTDIR}/ccp.p1 ${OBJECTDIR}/spi.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/delay.p1.d ${OBJECTDIR}/lcd.p1.d ${OBJECTDIR}/outputs.p1.d ${OBJECTDIR}/inputs.p1.d ${OBJECTDIR}/rfid.p1.d ${OBJECTDIR}/prs.p1.d ${OBJECTDIR}/timer.p1.d ${OBJECTDIR}/interrupt.p1.d ${OBJECTDIR}/ccp.p1.d ${OBJECTDIR}/spi.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/delay.p1 ${OBJECTDIR}/lcd.p1 ${OBJECTDIR}/outputs.p1 ${OBJECTDIR}/inputs.p1 ${OBJECTDIR}/rfid.p1 ${OBJECTDIR}/prs.p1 ${OBJECTDIR}/timer.p1 ${OBJECTDIR}/interrupt.p1 ${OBJECTDIR}/ccp.p1
+OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/delay.p1 ${OBJECTDIR}/lcd.p1 ${OBJECTDIR}/outputs.p1 ${OBJECTDIR}/inputs.p1 ${OBJECTDIR}/rfid.p1 ${OBJECTDIR}/prs.p1 ${OBJECTDIR}/timer.p1 ${OBJECTDIR}/interrupt.p1 ${OBJECTDIR}/ccp.p1 ${OBJECTDIR}/spi.p1
 
 # Source Files
-SOURCEFILES=main.c delay.c lcd.c outputs.c inputs.c rfid.c prs.c timer.c interrupt.c ccp.c
+SOURCEFILES=main.c delay.c lcd.c outputs.c inputs.c rfid.c prs.c timer.c interrupt.c ccp.c spi.c
 
 
 CFLAGS=
@@ -163,6 +163,13 @@ ${OBJECTDIR}/ccp.p1: ccp.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/ccp.p1 ccp.c 
 	@${FIXDEPS} ${OBJECTDIR}/ccp.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/spi.p1: spi.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/spi.p1.d 
+	@${RM} ${OBJECTDIR}/spi.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/spi.p1 spi.c 
+	@${FIXDEPS} ${OBJECTDIR}/spi.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -233,6 +240,13 @@ ${OBJECTDIR}/ccp.p1: ccp.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/ccp.p1 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/ccp.p1 ccp.c 
 	@${FIXDEPS} ${OBJECTDIR}/ccp.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/spi.p1: spi.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/spi.p1.d 
+	@${RM} ${OBJECTDIR}/spi.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/spi.p1 spi.c 
+	@${FIXDEPS} ${OBJECTDIR}/spi.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
