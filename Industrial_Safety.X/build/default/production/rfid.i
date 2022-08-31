@@ -7,14 +7,7 @@
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "rfid.c" 2
-
-
-
-
-
-
-
-
+# 46 "rfid.c"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2499,9 +2492,807 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 9 "rfid.c" 2
-# 47 "rfid.c"
-void idle_command (void)
-{
+# 46 "rfid.c" 2
 
+# 1 "./spi.h" 1
+# 16 "./spi.h"
+void spiSoftClk(void);
+
+void spiSoftIniciar(void);
+
+void spiSoftTxDat(char dado);
+
+void spiSoftTxCmd(char end, char oper);
+
+char spiSoftRxDat(void);
+# 47 "rfid.c" 2
+
+# 1 "./delay.h" 1
+
+
+
+
+
+void delay_ms( unsigned int t );
+# 48 "rfid.c" 2
+# 180 "rfid.c"
+char b, find, c;
+char f_mp = 0;
+char dados_tag[] = {"________________"};
+
+
+void delay_piscal(void)
+{
+ _delay((unsigned long)((200)*(4000000/4000.0)));
+}
+
+void delay_1seg(void)
+{
+ _delay((unsigned long)((1000)*(4000000/4000.0)));
+}
+
+
+void mfrc522ClrBit(char end, char mascara)
+{
+ char lido;
+ spiSoftTxCmd(end, 1);
+ lido = spiSoftRxDat();
+ PORTAbits.RA5 = 1;
+ lido = lido & (~mascara);
+ spiSoftTxCmd(end, 0);
+ spiSoftTxDat(lido);
+ PORTAbits.RA5 = 1;
+}
+
+void mfrc522SetBit(char end, char mascara)
+{
+ char lido;
+ spiSoftTxCmd(end, 1);
+ lido = spiSoftRxDat();
+ PORTAbits.RA5 = 1;
+ lido = lido | mascara;
+ spiSoftTxCmd(end, 0);
+ spiSoftTxDat(lido);
+ PORTAbits.RA5 = 1;
+}
+
+void mfrc522AntOn(void)
+{
+ mfrc522SetBit(0x14, 0x03);
+}
+
+void mfrc522AntOff(void)
+{
+ mfrc522ClrBit(0x14, 0x03);
+}
+
+void mfrc522Rst(void)
+{
+ spiSoftTxCmd(0x01, 0);
+ spiSoftTxDat(0x0F);
+ PORTAbits.RA5 = 1;
+}
+
+void mfrc522Iniciar(void)
+{
+ mfrc522Rst();
+
+ spiSoftTxCmd(0x2A, 0);
+ spiSoftTxDat(0x8D);
+ PORTAbits.RA5 = 1;
+
+ spiSoftTxCmd(0x2B, 0);
+ spiSoftTxDat(0x3E);
+ PORTAbits.RA5 = 1;
+
+ spiSoftTxCmd(0x2D, 0);
+ spiSoftTxDat(30);
+ PORTAbits.RA5 = 1;
+
+ spiSoftTxCmd(0x2C, 0);
+ spiSoftTxDat(0);
+ PORTAbits.RA5 = 1;
+
+ spiSoftTxCmd(0x15, 0);
+ spiSoftTxDat(0x40);
+ PORTAbits.RA5 = 1;
+
+ spiSoftTxCmd(0x11, 0);
+ spiSoftTxDat(0x3D);
+ PORTAbits.RA5 = 1;
+
+ mfrc522AntOn();
+}
+
+
+void eepromEscrever(char Address, char Data)
+{
+ while (EECON1bits.WR);
+ EEADR = Address;
+ EEDATA = Data;
+ EECON1bits.EEPGD = 0;
+ EECON1bits.WREN = 1;
+ INTCONbits.GIE = 0;
+ EECON2 = 0x55;
+ EECON2 = 0xAA;
+ EECON1bits.WR = 1;
+ INTCONbits.GIE = 1;
+ EECON1bits.WREN = 0;
+ EECON1bits.WR = 0;
+}
+
+char eepromLer(char Address)
+{
+ char Data;
+ EEADR = Address;
+ EECON1bits.EEPGD = 0;
+ EECON1bits.RD = 1;
+ Data = EEDATA;
+ _delay((unsigned long)((1)*(4000000/4000.0)));
+ return Data;
+}
+
+void eepromApagar(void)
+{
+ char a;
+ for (a = 0; a < 128; a++)
+ {
+  eepromEscrever(a, 0XFF);
+ }
+}
+
+
+char tagTxCmd(char cmd, char *data, char dlen, char *result, char *rlen)
+{
+ char status = 2;
+ char irqEn = 0x00;
+ char waitIRq = 0x00;
+ char lastBits, n;
+ char i, a;
+
+ switch (cmd)
+ {
+  case 0x0E:
+   irqEn = 0x12;
+   waitIRq = 0x10;
+   break;
+  case 0x0C:
+   irqEn = 0x77;
+   waitIRq = 0x30;
+   break;
+  default:
+   break;
+ }
+
+ spiSoftTxCmd(0x02, 0);
+ spiSoftTxDat(irqEn | 0x80);
+ PORTAbits.RA5 = 1;
+
+ mfrc522ClrBit(0x04, 0x80);
+
+ mfrc522SetBit(0x0A, 0x80);
+
+ spiSoftTxCmd(0x01, 0);
+ spiSoftTxDat(0x00);
+ PORTAbits.RA5 = 1;
+
+
+ for (i = 0; i < dlen; i++)
+ {
+  spiSoftTxCmd(0x09, 0);
+  spiSoftTxDat(data[i]);
+  PORTAbits.RA5 = 1;
+ }
+
+
+ spiSoftTxCmd(0x01, 0);
+ spiSoftTxDat(cmd);
+ PORTAbits.RA5 = 1;
+
+ if (cmd == 0x0C) mfrc522SetBit(0x0D, 0x80);
+
+
+ i = 250;
+ do
+ {
+  _delay((unsigned long)((100)*(4000000/4000000.0)));
+  spiSoftTxCmd(0x04, 1);
+  n = spiSoftRxDat();
+  PORTAbits.RA5 = 1;
+  i--;
+ } while ((i != 0) && !(n & 0x01) && !(n & waitIRq));
+
+ mfrc522ClrBit(0x0D, 0x80);
+
+ if (i != 0)
+ {
+  spiSoftTxCmd(0x06, 1);
+  a = spiSoftRxDat();
+  PORTAbits.RA5 = 1;
+  a = a & 0x1B;
+
+  if (!a)
+  {
+   status = 0;
+   if (n & irqEn & 0x01) status = 1;
+
+   if (cmd == 0x0C)
+   {
+    spiSoftTxCmd(0x0A, 1);
+    n = spiSoftRxDat();
+    PORTAbits.RA5 = 1;
+
+    spiSoftTxCmd(0x0C, 1);
+    lastBits = spiSoftRxDat();
+    PORTAbits.RA5 = 1;
+
+    lastBits = lastBits & 0x07;
+
+    if (lastBits) *rlen = (n - 1) * 8 + lastBits;
+    else *rlen = n * 8;
+
+    if (n == 0) n = 1;
+    if (n > 16) n = 16;
+
+    for (i = 0; i < n; i++)
+    {
+     spiSoftTxCmd(0x09, 1);
+     result[i] = spiSoftRxDat();
+     PORTAbits.RA5 = 1;
+    }
+    result[i] = 0;
+   }
+  }
+  else status = 2;
+ }
+ return (status);
+}
+
+char tagLocalizar(void)
+{
+ char i, y;
+
+ for (i = 2; i < 126; i = i + 4)
+ {
+  for (y = 0; y < 4; y++)
+  {
+   if (dados_tag[y] != eepromLer(y + i))break;
+
+  }
+  if (y == 4)return i;
+ }
+ return i;
+}
+
+void tagMasterWr(void)
+{
+ char i;
+ for (i = 0; i < 4; i++)
+ {
+  eepromEscrever(i + 2, dados_tag[i]);
+ }
+ eepromEscrever(1, 170);
+ f_mp = 0;
+}
+
+void tagSlaverWr(void)
+{
+ char a, b;
+
+ if (f_mp == 1)
+ {
+  for (a = 2 + 4; a < 126; a = a + 4)
+  {
+   for (b = 0; b < 4; b++)
+   {
+    if (eepromLer(a + b) != 0xFF)break;
+   }
+   if (b == 4)
+   {
+    for (b = 0; b < 4; b++)
+    {
+     eepromEscrever(a + b, dados_tag[b]);
+    }
+    PORTCbits.RC6 = 1;
+    PORTCbits.RC1 = 0;
+    delay_1seg();
+    PORTCbits.RC1 = 1;
+    break;
+   }
+  }
+ }
+ else
+ {
+  PORTCbits.RC1 = 1;
+  PORTCbits.RC6 = 0;
+  delay_1seg();
+  PORTCbits.RC6 = 1;
+ }
+}
+
+char procura_tag(char modo, char *data)
+{
+ char status, len;
+
+ spiSoftTxCmd(0x0D, 0);
+ spiSoftTxDat(0x07);
+ PORTAbits.RA5 = 1;
+ data[0] = modo;
+ status = tagTxCmd(0x0C, data, 1, data, &len);
+ if ((status != 0) || (len != 0x10)) status = 2;
+ return (status);
+}
+
+char anti_colisao(char *mBuf)
+{
+ char status, i, len;
+ char checksum = 0x00;
+
+
+ spiSoftTxCmd(0x0D, 0);
+ spiSoftTxDat(0x00);
+ PORTAbits.RA5 = 1;
+
+ mBuf[0] = 0x93;
+ mBuf[1] = 0x20;
+
+ status = tagTxCmd(0x0C, mBuf, 2, mBuf, &len);
+
+ if (status == 0)
+ {
+  for (i = 0; i < 4; i++) checksum ^= mBuf[i];
+  if (checksum != mBuf[4]) status = 2;
+ }
+
+ return status;
+}
+
+char get_UID(void)
+{
+ char a;
+ a = anti_colisao(dados_tag);
+ return a;
+}
+
+char mfrc522Uid(char *vlrAsc)
+{
+ char a;
+ a = anti_colisao(vlrAsc);
+ return a;
+}
+
+void testa_botao_del(char modo)
+{
+ char t = 0;
+
+ while (PORTCbits.RC5)
+ {
+  PORTCbits.RC1 = 1;
+  PORTCbits.RC6 = 0;
+  _delay((unsigned long)((100)*(4000000/4000.0)));
+  t++;
+  if (t >= 100)
+  {
+   if (modo == 0)
+   {
+    eepromApagar();
+    t = 3;
+    while (t)
+    {
+     delay_piscal();
+     PORTCbits.RC6 = 0;
+     delay_piscal();
+     PORTCbits.RC6 = 1;
+     t--;
+    }
+   } else
+   {
+    eepromEscrever(1, 0XFF);
+    for (t = 0; t < 4; t++)
+    {
+     eepromEscrever(t + 2, 0XFF);
+    }
+    t = 5;
+    while (t)
+    {
+     delay_piscal();
+     PORTCbits.RC6 = 0;
+     delay_piscal();
+     PORTCbits.RC6 = 1;
+     t--;
+    }
+   }
+   f_mp = 1;
+  }
+ }
+ while (!PORTCbits.RC5);
+ PORTCbits.RC6 = 1;
+}
+
+static void MFRC522_Wr(char addr, char value)
+{
+ PORTBbits.RB0 = 0;
+ spiSoftTxDat((addr << 1) & 0x7E);
+ spiSoftTxDat(value);
+ PORTBbits.RB0 = 1;
+}
+
+static char MFRC522_Rd(char addr)
+{
+ char value;
+ PORTBbits.RB0 = 0;
+ spiSoftTxDat(((addr << 1) & 0x7E) | 0x80);
+
+
+ value = spiSoftRxDat();
+ PORTBbits.RB0 = 1;
+ return value;
+}
+
+static void MFRC522_Clear_Bit(char addr, char mask)
+{
+ MFRC522_Wr(addr, MFRC522_Rd(addr) & (~mask));
+}
+
+static void MFRC522_Set_Bit(char addr, char mask)
+{
+ MFRC522_Wr(addr, MFRC522_Rd(addr) | mask);
+}
+
+void MFRC522_Reset(void)
+{
+ MFRC522_Wr(0x01, 0x0F);
+}
+
+void MFRC522_AntennaOn(void)
+{
+ MFRC522_Set_Bit(0x14, 0x03);
+}
+
+void MFRC522_AntennaOff(void)
+{
+ MFRC522_Clear_Bit(0x14, 0x03);
+}
+
+
+void MFRC522_Init()
+{
+ TRISBbits.TRISB0 = 0;
+ TRISBbits.TRISB4 = 0;
+ PORTBbits.RB0 = 1;
+ PORTBbits.RB4 = 1;
+
+ MFRC522_Reset();
+
+ MFRC522_Wr(0x2A, 0x8D);
+ MFRC522_Wr(0x2B, 0x3E);
+ MFRC522_Wr(0x2D, 30);
+ MFRC522_Wr(0x2C, 0);
+
+ MFRC522_Wr(0x15, 0x40);
+ MFRC522_Wr(0x11, 0x3D);
+
+
+
+
+
+ MFRC522_AntennaOn();
+}
+
+char MFRC522_ToCard(char command, char *sendData, char sendLen, char *backData, char *backLen)
+{
+ char _status = 2;
+ char irqEn = 0x00;
+ char waitIRq = 0x00;
+ char lastBits;
+ char n;
+ unsigned int i;
+
+ switch (command)
+ {
+  case 0x0E:
+  {
+   irqEn = 0x12;
+   waitIRq = 0x10;
+   break;
+  }
+  case 0x0C:
+  {
+   irqEn = 0x77;
+   waitIRq = 0x30;
+   break;
+  }
+  default:
+   break;
+ }
+
+
+ for (i = 0; i < sendLen; i++) MFRC522_Wr(0x09, sendData[i]);
+
+
+ MFRC522_Wr(0x01, command);
+
+
+ if (command == 0x0C) MFRC522_Set_Bit(0x0D, 0x80);
+
+
+
+ i = 0xFFFF;
+ do
+ {
+
+
+  n = MFRC522_Rd(0x04);
+  i--;
+ } while (i && !(n & 0x01) && !(n & waitIRq));
+
+ MFRC522_Clear_Bit(0x0D, 0x80);
+
+ if (i != 0)
+ {
+  if (!(MFRC522_Rd(0x06) & 0x1B))
+  {
+   _status = 0;
+   if (n & irqEn & 0x01) _status = 1;
+
+   if (command == 0x0C)
+   {
+    n = MFRC522_Rd(0x0A);
+    lastBits = MFRC522_Rd(0x0C) & 0x07;
+
+    if (lastBits) *backLen = (n - 1) * 8 + lastBits;
+    else *backLen = n * 8;
+
+    if (n == 0) n = 1;
+    if (n > 16) n = 16;
+
+
+    for (i = 0; i < n; i++) backData[i] = MFRC522_Rd(0x09);
+    backData[i] = 0;
+   }
+  } else _status = 2;
+ }
+
+
+
+
+ return (_status);
+}
+
+char MFRC522_Request(char reqMode, char *TagType)
+{
+ char _status;
+ char backBits;
+ MFRC522_Wr(0x0D, 0x07);
+ TagType[0] = reqMode;
+ _status = tagTxCmd(0x0C, TagType, 1, TagType, &backBits);
+ if ((_status != 0) || (backBits != 0x10)) _status = 2;
+
+ return (_status);
+}
+
+void MFRC522_CRC(char *dataIn, char length, char *dataOut)
+{
+ char i, n;
+ mfrc522ClrBit(0x05, 0x04);
+ mfrc522SetBit(0x0A, 0x80);
+
+ for (i = 0; i < length; i++) MFRC522_Wr(0x09, *dataIn++);
+
+ MFRC522_Wr(0x01, 0x03);
+
+ i = 0xFF;
+ do
+ {
+  n = MFRC522_Rd(0x05);
+  i--;
+ } while (i && !(n & 0x04));
+
+ dataOut[0] = MFRC522_Rd(0x22);
+ dataOut[1] = MFRC522_Rd(0x21);
+}
+
+char MFRC522_SelectTag(char *serNum)
+{
+ char i;
+ char _status;
+ char size;
+ char recvBits;
+ char buffer[9];
+
+
+
+
+
+ buffer[0] = 0x93;
+ buffer[1] = 0x70;
+
+ for (i = 2; i < 7; i++) buffer[i] = *serNum++;
+
+ MFRC522_CRC(buffer, 7, &buffer[7]);
+
+ _status = tagTxCmd(0x0C, buffer, 9, buffer, &recvBits);
+
+ if ((_status == 0) && (recvBits == 0x18)) size = buffer[0];
+ else size = 0;
+
+ return (size);
+}
+
+void MFRC522_Halt()
+{
+ char unLen;
+ char buff[4];
+
+ buff[0] = 0x50;
+ buff[1] = 0;
+ MFRC522_CRC(buff, 2, &buff[2]);
+
+ MFRC522_Clear_Bit(0x08, 0x80);
+ MFRC522_ToCard(0x0C, buff, 4, buff, &unLen);
+ MFRC522_Clear_Bit(0x08, 0x08);
+}
+
+char MFRC522_Auth(char authMode, char BlockAddr, char *Sectorkey, char *serNum)
+{
+ char _status;
+ char recvBits;
+ char i;
+ char buff[12];
+
+
+ buff[0] = authMode;
+ buff[1] = BlockAddr;
+
+ for (i = 2; i < 8; i++) buff[i] = Sectorkey[i - 2];
+ for (i = 8; i < 12; i++) buff[i] = serNum[i - 8];
+
+ _status = tagTxCmd(0x0E, buff, 12, buff, &recvBits);
+ if ((_status != 0) || !(MFRC522_Rd(0x08) & 0x08)) _status = 2;
+ return (_status);
+}
+
+char MFRC522_Write(char blockAddr, char *writeData)
+{
+ char _status;
+ char recvBits;
+ char i;
+ char buff[18];
+
+ buff[0] = 0xA0;
+ buff[1] = blockAddr;
+
+ MFRC522_CRC(buff, 2, &buff[2]);
+ _status = tagTxCmd(0x0C, buff, 4, buff, &recvBits);
+
+ if ((_status != 0) || (recvBits != 4) || ((buff[0] & 0x0F) != 0x0A)) _status = 2;
+
+ if (_status == 0)
+ {
+  for (i = 0; i < 16; i++) buff[i] = writeData[i];
+
+  MFRC522_CRC(buff, 16, &buff[16]);
+  _status = tagTxCmd(0x0C, buff, 18, buff, &recvBits);
+
+  if ((_status != 0) || (recvBits != 4) || ((buff[0] & 0x0F) != 0x0A)) _status = 2;
+ }
+
+ return (_status);
+}
+
+char MFRC522_Read(char blockAddr, char *recvData)
+{
+ char _status;
+ char unLen;
+
+ recvData[0] = 0x30;
+ recvData[1] = blockAddr;
+
+ MFRC522_CRC(recvData, 2, &recvData[2]);
+ _status = tagTxCmd(0x0C, recvData, 4, recvData, &unLen);
+
+ if ((_status != 0) || (unLen != 0x90)) _status = 2;
+
+ return (_status);
+}
+
+char MFRC522_AntiColl(char *serNum)
+{
+ char _status;
+ char i;
+ char serNumCheck = 0;
+ char unLen;
+
+ MFRC522_Wr(0x0D, 0x00);
+
+ serNum[0] = 0x93;
+ serNum[1] = 0x20;
+ MFRC522_Clear_Bit(0x08, 0x08);
+ _status = MFRC522_ToCard(0x0C, serNum, 2, serNum, &unLen);
+
+ if (_status == 0)
+ {
+  for (i = 0; i < 4; i++) serNumCheck ^= serNum[i];
+  if (serNumCheck != serNum[4])_status = 2;
+ }
+
+ return (_status);
+}
+
+
+
+
+
+
+
+char MFRC522_isCard(char *TagType)
+{
+ if (MFRC522_Request(0x26, TagType) == 0) return (1);
+ else return (0);
+}
+
+char MFRC522_ReadCardSerial(char *str)
+{
+ char _status;
+ _status = MFRC522_AntiColl(str);
+ str[5] = 0;
+ if (_status == 0) return (1);
+ else return (0);
+}
+
+void hex2Ascii(char *strIn, char *strOut, char cntDig)
+{
+ char a,b,uni,dez;
+ for(a=0;a<cntDig;a++)
+ {
+  b=a*2;
+  uni= strIn[a] & 0x0F;
+  dez=(strIn[a] & 0xF0)>>4;
+  if (uni <10) uni += '0';
+  if (uni > 9 && uni < 16) uni += 0x37;
+  if (dez <10) dez += '0';
+  if (dez > 9 && dez < 16) dez += 0x37;
+  strOut[b]=dez;
+  strOut[b+1]=uni;
+ }
+}
+
+char matEeprom[]=
+{
+ 0xFF,0xFF,0xFF,0xFF,0xFF,
+ 0xFF,0xFF,0xFF,0xFF,0xFF,
+ 0xFF,0xFF,0xFF,0xFF,0xFF,
+ 0xFF,0xFF,0xFF,0xFF,0xFF,
+ 0xFF,0xFF,0xFF,0xFF,0xFF,
+ 0xFF,0xFF,0xFF,0xFF,0xFF,
+ 0xFF,0xFF,0xFF,0xFF,0xFF,
+ 0xFF,0xFF,0xFF,0xFF,0xFF,
+ 0xFF,0xFF,0xFF,0xFF,0xFF,
+ 0xFF,0xFF,0xFF,0xFF,0xFF,
+ 0xFF,0xFF,0xFF,0xFF,0xFF
+};
+
+void eepromLoad(void)
+{
+ char x,y;
+ for(x=0;x<55;x+=5)
+ {
+  for(y=0;y<5;y++)matEeprom[x+y]=eepromLer(x+y);
+ }
+}
+
+char tagSearch(char *tagVlr)
+{
+ char a=0, b=0, c=0;
+ while(a<55)
+ {
+  for(b=0;b<5;b++)
+  {
+   if(tagVlr[a+b]==matEeprom[a+b])c=1;
+   else c=0;
+  }
+  if(c==1)break;
+  a +=5;
+ }
+ return(a);
 }

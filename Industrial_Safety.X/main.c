@@ -41,8 +41,9 @@ void main (void)
     {
         
         uts_trigger();
-        //echo_time(0, 0, &captura);
-        lcd_num( 0, 0, captura.super_captura, 3);
+        lcd_num( 0, 0, &captura.&super_captura, 3);
+        
+//echo_time(0, 0, &captura);
 //        if( T0_status() == 0 && block == 0 )
 //        {
 //            PORTCbits.RC0 = 0;

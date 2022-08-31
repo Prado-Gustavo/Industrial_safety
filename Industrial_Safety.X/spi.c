@@ -6,23 +6,15 @@
  */
 
 
-#define pinSda_		PORTAbits.RA5
-#define pinSck_		PORTCbits.RC3
-#define pinMosi		PORTCbits.RC5
-#define pinMiso		PORTCbits.RC4
-#define pinRst		PORTBbits.RB0
-
-#define pinSdaCfg	TRISAbits.TRISA5
-#define pinSckCfg	TRISCbits.TRISC3
-#define pinMosiCfg	TRISCbits.TRISC5
-#define pinMisoCfg	TRISCbits.TRISC4
-#define pinRstCfg	TRISBbits.TRISB0
+#include <xc.h>
+#include "spi.h"
+#include "delay.h"
 
 /* SPI por software */
 void spiSoftClk(void)							// Gera pulso de clock para o SPI.
 {
 	pinSck_ = 1;
-	__delay_us(1);								// +- 110kBps (10=~100khz)
+   	__delay_us(1);								// +- 110kBps (10=~100khz)
 	pinSck_ = 0;
 }
 

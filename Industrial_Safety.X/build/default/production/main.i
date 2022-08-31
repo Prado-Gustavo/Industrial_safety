@@ -2620,9 +2620,8 @@ void main (void)
     {
 
         uts_trigger();
-
-        lcd_num( 0, 0, captura.super_captura, 3);
-# 104 "main.c"
+        lcd_num( 0, 0, &captura.&super_captura, 3);
+# 105 "main.c"
     }
 
 }

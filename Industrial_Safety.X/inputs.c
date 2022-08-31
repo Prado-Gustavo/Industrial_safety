@@ -11,10 +11,10 @@
 #include "ccp.h"
 #include "inputs.h"
 
-#define UTS_ECHO    PORTDbits.RD0
+#define UTS_ECHO    PORTDbits.RC2
 #define UTS_TRIGGER PORTDbits.RD1
-#define PIR_OUT    PORTDbits.RC2
-
+#define PIR_OUT     PORTDbits.RD0
+ 
 int modo ; 
 
 void in_init (void)
