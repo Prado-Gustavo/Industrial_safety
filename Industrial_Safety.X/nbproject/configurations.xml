@@ -13,6 +13,7 @@
       <itemPath>timer.h</itemPath>
       <itemPath>ccp.h</itemPath>
       <itemPath>spi.h</itemPath>
+      <itemPath>rfid.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -32,14 +33,12 @@
       <itemPath>interrupt.c</itemPath>
       <itemPath>ccp.c</itemPath>
       <itemPath>spi.c</itemPath>
-      <itemPath>.gitignore</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>rfid.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

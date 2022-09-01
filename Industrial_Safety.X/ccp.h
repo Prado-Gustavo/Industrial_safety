@@ -15,11 +15,13 @@ struct captura_t
     int super_captura;
 };
 
-void ccp1_init( struct captura_t * ptr );
-void ccp_rise(void);
-void ccp_fall(void);
-
+void ccp1_init( void );
 void ccp_load( unsigned char hi, unsigned char lo );
+unsigned int ccp_capture(void);
+
+unsigned char ccp_cap1( void );
+unsigned char ccp_cap2( void );
+
 
 #endif	/* CCP_H */
 

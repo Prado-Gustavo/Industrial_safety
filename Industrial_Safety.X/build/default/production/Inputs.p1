@@ -270,10 +270,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"18 inputs.c
-[; ;inputs.c: 18: int modo ;
-[v _modo `i ~T0 @X0 1 e ]
-"20
+"20 inputs.c
 [; ;inputs.c: 20: void in_init (void)
 [v _in_init `(v ~T0 @X0 1 ef ]
 "21

@@ -2519,11 +2519,12 @@ struct captura_t
     int super_captura;
 };
 
-void ccp1_init( struct captura_t * ptr );
-void ccp_rise(void);
-void ccp_fall(void);
-
+void ccp1_init( void );
 void ccp_load( unsigned char hi, unsigned char lo );
+unsigned int ccp_capture(void);
+
+unsigned char ccp_cap1( void );
+unsigned char ccp_cap2( void );
 # 11 "inputs.c" 2
 
 # 1 "./inputs.h" 1
@@ -2540,7 +2541,7 @@ void echo_time (int t1, int t2, struct captura_t *ptr);
 
 
 
-int modo ;
+
 
 void in_init (void)
 {

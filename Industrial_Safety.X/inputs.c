@@ -15,7 +15,7 @@
 #define UTS_TRIGGER PORTDbits.RD1
 #define PIR_OUT     PORTDbits.RD0
  
-int modo ; 
+
 
 void in_init (void)
 {

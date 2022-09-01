@@ -15,22 +15,22 @@
 #include "ccp.h"
 #include "inputs.h"
 
-struct captura_t captura;
-
 void main (void) 
 {
-    unsigned seg = 0;
-    unsigned block = 0;
-    int psr_ant = 0;
+//    unsigned seg = 0;
+//    unsigned block = 0;
+//    int psr_ant = 0;
+    int ccp1;
+    int ccp2;
+    int ccps; 
     
     TRISCbits.TRISC0 = 0;
     
     in_init();
     lcd_init();
-    prs_init();
-    T0_init();
-    ccp1_init ( &captura );
-
+    ccp1_init();
+ANSEL = 0;
+TRISAbits.TRISA0 = 0;
     
 //    T0_start( 1000 );
 //    lcd_num(1,0, (int)seg, 2 );
@@ -39,9 +39,19 @@ void main (void)
 
     while(1)
     {
+           
+        ccp1 = ccp_cap1();
+        ccp2 = ccp_cap2();
+        ccps = ccp_capture();
         
-        uts_trigger();
-        lcd_num( 0, 0, &captura.&super_captura, 3);
+        lcd_num( 1, 0,  1, 3);
+        lcd_num( 1, 5,  1, 3);
+        lcd_num( 1, 10, 1, 3);
+
+        lcd_num( 0, 13, (int)TMR1H, 3);
+        
+        delay_ms(1000);
+
         
 //echo_time(0, 0, &captura);
 //        if( T0_status() == 0 && block == 0 )
