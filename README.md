@@ -1,3 +1,8 @@
+﻿# Referências
+
+* [Datasheet PIC16f887](http://ww1.microchip.com/downloads/en/devicedoc/41291d.pdf
+)
+
 # Tabela de alocação de pinos
 
 ***
