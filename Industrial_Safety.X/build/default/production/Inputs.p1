@@ -10,17 +10,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1619
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1619: extern volatile TRISDbits_t TRISDbits __attribute__((address(0x088)));
 [v _TRISDbits `VS58 ~T0 @X0 0 e@136 ]
-"1546
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1546:     struct {
-[s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S57 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"1545
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1545: typedef union {
-[u S56 `S57 1 ]
-[n S56 . . ]
-"1557
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1557: extern volatile TRISCbits_t TRISCbits __attribute__((address(0x087)));
-[v _TRISCbits `VS56 ~T0 @X0 0 e@135 ]
 "358
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 358:     struct {
 [s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -270,48 +259,45 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"20 inputs.c
-[; ;inputs.c: 20: void in_init (void)
+"19 inputs.c
+[; ;inputs.c: 19: void in_init (void)
 [v _in_init `(v ~T0 @X0 1 ef ]
-"21
-[; ;inputs.c: 21: {
+"20
+[; ;inputs.c: 20: {
 {
 [e :U _in_init ]
 [f ]
-"22
-[; ;inputs.c: 22:     TRISDbits.TRISD0 = 1;
+"21
+[; ;inputs.c: 21:     TRISDbits.TRISD0 = 1;
 [e = . . _TRISDbits 0 0 -> -> 1 `i `uc ]
-"23
-[; ;inputs.c: 23:     TRISDbits.TRISD1 = 0;
+"22
+[; ;inputs.c: 22:     TRISDbits.TRISD1 = 0;
 [e = . . _TRISDbits 0 1 -> -> 0 `i `uc ]
 "24
-[; ;inputs.c: 24:     TRISCbits.TRISC2 = 0;
-[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
-"25
-[; ;inputs.c: 25: }
+[; ;inputs.c: 24: }
 [e :UE 139 ]
 }
-"27
-[; ;inputs.c: 27: void uts_trigger (void)
+"26
+[; ;inputs.c: 26: void uts_trigger (void)
 [v _uts_trigger `(v ~T0 @X0 1 ef ]
-"28
-[; ;inputs.c: 28: {
+"27
+[; ;inputs.c: 27: {
 {
 [e :U _uts_trigger ]
 [f ]
-"29
-[; ;inputs.c: 29:     PORTDbits.RD1 = 1;
+"28
+[; ;inputs.c: 28:     PORTDbits.RD1 = 1;
 [e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
+"29
+[; ;inputs.c: 29:     _delay((unsigned long)((10)*(20000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000000.0 `ul ]
 "30
-[; ;inputs.c: 30:     _delay((unsigned long)((10)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"31
-[; ;inputs.c: 31:     PORTDbits.RD1 = 0;
+[; ;inputs.c: 30:     PORTDbits.RD1 = 0;
 [e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
-"32
-[; ;inputs.c: 32:     _delay((unsigned long)((10)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"34
-[; ;inputs.c: 34: }
+"31
+[; ;inputs.c: 31:     _delay((unsigned long)((10)*(20000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000000.0 `ul ]
+"33
+[; ;inputs.c: 33: }
 [e :UE 140 ]
 }

@@ -17,8 +17,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "92 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic.h
 [v __delay `JF1256 ~T0 @X0 0 e ]
 [p i __delay ]
-"6 ./delay.h
-[; ;./delay.h: 6: void delay_ms( unsigned int t );
+"7 ./delay.h
+[; ;./delay.h: 7: void delay_ms( unsigned int t );
 [v _delay_ms `(v ~T0 @X0 0 ef1`ui ]
 "1608 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1608:     struct {
@@ -31,21 +31,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1619
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1619: extern volatile TRISDbits_t TRISDbits __attribute__((address(0x088)));
 [v _TRISDbits `VS58 ~T0 @X0 0 e@136 ]
-"465
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 465:     struct {
-[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S16 . RBIF INTF T0IF RBIE INTE T0IE PEIE GIE ]
-"475
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 475:     struct {
-[s S17 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S17 . . TMR0IF . TMR0IE ]
-"464
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 464: typedef union {
-[u S15 `S16 1 `S17 1 ]
-[n S15 . . . ]
-"482
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 482: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
-[v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -280,29 +265,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"10 ./config.h
-[p x FOSC = INTRC_NOCLKOUT ]
-"11
-[p x WDTE = OFF ]
+"11 ./config.h
+[p x FOSC = HS ]
 "12
-[p x PWRTE = OFF ]
+[p x WDTE = OFF ]
 "13
-[p x MCLRE = OFF ]
+[p x PWRTE = OFF ]
 "14
-[p x CP = OFF ]
+[p x MCLRE = OFF ]
 "15
-[p x CPD = OFF ]
+[p x CP = OFF ]
 "16
-[p x BOREN = OFF ]
+[p x CPD = OFF ]
 "17
-[p x IESO = OFF ]
+[p x BOREN = OFF ]
 "18
-[p x FCMEN = OFF ]
+[p x IESO = OFF ]
 "19
+[p x FCMEN = OFF ]
+"20
 [p x LVP = OFF ]
-"22
-[p x BOR4V = BOR40V ]
 "23
+[p x BOR4V = BOR40V ]
+"24
 [p x WRT = OFF ]
 "59 lcd.c
 [; ;lcd.c: 59: void lcd_instReg( unsigned char i )
@@ -330,15 +315,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;lcd.c: 65:     if( i == 0x01 || i == 0x02 )
 [e $ ! || == -> _i `i -> 1 `i == -> _i `i -> 2 `i 139  ]
 "66
-[; ;lcd.c: 66:         _delay((unsigned long)((2)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;lcd.c: 66:         _delay((unsigned long)((2)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
 [e $U 140  ]
 "67
 [; ;lcd.c: 67:     else
 [e :U 139 ]
 "68
-[; ;lcd.c: 68:         _delay((unsigned long)((40)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;lcd.c: 68:         _delay((unsigned long)((40)*(20000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 20000000 `l `d .4000000.0 `ul ]
 [e :U 140 ]
 "69
 [; ;lcd.c: 69:     PORTDbits.RD3 = 1;
@@ -359,8 +344,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;lcd.c: 76:         PORTDbits.RD3 = 0;
 [e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
 "77
-[; ;lcd.c: 77:         _delay((unsigned long)((40)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;lcd.c: 77:         _delay((unsigned long)((40)*(20000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 20000000 `l `d .4000000.0 `ul ]
 "78
 [; ;lcd.c: 78:         PORTDbits.RD3 = 1;
 [e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
@@ -381,15 +366,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;lcd.c: 84:     if( i == 0x01 || i == 0x02 )
 [e $ ! || == -> _i `i -> 1 `i == -> _i `i -> 2 `i 142  ]
 "85
-[; ;lcd.c: 85:         _delay((unsigned long)((2)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;lcd.c: 85:         _delay((unsigned long)((2)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
 [e $U 143  ]
 "86
 [; ;lcd.c: 86:     else
 [e :U 142 ]
 "87
-[; ;lcd.c: 87:         _delay((unsigned long)((40)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;lcd.c: 87:         _delay((unsigned long)((40)*(20000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 20000000 `l `d .4000000.0 `ul ]
 [e :U 143 ]
 "88
 [; ;lcd.c: 88:     PORTDbits.RD3 = 1;
@@ -421,8 +406,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;lcd.c: 98:     PORTDbits.RD3 = 0;
 [e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
 "99
-[; ;lcd.c: 99:     _delay((unsigned long)((40)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;lcd.c: 99:     _delay((unsigned long)((40)*(20000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 20000000 `l `d .4000000.0 `ul ]
 "100
 [; ;lcd.c: 100:     PORTDbits.RD3 = 1;
 [e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
@@ -436,8 +421,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;lcd.c: 104:     PORTDbits.RD3 = 0;
 [e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
 "105
-[; ;lcd.c: 105:     _delay((unsigned long)((40)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;lcd.c: 105:     _delay((unsigned long)((40)*(20000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 20000000 `l `d .4000000.0 `ul ]
 "106
 [; ;lcd.c: 106:     PORTDbits.RD3 = 1;
 [e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
@@ -603,121 +588,115 @@ Version 4.0 HI-TECH Software Intermediate Code
 "181
 [; ;lcd.c: 181: {
 [f ]
-"182
-[; ;lcd.c: 182:    INTCONbits.GIE = 0;
-[e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
-"184
-[; ;lcd.c: 184:     int div;
+"183
+[; ;lcd.c: 183:     int div;
 [v _div `i ~T0 @X0 1 a ]
-"185
-[; ;lcd.c: 185:     unsigned char size;
+"184
+[; ;lcd.c: 184:     unsigned char size;
 [v _size `uc ~T0 @X0 1 a ]
-"186
-[; ;lcd.c: 186:     char sinal;
+"185
+[; ;lcd.c: 185:     char sinal;
 [v _sinal `uc ~T0 @X0 1 a ]
-"188
-[; ;lcd.c: 188:     sinal = num < 0;
+"187
+[; ;lcd.c: 187:     sinal = num < 0;
 [e = _sinal -> -> < _num -> 0 `i `i `uc ]
-"189
-[; ;lcd.c: 189:     if( sinal )
+"188
+[; ;lcd.c: 188:     if( sinal )
 [e $ ! != -> _sinal `i -> 0 `i 153  ]
-"190
-[; ;lcd.c: 190:         num = (~num) + 1;
+"189
+[; ;lcd.c: 189:         num = (~num) + 1;
 [e = _num + ~ _num -> 1 `i ]
 [e :U 153 ]
-"192
-[; ;lcd.c: 192:     lcd_lincol(lin, col);
+"191
+[; ;lcd.c: 191:     lcd_lincol(lin, col);
 [e ( _lcd_lincol (2 , _lin _col ]
-"194
-[; ;lcd.c: 194:     div=10000;
+"193
+[; ;lcd.c: 193:     div=10000;
 [e = _div -> 10000 `i ]
-"195
-[; ;lcd.c: 195:     size = 5;
+"194
+[; ;lcd.c: 194:     size = 5;
 [e = _size -> -> 5 `i `uc ]
-"196
-[; ;lcd.c: 196:     while( div >= 1 )
+"195
+[; ;lcd.c: 195:     while( div >= 1 )
 [e $U 154  ]
 [e :U 155 ]
-"197
-[; ;lcd.c: 197:     {
+"196
+[; ;lcd.c: 196:     {
 {
-"198
-[; ;lcd.c: 198:         if( num/div == 0 )
+"197
+[; ;lcd.c: 197:         if( num/div == 0 )
 [e $ ! == / _num _div -> 0 `i 157  ]
-"199
-[; ;lcd.c: 199:             --size;
+"198
+[; ;lcd.c: 198:             --size;
 [e =- _size -> -> 1 `i `uc ]
 [e $U 158  ]
-"200
-[; ;lcd.c: 200:         else
+"199
+[; ;lcd.c: 199:         else
 [e :U 157 ]
-"201
-[; ;lcd.c: 201:             break;
+"200
+[; ;lcd.c: 200:             break;
 [e $U 156  ]
 [e :U 158 ]
-"202
-[; ;lcd.c: 202:         div/=10;
+"201
+[; ;lcd.c: 201:         div/=10;
 [e =/ _div -> 10 `i ]
-"203
-[; ;lcd.c: 203:     }
+"202
+[; ;lcd.c: 202:     }
 }
 [e :U 154 ]
-"196
-[; ;lcd.c: 196:     while( div >= 1 )
+"195
+[; ;lcd.c: 195:     while( div >= 1 )
 [e $ >= _div -> 1 `i 155  ]
 [e :U 156 ]
-"205
-[; ;lcd.c: 205:     while( tam > (size+sinal) && tam > 1 )
+"204
+[; ;lcd.c: 204:     while( tam > (size+sinal) && tam > 1 )
 [e $U 159  ]
 [e :U 160 ]
-"206
-[; ;lcd.c: 206:     {
+"205
+[; ;lcd.c: 205:     {
 {
-"207
-[; ;lcd.c: 207:         lcd_dataReg(' ');
+"206
+[; ;lcd.c: 206:         lcd_dataReg(' ');
 [e ( _lcd_dataReg (1 -> -> 32 `ui `uc ]
-"208
-[; ;lcd.c: 208:         --tam;
+"207
+[; ;lcd.c: 207:         --tam;
 [e =- _tam -> -> 1 `i `uc ]
-"209
-[; ;lcd.c: 209:     }
+"208
+[; ;lcd.c: 208:     }
 }
 [e :U 159 ]
-"205
-[; ;lcd.c: 205:     while( tam > (size+sinal) && tam > 1 )
+"204
+[; ;lcd.c: 204:     while( tam > (size+sinal) && tam > 1 )
 [e $ && > -> _tam `i + -> _size `i -> _sinal `i > -> _tam `i -> 1 `i 160  ]
 [e :U 161 ]
-"211
-[; ;lcd.c: 211:     if( sinal )
+"210
+[; ;lcd.c: 210:     if( sinal )
 [e $ ! != -> _sinal `i -> 0 `i 162  ]
-"212
-[; ;lcd.c: 212:         lcd_dataReg('-');
+"211
+[; ;lcd.c: 211:         lcd_dataReg('-');
 [e ( _lcd_dataReg (1 -> -> 45 `ui `uc ]
 [e :U 162 ]
-"214
-[; ;lcd.c: 214:     do
+"213
+[; ;lcd.c: 213:     do
 [e :U 165 ]
-"215
-[; ;lcd.c: 215:     {
+"214
+[; ;lcd.c: 214:     {
 {
-"216
-[; ;lcd.c: 216:         lcd_dataReg( (unsigned char)(num / div) + '0' );
+"215
+[; ;lcd.c: 215:         lcd_dataReg( (unsigned char)(num / div) + '0' );
 [e ( _lcd_dataReg (1 -> + -> -> / _num _div `uc `ui -> 48 `ui `uc ]
-"217
-[; ;lcd.c: 217:         num = num % div;
+"216
+[; ;lcd.c: 216:         num = num % div;
 [e = _num % _num _div ]
-"218
-[; ;lcd.c: 218:         div/=10;
+"217
+[; ;lcd.c: 217:         div/=10;
 [e =/ _div -> 10 `i ]
-"219
-[; ;lcd.c: 219:     }
+"218
+[; ;lcd.c: 218:     }
 }
 [e $ >= _div -> 1 `i 165  ]
 [e :U 164 ]
 "221
-[; ;lcd.c: 221:    INTCONbits.GIE = 1;
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"222
-[; ;lcd.c: 222: }
+[; ;lcd.c: 221: }
 [e :UE 152 ]
 }

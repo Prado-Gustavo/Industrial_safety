@@ -10,8 +10,11 @@
 #include "timer.h"
 #include "ccp.h"
 #include "lcd.h"
+#include "delay.h"
 
-
+int ccp1;
+int ccp2;
+int ccps;
 
 void __interrupt() isr(void)
 {
@@ -30,11 +33,12 @@ void __interrupt() isr(void)
         PIR1bits.TMR2IF = 0;
         T2_int();
     }
-    
     if( PIR1bits.CCP1IF && PIE1bits.CCP1IE )
     {
         PIR1bits.CCP1IF = 0;
         PORTAbits.RA0 = !PORTAbits.RA0;
         ccp_load( CCPR1H, CCPR1L );
+        T1CONbits.TMR1ON = 1;
+        PIE1bits.CCP1IE = 1;
     }
 }

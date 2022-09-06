@@ -2507,6 +2507,7 @@ extern __bank0 __bit __timeout;
 
 
 
+
 void delay_ms( unsigned int t );
 # 10 "inputs.c" 2
 
@@ -2542,19 +2543,18 @@ void echo_time (int t1, int t2, struct captura_t *ptr);
 
 
 
-
 void in_init (void)
 {
     TRISDbits.TRISD0 = 1;
     TRISDbits.TRISD1 = 0;
-    TRISCbits.TRISC2 = 0;
+
 }
 
 void uts_trigger (void)
 {
     PORTDbits.RD1 = 1;
-    _delay((unsigned long)((10)*(4000000/4000000.0)));
+    _delay((unsigned long)((10)*(20000000/4000000.0)));
     PORTDbits.RD1 = 0;
-    _delay((unsigned long)((10)*(4000000/4000000.0)));
+    _delay((unsigned long)((10)*(20000000/4000000.0)));
 
 }

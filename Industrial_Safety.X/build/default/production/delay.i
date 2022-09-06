@@ -2507,6 +2507,7 @@ extern __bank0 __bit __timeout;
 
 
 
+
 void delay_ms( unsigned int t );
 # 10 "delay.c" 2
 
@@ -2515,7 +2516,7 @@ void delay_ms( unsigned int t )
 {
     while( t )
     {
-        _delay((unsigned long)((1)*(4000000/4000.0)));
+        _delay((unsigned long)((1)*(20000000/4000.0)));
         --t;
     }
 }

@@ -17,19 +17,13 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "17 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\ccp.c
 [v _ccp1_init ccp1_init `(v  1 e 1 0 ]
-"31
+"32
 [v _ccp_load ccp_load `(v  1 e 1 0 ]
-"51
-[v _ccp_capture ccp_capture `(ui  1 e 2 0 ]
-"57
-[v _ccp_cap1 ccp_cap1 `(uc  1 e 1 0 ]
-"62
-[v _ccp_cap2 ccp_cap2 `(uc  1 e 1 0 ]
 "12 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\delay.c
 [v _delay_ms delay_ms `(v  1 e 1 0 ]
-"20 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\inputs.c
+"19 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\inputs.c
 [v _in_init in_init `(v  1 e 1 0 ]
-"16 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\interrupt.c
+"19 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\interrupt.c
 [v _isr isr `II(v  1 e 1 0 ]
 "59 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\lcd.c
 [v _lcd_instReg lcd_instReg `(v  1 e 1 0 ]
@@ -99,7 +93,7 @@
 [v _T2_int T2_int `(v  1 e 1 0 ]
 "59 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
-[s S314 . 1 `uc 1 RA0 1 0 :1:0 
+[s S250 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -109,9 +103,9 @@
 `uc 1 RA7 1 0 :1:7 
 ]
 "183
-[u S323 . 1 `S314 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES323  1 e 1 @5 ]
-[s S399 . 1 `uc 1 RB0 1 0 :1:0 
+[u S259 . 1 `S250 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES259  1 e 1 @5 ]
+[s S349 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -121,9 +115,9 @@
 `uc 1 RB7 1 0 :1:7 
 ]
 "245
-[u S408 . 1 `S399 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES408  1 e 1 @6 ]
-[s S378 . 1 `uc 1 RC0 1 0 :1:0 
+[u S358 . 1 `S349 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES358  1 e 1 @6 ]
+[s S328 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -133,11 +127,11 @@
 `uc 1 RC7 1 0 :1:7 
 ]
 "307
-[u S387 . 1 `S378 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES387  1 e 1 @7 ]
+[u S337 . 1 `S328 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES337  1 e 1 @7 ]
 "352
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
-[s S135 . 1 `uc 1 RD0 1 0 :1:0 
+[s S123 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -147,9 +141,9 @@
 `uc 1 RD7 1 0 :1:7 
 ]
 "369
-[u S144 . 1 `S135 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES144  1 e 1 @8 ]
-[s S181 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S132 . 1 `S123 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES132  1 e 1 @8 ]
+[s S295 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -159,14 +153,14 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "482
-[s S190 . 1 `uc 1 . 1 0 :2:0 
+[s S304 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
-[u S195 . 1 `S181 1 . 1 0 `S190 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES195  1 e 1 @11 ]
-[s S838 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S309 . 1 `S295 1 . 1 0 `S304 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES309  1 e 1 @11 ]
+[s S796 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -175,11 +169,11 @@
 `uc 1 ADIF 1 0 :1:6 
 ]
 "553
-[u S846 . 1 `S838 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES846  1 e 1 @12 ]
+[u S804 . 1 `S796 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES804  1 e 1 @12 ]
 "664
 [v _TMR1H TMR1H `VEuc  1 e 1 @15 ]
-[s S925 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S847 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 TMR1CS 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -188,7 +182,7 @@
 `uc 1 T1GINV 1 0 :1:7 
 ]
 "700
-[s S933 . 1 `uc 1 . 1 0 :2:0 
+[s S855 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1INSYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
@@ -196,19 +190,19 @@
 `uc 1 . 1 0 :1:6 
 `uc 1 T1GIV 1 0 :1:7 
 ]
-[s S941 . 1 `uc 1 . 1 0 :2:0 
+[s S863 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1SYNC 1 0 :1:2 
 ]
-[u S944 . 1 `S925 1 . 1 0 `S933 1 . 1 0 `S941 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES944  1 e 1 @16 ]
+[u S866 . 1 `S847 1 . 1 0 `S855 1 . 1 0 `S863 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES866  1 e 1 @16 ]
 "765
 [v _TMR2 TMR2 `VEuc  1 e 1 @17 ]
-[s S739 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S697 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
 ]
 "793
-[s S743 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S701 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 TOUTPS0 1 0 :1:3 
@@ -216,18 +210,18 @@
 `uc 1 TOUTPS2 1 0 :1:5 
 `uc 1 TOUTPS3 1 0 :1:6 
 ]
-[u S751 . 1 `S739 1 . 1 0 `S743 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES751  1 e 1 @18 ]
+[u S709 . 1 `S697 1 . 1 0 `S701 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES709  1 e 1 @18 ]
 "927
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @21 ]
 "934
 [v _CCPR1H CCPR1H `VEuc  1 e 1 @22 ]
-[s S968 . 1 `uc 1 CCP1M 1 0 :4:0 
+[s S960 . 1 `uc 1 CCP1M 1 0 :4:0 
 `uc 1 DC1B 1 0 :2:4 
 `uc 1 P1M 1 0 :2:6 
 ]
 "968
-[s S972 . 1 `uc 1 CCP1M0 1 0 :1:0 
+[s S964 . 1 `uc 1 CCP1M0 1 0 :1:0 
 `uc 1 CCP1M1 1 0 :1:1 
 `uc 1 CCP1M2 1 0 :1:2 
 `uc 1 CCP1M3 1 0 :1:3 
@@ -236,13 +230,13 @@
 `uc 1 P1M0 1 0 :1:6 
 `uc 1 P1M1 1 0 :1:7 
 ]
-[s S981 . 1 `uc 1 . 1 0 :4:0 
+[s S973 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 CCP1Y 1 0 :1:4 
 `uc 1 CCP1X 1 0 :1:5 
 ]
-[u S985 . 1 `S968 1 . 1 0 `S972 1 . 1 0 `S981 1 . 1 0 ]
-[v _CCP1CONbits CCP1CONbits `VES985  1 e 1 @23 ]
-[s S710 . 1 `uc 1 PS 1 0 :3:0 
+[u S977 . 1 `S960 1 . 1 0 `S964 1 . 1 0 `S973 1 . 1 0 ]
+[v _CCP1CONbits CCP1CONbits `VES977  1 e 1 @23 ]
+[s S668 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -250,12 +244,12 @@
 `uc 1 nRBPU 1 0 :1:7 
 ]
 "1366
-[s S717 . 1 `uc 1 PS0 1 0 :1:0 
+[s S675 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 ]
-[u S721 . 1 `S710 1 . 1 0 `S717 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES721  1 e 1 @129 ]
+[u S679 . 1 `S668 1 . 1 0 `S675 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES679  1 e 1 @129 ]
 [s S56 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
@@ -268,7 +262,7 @@
 "1433
 [u S65 . 1 `S56 1 . 1 0 ]
 [v _TRISAbits TRISAbits `VES65  1 e 1 @133 ]
-[s S420 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S370 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -278,8 +272,8 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "1495
-[u S429 . 1 `S420 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES429  1 e 1 @134 ]
+[u S379 . 1 `S370 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES379  1 e 1 @134 ]
 [s S22 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
@@ -292,7 +286,7 @@
 "1557
 [u S31 . 1 `S22 1 . 1 0 ]
 [v _TRISCbits TRISCbits `VES31  1 e 1 @135 ]
-[s S160 . 1 `uc 1 TRISD0 1 0 :1:0 
+[s S148 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -302,9 +296,9 @@
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "1619
-[u S169 . 1 `S160 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES169  1 e 1 @136 ]
-[s S767 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S157 . 1 `S148 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES157  1 e 1 @136 ]
+[s S725 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -313,8 +307,8 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1718
-[u S775 . 1 `S767 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES775  1 e 1 @140 ]
+[u S733 . 1 `S725 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES733  1 e 1 @140 ]
 "2041
 [v _PR2 PR2 `VEuc  1 e 1 @146 ]
 "3245
@@ -323,7 +317,7 @@
 [v _EEADR EEADR `VEuc  1 e 1 @269 ]
 "3387
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
-[s S340 . 1 `uc 1 RD 1 0 :1:0 
+[s S276 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -331,13 +325,13 @@
 `uc 1 EEPGD 1 0 :1:7 
 ]
 "3514
-[u S347 . 1 `S340 1 . 1 0 ]
-[v _EECON1bits EECON1bits `VES347  1 e 1 @396 ]
+[u S283 . 1 `S276 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES283  1 e 1 @396 ]
 "3544
 [v _EECON2 EECON2 `VEuc  1 e 1 @397 ]
-[s S903 captura_t 6 `i 1 captura1 2 0 `i 1 captura2 2 2 `i 1 super_captura 2 4 ]
+[s S914 captura_t 6 `i 1 captura1 2 0 `i 1 captura2 2 2 `i 1 super_captura 2 4 ]
 "15 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\ccp.c
-[v _ccp ccp `*.1S903  1 e 1 0 ]
+[v _ccp ccp `*.1S914  1 e 1 0 ]
 "15 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\prs.c
 [v _t_sensor t_sensor `i  1 e 2 0 ]
 "181 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\rfid.c
@@ -353,23 +347,17 @@
 "18 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"25
-[v main@ccps ccps `i  1 a 2 29 ]
-"24
-[v main@ccp2 ccp2 `i  1 a 2 27 ]
-"23
-[v main@ccp1 ccp1 `i  1 a 2 25 ]
-"117
+"119
 } 0
 "179 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\lcd.c
 [v _lcd_num lcd_num `(v  1 e 1 0 ]
 {
 [v lcd_num@lin lin `uc  1 a 1 wreg ]
-"184
+"183
 [v lcd_num@div div `i  1 a 2 19 ]
-"186
-[v lcd_num@sinal sinal `uc  1 a 1 18 ]
 "185
+[v lcd_num@sinal sinal `uc  1 a 1 18 ]
+"184
 [v lcd_num@size size `uc  1 a 1 17 ]
 "179
 [v lcd_num@lin lin `uc  1 a 1 wreg ]
@@ -377,9 +365,9 @@
 "180
 [v lcd_num@num num `i  1 p 2 10 ]
 [v lcd_num@tam tam `uc  1 p 1 12 ]
-"182
+"187
 [v lcd_num@lin lin `uc  1 a 1 16 ]
-"222
+"221
 } 0
 "112
 [v _lcd_lincol lcd_lincol `(v  1 e 1 0 ]
@@ -444,48 +432,33 @@
 [v delay_ms@t t `ui  1 p 2 0 ]
 "19
 } 0
-"20 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\inputs.c
+"19 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\inputs.c
 [v _in_init in_init `(v  1 e 1 0 ]
 {
-"25
+"24
 } 0
-"51 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\ccp.c
-[v _ccp_capture ccp_capture `(ui  1 e 2 0 ]
-{
-"54
-} 0
-"62
-[v _ccp_cap2 ccp_cap2 `(uc  1 e 1 0 ]
-{
-"65
-} 0
-"57
-[v _ccp_cap1 ccp_cap1 `(uc  1 e 1 0 ]
-{
-"60
-} 0
-"17
+"17 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\ccp.c
 [v _ccp1_init ccp1_init `(v  1 e 1 0 ]
 {
-"29
+"30
 } 0
-"16 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\interrupt.c
+"19 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\interrupt.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"40
+"46
 } 0
-"31 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\ccp.c
+"32 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\ccp.c
 [v _ccp_load ccp_load `(v  1 e 1 0 ]
 {
 [v ccp_load@hi hi `uc  1 a 1 wreg ]
-"33
-[v ccp_load@ccpaux ccpaux `i  1 a 2 8 ]
-"31
+"34
+[v ccp_load@ccpaux ccpaux `i  1 a 2 4 ]
+"32
 [v ccp_load@hi hi `uc  1 a 1 wreg ]
 [v ccp_load@lo lo `uc  1 p 1 0 ]
-"34
-[v ccp_load@hi hi `uc  1 a 1 7 ]
-"49
+"35
+[v ccp_load@hi hi `uc  1 a 1 3 ]
+"52
 } 0
 "132 C:\Users\21193442\Desktop\Industrial_safety\Industrial_Safety.X\timer.c
 [v _T2_int T2_int `(v  1 e 1 0 ]

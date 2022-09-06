@@ -2510,12 +2510,13 @@ void lcd_num( unsigned char lin, unsigned char col,
 
 
 
+
 void delay_ms( unsigned int t );
 # 3 "lcd.c" 2
 
 # 1 "./config.h" 1
-# 10 "./config.h"
-#pragma config FOSC = INTRC_NOCLKOUT
+# 11 "./config.h"
+#pragma config FOSC = HS
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
 #pragma config MCLRE = OFF
@@ -2538,9 +2539,9 @@ void lcd_instReg( unsigned char i )
 
     PORTDbits.RD3 = 0;
     if( i == 0x01 || i == 0x02 )
-        _delay((unsigned long)((2)*(4000000/4000.0)));
+        _delay((unsigned long)((2)*(20000000/4000.0)));
     else
-        _delay((unsigned long)((40)*(4000000/4000000.0)));
+        _delay((unsigned long)((40)*(20000000/4000000.0)));
     PORTDbits.RD3 = 1;
 
 
@@ -2549,7 +2550,7 @@ void lcd_instReg( unsigned char i )
         PORTDbits.RD2 = 0;
         PORTD = ((PORTD & 0x0F)|(i>>4<<4));
         PORTDbits.RD3 = 0;
-        _delay((unsigned long)((40)*(4000000/4000000.0)));
+        _delay((unsigned long)((40)*(20000000/4000000.0)));
         PORTDbits.RD3 = 1;
     }
 
@@ -2557,9 +2558,9 @@ void lcd_instReg( unsigned char i )
     PORTD = ((PORTD & 0x0F)|(i<<4));
     PORTDbits.RD3 = 0;
     if( i == 0x01 || i == 0x02 )
-        _delay((unsigned long)((2)*(4000000/4000.0)));
+        _delay((unsigned long)((2)*(20000000/4000.0)));
     else
-        _delay((unsigned long)((40)*(4000000/4000000.0)));
+        _delay((unsigned long)((40)*(20000000/4000000.0)));
     PORTDbits.RD3 = 1;
 }
 
@@ -2571,13 +2572,13 @@ void lcd_dataReg( unsigned char d )
     PORTDbits.RD2 = 1;
     PORTD = ((PORTD & 0x0F)|(d >> 4<<4));
     PORTDbits.RD3 = 0;
-    _delay((unsigned long)((40)*(4000000/4000000.0)));
+    _delay((unsigned long)((40)*(20000000/4000000.0)));
     PORTDbits.RD3 = 1;
 
     PORTDbits.RD2 = 1;
     PORTD = ((PORTD & 0x0F)|(d<<4));
     PORTDbits.RD3 = 0;
-    _delay((unsigned long)((40)*(4000000/4000000.0)));
+    _delay((unsigned long)((40)*(20000000/4000000.0)));
     PORTDbits.RD3 = 1;
 }
 
@@ -2638,7 +2639,6 @@ void lcd_print( unsigned char lin, unsigned char col, const char * str )
 void lcd_num( unsigned char lin, unsigned char col,
                     int num, unsigned char tam )
 {
-   INTCONbits.GIE = 0;
 
     int div;
     unsigned char size;
@@ -2677,5 +2677,5 @@ void lcd_num( unsigned char lin, unsigned char col,
         div/=10;
     }
     while( div >= 1 );
-   INTCONbits.GIE = 1;
+
 }

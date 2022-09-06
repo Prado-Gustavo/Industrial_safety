@@ -2513,6 +2513,7 @@ char spiSoftRxDat(void);
 
 
 
+
 void delay_ms( unsigned int t );
 # 48 "rfid.c" 2
 # 180 "rfid.c"
@@ -2523,12 +2524,12 @@ char dados_tag[] = {"________________"};
 
 void delay_piscal(void)
 {
- _delay((unsigned long)((200)*(4000000/4000.0)));
+ _delay((unsigned long)((200)*(20000000/4000.0)));
 }
 
 void delay_1seg(void)
 {
- _delay((unsigned long)((1000)*(4000000/4000.0)));
+ _delay((unsigned long)((1000)*(20000000/4000.0)));
 }
 
 
@@ -2628,7 +2629,7 @@ char eepromLer(char Address)
  EECON1bits.EEPGD = 0;
  EECON1bits.RD = 1;
  Data = EEDATA;
- _delay((unsigned long)((1)*(4000000/4000.0)));
+ _delay((unsigned long)((1)*(20000000/4000.0)));
  return Data;
 }
 
@@ -2695,7 +2696,7 @@ char tagTxCmd(char cmd, char *data, char dlen, char *result, char *rlen)
  i = 250;
  do
  {
-  _delay((unsigned long)((100)*(4000000/4000000.0)));
+  _delay((unsigned long)((100)*(20000000/4000000.0)));
   spiSoftTxCmd(0x04, 1);
   n = spiSoftRxDat();
   PORTAbits.RA5 = 1;
@@ -2869,7 +2870,7 @@ void testa_botao_del(char modo)
  {
   PORTCbits.RC1 = 1;
   PORTCbits.RC6 = 0;
-  _delay((unsigned long)((100)*(4000000/4000.0)));
+  _delay((unsigned long)((100)*(20000000/4000.0)));
   t++;
   if (t >= 100)
   {

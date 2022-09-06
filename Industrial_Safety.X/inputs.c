@@ -11,7 +11,6 @@
 #include "ccp.h"
 #include "inputs.h"
 
-#define UTS_ECHO    PORTDbits.RC2
 #define UTS_TRIGGER PORTDbits.RD1
 #define PIR_OUT     PORTDbits.RD0
  
@@ -21,7 +20,7 @@ void in_init (void)
 {
     TRISDbits.TRISD0 = 1;
     TRISDbits.TRISD1 = 0;
-    TRISCbits.TRISC2 = 0;
+
 }
 
 void uts_trigger (void)

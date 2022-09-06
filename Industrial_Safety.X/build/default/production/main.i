@@ -2502,8 +2502,8 @@ extern __bank0 __bit __timeout;
 # 9 "main.c" 2
 
 # 1 "./config.h" 1
-# 10 "./config.h"
-#pragma config FOSC = INTRC_NOCLKOUT
+# 11 "./config.h"
+#pragma config FOSC = HS
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
 #pragma config MCLRE = OFF
@@ -2520,6 +2520,7 @@ extern __bank0 __bit __timeout;
 # 10 "main.c" 2
 
 # 1 "./delay.h" 1
+
 
 
 
@@ -2602,7 +2603,8 @@ void main (void)
 
     int ccp1;
     int ccp2;
-    int ccps;
+    int ccp3;
+
 
     TRISCbits.TRISC0 = 0;
 
@@ -2619,19 +2621,10 @@ TRISAbits.TRISA0 = 0;
 
     while(1)
     {
-
-        ccp1 = ccp_cap1();
-        ccp2 = ccp_cap2();
-        ccps = ccp_capture();
-
-        lcd_num( 1, 0, 1, 3);
-        lcd_num( 1, 5, 1, 3);
-        lcd_num( 1, 10, 1, 3);
-
+# 51 "main.c"
         lcd_num( 0, 13, (int)TMR1H, 3);
-
         delay_ms(1000);
-# 115 "main.c"
+# 117 "main.c"
     }
 
 }

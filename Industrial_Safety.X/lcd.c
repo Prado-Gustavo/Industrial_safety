@@ -179,8 +179,7 @@ void lcd_print( unsigned char lin, unsigned char col, const char * str )
 void lcd_num(  unsigned char lin, unsigned char col,
                     int num, unsigned char tam )
 {
-   INTCONbits.GIE    =  0;
-
+   
     int div;
     unsigned char size;
     char sinal; // 0:+ 1:-
@@ -218,6 +217,6 @@ void lcd_num(  unsigned char lin, unsigned char col,
         div/=10;
     }
     while( div >= 1 );
-   INTCONbits.GIE    =  1;
+   
 }
 

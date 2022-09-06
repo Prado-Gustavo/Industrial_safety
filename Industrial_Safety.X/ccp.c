@@ -22,6 +22,7 @@ void ccp1_init( void )
     T1CONbits.T1CKPS =  0;
     T1CONbits.TMR1ON = 1;
     CCP1CONbits.CCP1M = CCP_RISING_EDGE;
+    
     TRISCbits.TRISC2 = 1;
     PIE1bits.CCP1IE = 1;
     INTCONbits.PEIE   =  1; 
@@ -31,11 +32,12 @@ void ccp1_init( void )
 void ccp_load( unsigned char hi, unsigned char lo )
 {
     int ccpaux;
+    ccpaux = 0;
     ccpaux = hi;
     ccpaux <<= 8;
     ccpaux = lo;
     
-    if( CCP1CONbits.CCP1M == 5 )
+    if( CCP1CONbits.CCP1M == CCP_RISING_EDGE )
     {
         ccp->captura1 = ccpaux;
         CCP1CONbits.CCP1M = CCP_FALLING_EDGE;
@@ -43,8 +45,9 @@ void ccp_load( unsigned char hi, unsigned char lo )
     else
     {
         ccp->captura2 = ccpaux;
-        ccp->super_captura = ccp->captura2 - ccp->captura1;
         CCP1CONbits.CCP1M = CCP_RISING_EDGE;
+//        ccp->super_captura = ccp->captura2 - ccp->captura1;
+
     }
 }
 
