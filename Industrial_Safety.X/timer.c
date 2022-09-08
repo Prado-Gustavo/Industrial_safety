@@ -115,45 +115,45 @@ unsigned int T0_status( void )
 
 
 
-void T2_init(void)
-{
-    INTCONbits.GIE = 0;
-    PR2 = TMR2_RELOAD;
-    TMR2 = 0;
-    T2CONbits.T2CKPS = 0x1;
-    T2CONbits.TOUTPS = 0x4;
-    INTCONbits.PEIE = 1;
-    PIE1bits.TMR2IE = 1;
-    INTCONbits.GIE = 1;
-}
-
-
-    
-void T2_int( void )
-{
-    if( T2count )
-    {
-        --T2count;
-    }
-}
-
-void T2_start( unsigned int c )
-{
-    T2count = c;
-    T2CONbits.TMR2ON = 1;
-}
-
-void T2_pause( void )
-{
-    T2CONbits.TMR2ON = 0;
-}
-
-void T2_play( void )
-{
-    T2CONbits.TMR2ON = 1;
-}
-
-unsigned int T2_status( void )
-{
-    return( T2count );
-}
+//void T2_init(void)
+//{
+//    INTCONbits.GIE = 0;
+//    PR2 = TMR2_RELOAD;
+//    TMR2 = 0;
+//    T2CONbits.T2CKPS = 0x1;
+//    T2CONbits.TOUTPS = 0x4;
+//    INTCONbits.PEIE = 1;
+//    PIE1bits.TMR2IE = 1;
+//    INTCONbits.GIE = 1;
+//}
+//
+//
+//    
+//void T2_int( void )
+//{
+//    if( T2count )
+//    {
+//        --T2count;
+//    }
+//}
+//
+//void T2_start( unsigned int c )
+//{
+//    T2count = c;
+//    T2CONbits.TMR2ON = 1;
+//}
+//
+//void T2_pause( void )
+//{
+//    T2CONbits.TMR2ON = 0;
+//}
+//
+//void T2_play( void )
+//{
+//    T2CONbits.TMR2ON = 1;
+//}
+//
+//unsigned int T2_status( void )
+//{
+//    return( T2count );
+//}

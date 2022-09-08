@@ -2579,7 +2579,8 @@ struct captura_t
 };
 
 void ccp1_init( void );
-void ccp_load( unsigned char hi, unsigned char lo );
+void ccp_load_rising ( unsigned char hi, unsigned char lo );
+void ccp_load_falling( unsigned char hi2, unsigned char lo2 );
 unsigned int ccp_capture(void);
 
 unsigned char ccp_cap1( void );
@@ -2621,10 +2622,18 @@ TRISAbits.TRISA0 = 0;
 
     while(1)
     {
-# 51 "main.c"
+        ccp1 = ccp_cap1();
+        ccp2 = ccp_cap2();
+        ccp3 = ccp_capture();
+
+        lcd_num( 1, 0, ccp1, 3);
+        lcd_num( 1, 5, ccp2, 3);
+        lcd_num( 1, 10, ccp3, 3);
+
+
         lcd_num( 0, 13, (int)TMR1H, 3);
         delay_ms(1000);
-# 117 "main.c"
+# 119 "main.c"
     }
 
 }

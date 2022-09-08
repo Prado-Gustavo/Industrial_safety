@@ -40,16 +40,18 @@ TRISAbits.TRISA0 = 0;
 
     while(1)
     {
-///        ccp1 = ccp_cap1();
-//        ccp2 = ccp_cap2();
-//        ccp3 = ccp_capture();
-//        
-//        lcd_num( 1, 0,  ccp1, 3);
-//        lcd_num( 1, 5,  ccp2, 3);  
-//        lcd_num( 1, 10, ccp3, 3);
-//
+        ccp1 = ccp_cap1();
+        ccp2 = ccp_cap2();
+        ccp3 = ccp_capture();
+        
+        lcd_num( 1, 0,  ccp1, 3);
+        lcd_num( 1, 5,  ccp2, 3);  
+        lcd_num( 1, 10, ccp3, 3);
+
+        
         lcd_num( 0, 13, (int)TMR1H, 3);
         delay_ms(1000);
+ 
         
         
         

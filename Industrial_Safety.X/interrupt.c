@@ -28,17 +28,21 @@ void __interrupt() isr(void)
 //        PIR1bits.TMR1IF = 0;
 //        T1_int();
 //    }
-    if( PIR1bits.TMR2IF && PIE1bits.TMR2IE )
-    {
-        PIR1bits.TMR2IF = 0;
-        T2_int();
-    }
+//    if( PIR1bits.TMR2IF && PIE1bits.TMR2IE )
+//    {
+//        PIR1bits.TMR2IF = 0;
+//        T2_int();
+//    }
     if( PIR1bits.CCP1IF && PIE1bits.CCP1IE )
     {
-        PIR1bits.CCP1IF = 0;
-        PORTAbits.RA0 = !PORTAbits.RA0;
-        ccp_load( CCPR1H, CCPR1L );
+        PIE1bits.CCP1IE  = 0;
+        PIR1bits.CCP1IF  = 0;
+        PORTAbits.RA0    = !PORTAbits.RA0;
+        ccp_load_rising  ( CCPR2H, CCPR2L );
+        ccp_load_falling ( CCPR2H, CCPR2L );
         T1CONbits.TMR1ON = 1;
-        PIE1bits.CCP1IE = 1;
+        PIE1bits.CCP1IE  = 1;
     }
 }
+
+

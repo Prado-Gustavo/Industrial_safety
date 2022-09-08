@@ -16,7 +16,8 @@ struct captura_t
 };
 
 void ccp1_init( void );
-void ccp_load( unsigned char hi, unsigned char lo );
+void ccp_load_rising ( unsigned char hi, unsigned char lo );
+void ccp_load_falling( unsigned char hi2, unsigned char lo2 );
 unsigned int ccp_capture(void);
 
 unsigned char ccp_cap1( void );
