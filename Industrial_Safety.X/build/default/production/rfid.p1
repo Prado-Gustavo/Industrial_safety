@@ -1,0 +1,2887 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[v F1256 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic.h
+[v __delay `JF1256 ~T0 @X0 0 e ]
+[p i __delay ]
+"22 ./spi.h
+[; ;./spi.h: 22: void spiSoftTxCmd(char end, char oper);
+[v _spiSoftTxCmd `(v ~T0 @X0 0 ef2`uc`uc ]
+"24
+[; ;./spi.h: 24: char spiSoftRxDat(void);
+[v _spiSoftRxDat `(uc ~T0 @X0 0 ef ]
+"172 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 172:     struct {
+[s S6 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S6 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"171
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 171: typedef union {
+[u S5 `S6 1 ]
+[n S5 . . ]
+"183
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 183: extern volatile PORTAbits_t PORTAbits __attribute__((address(0x005)));
+[v _PORTAbits `VS5 ~T0 @X0 0 e@5 ]
+"20 ./spi.h
+[; ;./spi.h: 20: void spiSoftTxDat(char dado);
+[v _spiSoftTxDat `(v ~T0 @X0 0 ef1`uc ]
+"3505 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3505:     struct {
+[s S137 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S137 . RD WR WREN WRERR . EEPGD ]
+"3504
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3504: typedef union {
+[u S136 `S137 1 ]
+[n S136 . . ]
+"3514
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3514: extern volatile EECON1bits_t EECON1bits __attribute__((address(0x18C)));
+[v _EECON1bits `VS136 ~T0 @X0 0 e@396 ]
+"3257
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3257: extern volatile unsigned char EEADR __attribute__((address(0x10D)));
+[v _EEADR `Vuc ~T0 @X0 0 e@269 ]
+"3245
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3245: extern volatile unsigned char EEDATA __attribute__((address(0x10C)));
+[v _EEDATA `Vuc ~T0 @X0 0 e@268 ]
+"465
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 465:     struct {
+[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S16 . RBIF INTF T0IF RBIE INTE T0IE PEIE GIE ]
+"475
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 475:     struct {
+[s S17 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S17 . . TMR0IF . TMR0IE ]
+"464
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 464: typedef union {
+[u S15 `S16 1 `S17 1 ]
+[n S15 . . . ]
+"482
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 482: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
+"3544
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3544: extern volatile unsigned char EECON2 __attribute__((address(0x18D)));
+[v _EECON2 `Vuc ~T0 @X0 0 e@397 ]
+"296
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 296:     struct {
+[s S10 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S10 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"295
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 295: typedef union {
+[u S9 `S10 1 ]
+[n S9 . . ]
+"307
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 307: extern volatile PORTCbits_t PORTCbits __attribute__((address(0x007)));
+[v _PORTCbits `VS9 ~T0 @X0 0 e@7 ]
+"234
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 234:     struct {
+[s S8 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S8 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"233
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 233: typedef union {
+[u S7 `S8 1 ]
+[n S7 . . ]
+"245
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 245: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x006)));
+[v _PORTBbits `VS7 ~T0 @X0 0 e@6 ]
+"1484
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1484:     struct {
+[s S55 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S55 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"1483
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1483: typedef union {
+[u S54 `S55 1 ]
+[n S54 . . ]
+"1495
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1495: extern volatile TRISBbits_t TRISBbits __attribute__((address(0x086)));
+[v _TRISBbits `VS54 ~T0 @X0 0 e@134 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"61
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 61: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"68
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 68: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"75
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 75: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"161
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 161: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"168
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 168: __asm("PORTA equ 05h");
+[; <" PORTA equ 05h ;# ">
+"230
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 230: __asm("PORTB equ 06h");
+[; <" PORTB equ 06h ;# ">
+"292
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 292: __asm("PORTC equ 07h");
+[; <" PORTC equ 07h ;# ">
+"354
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 354: __asm("PORTD equ 08h");
+[; <" PORTD equ 08h ;# ">
+"416
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 416: __asm("PORTE equ 09h");
+[; <" PORTE equ 09h ;# ">
+"454
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 454: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"461
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 461: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"539
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 539: __asm("PIR1 equ 0Ch");
+[; <" PIR1 equ 0Ch ;# ">
+"595
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 595: __asm("PIR2 equ 0Dh");
+[; <" PIR2 equ 0Dh ;# ">
+"652
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 652: __asm("TMR1 equ 0Eh");
+[; <" TMR1 equ 0Eh ;# ">
+"659
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 659: __asm("TMR1L equ 0Eh");
+[; <" TMR1L equ 0Eh ;# ">
+"666
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 666: __asm("TMR1H equ 0Fh");
+[; <" TMR1H equ 0Fh ;# ">
+"673
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 673: __asm("T1CON equ 010h");
+[; <" T1CON equ 010h ;# ">
+"767
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 767: __asm("TMR2 equ 011h");
+[; <" TMR2 equ 011h ;# ">
+"774
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 774: __asm("T2CON equ 012h");
+[; <" T2CON equ 012h ;# ">
+"845
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 845: __asm("SSPBUF equ 013h");
+[; <" SSPBUF equ 013h ;# ">
+"852
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 852: __asm("SSPCON equ 014h");
+[; <" SSPCON equ 014h ;# ">
+"922
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 922: __asm("CCPR1 equ 015h");
+[; <" CCPR1 equ 015h ;# ">
+"929
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 929: __asm("CCPR1L equ 015h");
+[; <" CCPR1L equ 015h ;# ">
+"936
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 936: __asm("CCPR1H equ 016h");
+[; <" CCPR1H equ 016h ;# ">
+"943
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 943: __asm("CCP1CON equ 017h");
+[; <" CCP1CON equ 017h ;# ">
+"1040
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1040: __asm("RCSTA equ 018h");
+[; <" RCSTA equ 018h ;# ">
+"1135
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1135: __asm("TXREG equ 019h");
+[; <" TXREG equ 019h ;# ">
+"1142
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1142: __asm("RCREG equ 01Ah");
+[; <" RCREG equ 01Ah ;# ">
+"1149
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1149: __asm("CCPR2 equ 01Bh");
+[; <" CCPR2 equ 01Bh ;# ">
+"1156
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1156: __asm("CCPR2L equ 01Bh");
+[; <" CCPR2L equ 01Bh ;# ">
+"1163
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1163: __asm("CCPR2H equ 01Ch");
+[; <" CCPR2H equ 01Ch ;# ">
+"1170
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1170: __asm("CCP2CON equ 01Dh");
+[; <" CCP2CON equ 01Dh ;# ">
+"1240
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1240: __asm("ADRESH equ 01Eh");
+[; <" ADRESH equ 01Eh ;# ">
+"1247
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1247: __asm("ADCON0 equ 01Fh");
+[; <" ADCON0 equ 01Fh ;# ">
+"1348
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1348: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"1418
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1418: __asm("TRISA equ 085h");
+[; <" TRISA equ 085h ;# ">
+"1480
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1480: __asm("TRISB equ 086h");
+[; <" TRISB equ 086h ;# ">
+"1542
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1542: __asm("TRISC equ 087h");
+[; <" TRISC equ 087h ;# ">
+"1604
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1604: __asm("TRISD equ 088h");
+[; <" TRISD equ 088h ;# ">
+"1666
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1666: __asm("TRISE equ 089h");
+[; <" TRISE equ 089h ;# ">
+"1704
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1704: __asm("PIE1 equ 08Ch");
+[; <" PIE1 equ 08Ch ;# ">
+"1760
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1760: __asm("PIE2 equ 08Dh");
+[; <" PIE2 equ 08Dh ;# ">
+"1817
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1817: __asm("PCON equ 08Eh");
+[; <" PCON equ 08Eh ;# ">
+"1864
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1864: __asm("OSCCON equ 08Fh");
+[; <" OSCCON equ 08Fh ;# ">
+"1929
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1929: __asm("OSCTUNE equ 090h");
+[; <" OSCTUNE equ 090h ;# ">
+"1981
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1981: __asm("SSPCON2 equ 091h");
+[; <" SSPCON2 equ 091h ;# ">
+"2043
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2043: __asm("PR2 equ 092h");
+[; <" PR2 equ 092h ;# ">
+"2050
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2050: __asm("SSPADD equ 093h");
+[; <" SSPADD equ 093h ;# ">
+"2057
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2057: __asm("SSPMSK equ 093h");
+[; <" SSPMSK equ 093h ;# ">
+"2062
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2062: __asm("MSK equ 093h");
+[; <" MSK equ 093h ;# ">
+"2179
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2179: __asm("SSPSTAT equ 094h");
+[; <" SSPSTAT equ 094h ;# ">
+"2348
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2348: __asm("WPUB equ 095h");
+[; <" WPUB equ 095h ;# ">
+"2418
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2418: __asm("IOCB equ 096h");
+[; <" IOCB equ 096h ;# ">
+"2488
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2488: __asm("VRCON equ 097h");
+[; <" VRCON equ 097h ;# ">
+"2558
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2558: __asm("TXSTA equ 098h");
+[; <" TXSTA equ 098h ;# ">
+"2644
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2644: __asm("SPBRG equ 099h");
+[; <" SPBRG equ 099h ;# ">
+"2706
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2706: __asm("SPBRGH equ 09Ah");
+[; <" SPBRGH equ 09Ah ;# ">
+"2776
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2776: __asm("PWM1CON equ 09Bh");
+[; <" PWM1CON equ 09Bh ;# ">
+"2846
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2846: __asm("ECCPAS equ 09Ch");
+[; <" ECCPAS equ 09Ch ;# ">
+"2928
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2928: __asm("PSTRCON equ 09Dh");
+[; <" PSTRCON equ 09Dh ;# ">
+"2972
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2972: __asm("ADRESL equ 09Eh");
+[; <" ADRESL equ 09Eh ;# ">
+"2979
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2979: __asm("ADCON1 equ 09Fh");
+[; <" ADCON1 equ 09Fh ;# ">
+"3013
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3013: __asm("WDTCON equ 0105h");
+[; <" WDTCON equ 0105h ;# ">
+"3066
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3066: __asm("CM1CON0 equ 0107h");
+[; <" CM1CON0 equ 0107h ;# ">
+"3131
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3131: __asm("CM2CON0 equ 0108h");
+[; <" CM2CON0 equ 0108h ;# ">
+"3196
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3196: __asm("CM2CON1 equ 0109h");
+[; <" CM2CON1 equ 0109h ;# ">
+"3247
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3247: __asm("EEDATA equ 010Ch");
+[; <" EEDATA equ 010Ch ;# ">
+"3252
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3252: __asm("EEDAT equ 010Ch");
+[; <" EEDAT equ 010Ch ;# ">
+"3259
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3259: __asm("EEADR equ 010Dh");
+[; <" EEADR equ 010Dh ;# ">
+"3266
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3266: __asm("EEDATH equ 010Eh");
+[; <" EEDATH equ 010Eh ;# ">
+"3273
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3273: __asm("EEADRH equ 010Fh");
+[; <" EEADRH equ 010Fh ;# ">
+"3280
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3280: __asm("SRCON equ 0185h");
+[; <" SRCON equ 0185h ;# ">
+"3337
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3337: __asm("BAUDCTL equ 0187h");
+[; <" BAUDCTL equ 0187h ;# ">
+"3389
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3389: __asm("ANSEL equ 0188h");
+[; <" ANSEL equ 0188h ;# ">
+"3451
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3451: __asm("ANSELH equ 0189h");
+[; <" ANSELH equ 0189h ;# ">
+"3501
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3501: __asm("EECON1 equ 018Ch");
+[; <" EECON1 equ 018Ch ;# ">
+"3546
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
+[; <" EECON2 equ 018Dh ;# ">
+"180 rfid.c
+[; ;rfid.c: 180: char b, find, c;
+[v _b `uc ~T0 @X0 1 e ]
+[v _find `uc ~T0 @X0 1 e ]
+[v _c `uc ~T0 @X0 1 e ]
+"181
+[; ;rfid.c: 181: char f_mp = 0;
+[v _f_mp `uc ~T0 @X0 1 e ]
+[i _f_mp
+-> -> 0 `i `uc
+]
+"182
+[; ;rfid.c: 182: char dados_tag[] = {"________________"};
+[v _dados_tag `uc ~T0 @X0 -> 17 `i e ]
+[i _dados_tag
+:U ..
+-> 95 `c
+-> 95 `c
+-> 95 `c
+-> 95 `c
+-> 95 `c
+-> 95 `c
+-> 95 `c
+-> 95 `c
+-> 95 `c
+-> 95 `c
+-> 95 `c
+-> 95 `c
+-> 95 `c
+-> 95 `c
+-> 95 `c
+-> 95 `c
+-> 0 `c
+..
+]
+"185
+[; ;rfid.c: 185: void delay_piscal(void)
+[v _delay_piscal `(v ~T0 @X0 1 ef ]
+"186
+[; ;rfid.c: 186: {
+{
+[e :U _delay_piscal ]
+[f ]
+"187
+[; ;rfid.c: 187:  _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"188
+[; ;rfid.c: 188: }
+[e :UE 138 ]
+}
+"190
+[; ;rfid.c: 190: void delay_1seg(void)
+[v _delay_1seg `(v ~T0 @X0 1 ef ]
+"191
+[; ;rfid.c: 191: {
+{
+[e :U _delay_1seg ]
+[f ]
+"192
+[; ;rfid.c: 192:  _delay((unsigned long)((1000)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"193
+[; ;rfid.c: 193: }
+[e :UE 139 ]
+}
+"196
+[; ;rfid.c: 196: void mfrc522ClrBit(char end, char mascara)
+[v _mfrc522ClrBit `(v ~T0 @X0 1 ef2`uc`uc ]
+"197
+[; ;rfid.c: 197: {
+{
+[e :U _mfrc522ClrBit ]
+"196
+[; ;rfid.c: 196: void mfrc522ClrBit(char end, char mascara)
+[v _end `uc ~T0 @X0 1 r1 ]
+[v _mascara `uc ~T0 @X0 1 r2 ]
+"197
+[; ;rfid.c: 197: {
+[f ]
+"198
+[; ;rfid.c: 198:  char lido;
+[v _lido `uc ~T0 @X0 1 a ]
+"199
+[; ;rfid.c: 199:  spiSoftTxCmd(end, 1);
+[e ( _spiSoftTxCmd (2 , _end -> -> 1 `i `uc ]
+"200
+[; ;rfid.c: 200:  lido = spiSoftRxDat();
+[e = _lido ( _spiSoftRxDat ..  ]
+"201
+[; ;rfid.c: 201:  PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"202
+[; ;rfid.c: 202:  lido = lido & (~mascara);
+[e = _lido -> & -> _lido `i ~ -> _mascara `i `uc ]
+"203
+[; ;rfid.c: 203:  spiSoftTxCmd(end, 0);
+[e ( _spiSoftTxCmd (2 , _end -> -> 0 `i `uc ]
+"204
+[; ;rfid.c: 204:  spiSoftTxDat(lido);
+[e ( _spiSoftTxDat (1 _lido ]
+"205
+[; ;rfid.c: 205:  PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"206
+[; ;rfid.c: 206: }
+[e :UE 140 ]
+}
+"208
+[; ;rfid.c: 208: void mfrc522SetBit(char end, char mascara)
+[v _mfrc522SetBit `(v ~T0 @X0 1 ef2`uc`uc ]
+"209
+[; ;rfid.c: 209: {
+{
+[e :U _mfrc522SetBit ]
+"208
+[; ;rfid.c: 208: void mfrc522SetBit(char end, char mascara)
+[v _end `uc ~T0 @X0 1 r1 ]
+[v _mascara `uc ~T0 @X0 1 r2 ]
+"209
+[; ;rfid.c: 209: {
+[f ]
+"210
+[; ;rfid.c: 210:  char lido;
+[v _lido `uc ~T0 @X0 1 a ]
+"211
+[; ;rfid.c: 211:  spiSoftTxCmd(end, 1);
+[e ( _spiSoftTxCmd (2 , _end -> -> 1 `i `uc ]
+"212
+[; ;rfid.c: 212:  lido = spiSoftRxDat();
+[e = _lido ( _spiSoftRxDat ..  ]
+"213
+[; ;rfid.c: 213:  PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"214
+[; ;rfid.c: 214:  lido = lido | mascara;
+[e = _lido -> | -> _lido `i -> _mascara `i `uc ]
+"215
+[; ;rfid.c: 215:  spiSoftTxCmd(end, 0);
+[e ( _spiSoftTxCmd (2 , _end -> -> 0 `i `uc ]
+"216
+[; ;rfid.c: 216:  spiSoftTxDat(lido);
+[e ( _spiSoftTxDat (1 _lido ]
+"217
+[; ;rfid.c: 217:  PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"218
+[; ;rfid.c: 218: }
+[e :UE 141 ]
+}
+"220
+[; ;rfid.c: 220: void mfrc522AntOn(void)
+[v _mfrc522AntOn `(v ~T0 @X0 1 ef ]
+"221
+[; ;rfid.c: 221: {
+{
+[e :U _mfrc522AntOn ]
+[f ]
+"222
+[; ;rfid.c: 222:  mfrc522SetBit(0x14, 0x03);
+[e ( _mfrc522SetBit (2 , -> -> 20 `i `uc -> -> 3 `i `uc ]
+"223
+[; ;rfid.c: 223: }
+[e :UE 142 ]
+}
+"225
+[; ;rfid.c: 225: void mfrc522AntOff(void)
+[v _mfrc522AntOff `(v ~T0 @X0 1 ef ]
+"226
+[; ;rfid.c: 226: {
+{
+[e :U _mfrc522AntOff ]
+[f ]
+"227
+[; ;rfid.c: 227:  mfrc522ClrBit(0x14, 0x03);
+[e ( _mfrc522ClrBit (2 , -> -> 20 `i `uc -> -> 3 `i `uc ]
+"228
+[; ;rfid.c: 228: }
+[e :UE 143 ]
+}
+"230
+[; ;rfid.c: 230: void mfrc522Rst(void)
+[v _mfrc522Rst `(v ~T0 @X0 1 ef ]
+"231
+[; ;rfid.c: 231: {
+{
+[e :U _mfrc522Rst ]
+[f ]
+"232
+[; ;rfid.c: 232:  spiSoftTxCmd(0x01, 0);
+[e ( _spiSoftTxCmd (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
+"233
+[; ;rfid.c: 233:  spiSoftTxDat(0x0F);
+[e ( _spiSoftTxDat (1 -> -> 15 `i `uc ]
+"234
+[; ;rfid.c: 234:  PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"235
+[; ;rfid.c: 235: }
+[e :UE 144 ]
+}
+"237
+[; ;rfid.c: 237: void mfrc522Iniciar(void)
+[v _mfrc522Iniciar `(v ~T0 @X0 1 ef ]
+"238
+[; ;rfid.c: 238: {
+{
+[e :U _mfrc522Iniciar ]
+[f ]
+"239
+[; ;rfid.c: 239:  mfrc522Rst();
+[e ( _mfrc522Rst ..  ]
+"241
+[; ;rfid.c: 241:  spiSoftTxCmd(0x2A, 0);
+[e ( _spiSoftTxCmd (2 , -> -> 42 `i `uc -> -> 0 `i `uc ]
+"242
+[; ;rfid.c: 242:  spiSoftTxDat(0x8D);
+[e ( _spiSoftTxDat (1 -> -> 141 `i `uc ]
+"243
+[; ;rfid.c: 243:  PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"245
+[; ;rfid.c: 245:  spiSoftTxCmd(0x2B, 0);
+[e ( _spiSoftTxCmd (2 , -> -> 43 `i `uc -> -> 0 `i `uc ]
+"246
+[; ;rfid.c: 246:  spiSoftTxDat(0x3E);
+[e ( _spiSoftTxDat (1 -> -> 62 `i `uc ]
+"247
+[; ;rfid.c: 247:  PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"249
+[; ;rfid.c: 249:  spiSoftTxCmd(0x2D, 0);
+[e ( _spiSoftTxCmd (2 , -> -> 45 `i `uc -> -> 0 `i `uc ]
+"250
+[; ;rfid.c: 250:  spiSoftTxDat(30);
+[e ( _spiSoftTxDat (1 -> -> 30 `i `uc ]
+"251
+[; ;rfid.c: 251:  PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"253
+[; ;rfid.c: 253:  spiSoftTxCmd(0x2C, 0);
+[e ( _spiSoftTxCmd (2 , -> -> 44 `i `uc -> -> 0 `i `uc ]
+"254
+[; ;rfid.c: 254:  spiSoftTxDat(0);
+[e ( _spiSoftTxDat (1 -> -> 0 `i `uc ]
+"255
+[; ;rfid.c: 255:  PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"257
+[; ;rfid.c: 257:  spiSoftTxCmd(0x15, 0);
+[e ( _spiSoftTxCmd (2 , -> -> 21 `i `uc -> -> 0 `i `uc ]
+"258
+[; ;rfid.c: 258:  spiSoftTxDat(0x40);
+[e ( _spiSoftTxDat (1 -> -> 64 `i `uc ]
+"259
+[; ;rfid.c: 259:  PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"261
+[; ;rfid.c: 261:  spiSoftTxCmd(0x11, 0);
+[e ( _spiSoftTxCmd (2 , -> -> 17 `i `uc -> -> 0 `i `uc ]
+"262
+[; ;rfid.c: 262:  spiSoftTxDat(0x3D);
+[e ( _spiSoftTxDat (1 -> -> 61 `i `uc ]
+"263
+[; ;rfid.c: 263:  PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"265
+[; ;rfid.c: 265:  mfrc522AntOn();
+[e ( _mfrc522AntOn ..  ]
+"266
+[; ;rfid.c: 266: }
+[e :UE 145 ]
+}
+"269
+[; ;rfid.c: 269: void eepromEscrever(char Address, char Data)
+[v _eepromEscrever `(v ~T0 @X0 1 ef2`uc`uc ]
+"270
+[; ;rfid.c: 270: {
+{
+[e :U _eepromEscrever ]
+"269
+[; ;rfid.c: 269: void eepromEscrever(char Address, char Data)
+[v _Address `uc ~T0 @X0 1 r1 ]
+[v _Data `uc ~T0 @X0 1 r2 ]
+"270
+[; ;rfid.c: 270: {
+[f ]
+"271
+[; ;rfid.c: 271:  while (EECON1bits.WR);
+[e $U 147  ]
+[e :U 148 ]
+[e :U 147 ]
+[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 148  ]
+[e :U 149 ]
+"272
+[; ;rfid.c: 272:  EEADR = Address;
+[e = _EEADR -> _Address `uc ]
+"273
+[; ;rfid.c: 273:  EEDATA = Data;
+[e = _EEDATA -> _Data `uc ]
+"274
+[; ;rfid.c: 274:  EECON1bits.EEPGD = 0;
+[e = . . _EECON1bits 0 5 -> -> 0 `i `uc ]
+"275
+[; ;rfid.c: 275:  EECON1bits.WREN = 1;
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+"276
+[; ;rfid.c: 276:  INTCONbits.GIE = 0;
+[e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
+"277
+[; ;rfid.c: 277:  EECON2 = 0x55;
+[e = _EECON2 -> -> 85 `i `uc ]
+"278
+[; ;rfid.c: 278:  EECON2 = 0xAA;
+[e = _EECON2 -> -> 170 `i `uc ]
+"279
+[; ;rfid.c: 279:  EECON1bits.WR = 1;
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+"280
+[; ;rfid.c: 280:  INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"281
+[; ;rfid.c: 281:  EECON1bits.WREN = 0;
+[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
+"282
+[; ;rfid.c: 282:  EECON1bits.WR = 0;
+[e = . . _EECON1bits 0 1 -> -> 0 `i `uc ]
+"283
+[; ;rfid.c: 283: }
+[e :UE 146 ]
+}
+"285
+[; ;rfid.c: 285: char eepromLer(char Address)
+[v _eepromLer `(uc ~T0 @X0 1 ef1`uc ]
+"286
+[; ;rfid.c: 286: {
+{
+[e :U _eepromLer ]
+"285
+[; ;rfid.c: 285: char eepromLer(char Address)
+[v _Address `uc ~T0 @X0 1 r1 ]
+"286
+[; ;rfid.c: 286: {
+[f ]
+"287
+[; ;rfid.c: 287:  char Data;
+[v _Data `uc ~T0 @X0 1 a ]
+"288
+[; ;rfid.c: 288:  EEADR = Address;
+[e = _EEADR -> _Address `uc ]
+"289
+[; ;rfid.c: 289:  EECON1bits.EEPGD = 0;
+[e = . . _EECON1bits 0 5 -> -> 0 `i `uc ]
+"290
+[; ;rfid.c: 290:  EECON1bits.RD = 1;
+[e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
+"291
+[; ;rfid.c: 291:  Data = EEDATA;
+[e = _Data -> _EEDATA `uc ]
+"292
+[; ;rfid.c: 292:  _delay((unsigned long)((1)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"293
+[; ;rfid.c: 293:  return Data;
+[e ) _Data ]
+[e $UE 150  ]
+"294
+[; ;rfid.c: 294: }
+[e :UE 150 ]
+}
+"296
+[; ;rfid.c: 296: void eepromApagar(void)
+[v _eepromApagar `(v ~T0 @X0 1 ef ]
+"297
+[; ;rfid.c: 297: {
+{
+[e :U _eepromApagar ]
+[f ]
+"298
+[; ;rfid.c: 298:  char a;
+[v _a `uc ~T0 @X0 1 a ]
+"299
+[; ;rfid.c: 299:  for (a = 0; a < 128; a++)
+{
+[e = _a -> -> 0 `i `uc ]
+[e $ < -> _a `i -> 128 `i 152  ]
+[e $U 153  ]
+[e :U 152 ]
+"300
+[; ;rfid.c: 300:  {
+{
+"301
+[; ;rfid.c: 301:   eepromEscrever(a, 0XFF);
+[e ( _eepromEscrever (2 , _a -> -> 255 `i `uc ]
+"302
+[; ;rfid.c: 302:  }
+}
+[e ++ _a -> -> 1 `i `uc ]
+[e $ < -> _a `i -> 128 `i 152  ]
+[e :U 153 ]
+}
+"303
+[; ;rfid.c: 303: }
+[e :UE 151 ]
+}
+"306
+[; ;rfid.c: 306: char tagTxCmd(char cmd, char *data, char dlen, char *result, char *rlen)
+[v _tagTxCmd `(uc ~T0 @X0 1 ef5`uc`*uc`uc`*uc`*uc ]
+"307
+[; ;rfid.c: 307: {
+{
+[e :U _tagTxCmd ]
+"306
+[; ;rfid.c: 306: char tagTxCmd(char cmd, char *data, char dlen, char *result, char *rlen)
+[v _cmd `uc ~T0 @X0 1 r1 ]
+[v _data `*uc ~T0 @X0 1 r2 ]
+[v _dlen `uc ~T0 @X0 1 r3 ]
+[v _result `*uc ~T0 @X0 1 r4 ]
+[v _rlen `*uc ~T0 @X0 1 r5 ]
+"307
+[; ;rfid.c: 307: {
+[f ]
+"308
+[; ;rfid.c: 308:  char status = 2;
+[v _status `uc ~T0 @X0 1 a ]
+[e = _status -> -> 2 `i `uc ]
+"309
+[; ;rfid.c: 309:  char irqEn = 0x00;
+[v _irqEn `uc ~T0 @X0 1 a ]
+[e = _irqEn -> -> 0 `i `uc ]
+"310
+[; ;rfid.c: 310:  char waitIRq = 0x00;
+[v _waitIRq `uc ~T0 @X0 1 a ]
+[e = _waitIRq -> -> 0 `i `uc ]
+"311
+[; ;rfid.c: 311:  char lastBits, n;
+[v _lastBits `uc ~T0 @X0 1 a ]
+[v _n `uc ~T0 @X0 1 a ]
+"312
+[; ;rfid.c: 312:  char i, a;
+[v _i `uc ~T0 @X0 1 a ]
+[v _a `uc ~T0 @X0 1 a ]
+"314
+[; ;rfid.c: 314:  switch (cmd)
+[e $U 157  ]
+"315
+[; ;rfid.c: 315:  {
+{
+"316
+[; ;rfid.c: 316:   case 0x0E:
+[e :U 158 ]
+"317
+[; ;rfid.c: 317:    irqEn = 0x12;
+[e = _irqEn -> -> 18 `i `uc ]
+"318
+[; ;rfid.c: 318:    waitIRq = 0x10;
+[e = _waitIRq -> -> 16 `i `uc ]
+"319
+[; ;rfid.c: 319:    break;
+[e $U 156  ]
+"320
+[; ;rfid.c: 320:   case 0x0C:
+[e :U 159 ]
+"321
+[; ;rfid.c: 321:    irqEn = 0x77;
+[e = _irqEn -> -> 119 `i `uc ]
+"322
+[; ;rfid.c: 322:    waitIRq = 0x30;
+[e = _waitIRq -> -> 48 `i `uc ]
+"323
+[; ;rfid.c: 323:    break;
+[e $U 156  ]
+"324
+[; ;rfid.c: 324:   default:
+[e :U 160 ]
+"325
+[; ;rfid.c: 325:    break;
+[e $U 156  ]
+"326
+[; ;rfid.c: 326:  }
+}
+[e $U 156  ]
+[e :U 157 ]
+[e [\ -> _cmd `i , $ -> 14 `i 158
+ , $ -> 12 `i 159
+ 160 ]
+[e :U 156 ]
+"328
+[; ;rfid.c: 328:  spiSoftTxCmd(0x02, 0);
+[e ( _spiSoftTxCmd (2 , -> -> 2 `i `uc -> -> 0 `i `uc ]
+"329
+[; ;rfid.c: 329:  spiSoftTxDat(irqEn | 0x80);
+[e ( _spiSoftTxDat (1 -> | -> _irqEn `i -> 128 `i `uc ]
+"330
+[; ;rfid.c: 330:  PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"332
+[; ;rfid.c: 332:  mfrc522ClrBit(0x04, 0x80);
+[e ( _mfrc522ClrBit (2 , -> -> 4 `i `uc -> -> 128 `i `uc ]
+"334
+[; ;rfid.c: 334:  mfrc522SetBit(0x0A, 0x80);
+[e ( _mfrc522SetBit (2 , -> -> 10 `i `uc -> -> 128 `i `uc ]
+"336
+[; ;rfid.c: 336:  spiSoftTxCmd(0x01, 0);
+[e ( _spiSoftTxCmd (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
+"337
+[; ;rfid.c: 337:  spiSoftTxDat(0x00);
+[e ( _spiSoftTxDat (1 -> -> 0 `i `uc ]
+"338
+[; ;rfid.c: 338:  PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"341
+[; ;rfid.c: 341:  for (i = 0; i < dlen; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 164  ]
+[e :U 161 ]
+"342
+[; ;rfid.c: 342:  {
+{
+"343
+[; ;rfid.c: 343:   spiSoftTxCmd(0x09, 0);
+[e ( _spiSoftTxCmd (2 , -> -> 9 `i `uc -> -> 0 `i `uc ]
+"344
+[; ;rfid.c: 344:   spiSoftTxDat(data[i]);
+[e ( _spiSoftTxDat (1 *U + _data * -> _i `ux -> -> # *U _data `ui `ux ]
+"345
+[; ;rfid.c: 345:   PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"346
+[; ;rfid.c: 346:  }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 164 ]
+[e $ < -> _i `i -> _dlen `i 161  ]
+[e :U 162 ]
+}
+"349
+[; ;rfid.c: 349:  spiSoftTxCmd(0x01, 0);
+[e ( _spiSoftTxCmd (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
+"350
+[; ;rfid.c: 350:  spiSoftTxDat(cmd);
+[e ( _spiSoftTxDat (1 _cmd ]
+"351
+[; ;rfid.c: 351:  PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"353
+[; ;rfid.c: 353:  if (cmd == 0x0C) mfrc522SetBit(0x0D, 0x80);
+[e $ ! == -> _cmd `i -> 12 `i 165  ]
+[e ( _mfrc522SetBit (2 , -> -> 13 `i `uc -> -> 128 `i `uc ]
+[e :U 165 ]
+"356
+[; ;rfid.c: 356:  i = 250;
+[e = _i -> -> 250 `i `uc ]
+"357
+[; ;rfid.c: 357:  do
+[e :U 168 ]
+"358
+[; ;rfid.c: 358:  {
+{
+"359
+[; ;rfid.c: 359:   _delay((unsigned long)((100)*(20000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 20000000 `l `d .4000000.0 `ul ]
+"360
+[; ;rfid.c: 360:   spiSoftTxCmd(0x04, 1);
+[e ( _spiSoftTxCmd (2 , -> -> 4 `i `uc -> -> 1 `i `uc ]
+"361
+[; ;rfid.c: 361:   n = spiSoftRxDat();
+[e = _n ( _spiSoftRxDat ..  ]
+"362
+[; ;rfid.c: 362:   PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"363
+[; ;rfid.c: 363:   i--;
+[e -- _i -> -> 1 `i `uc ]
+"364
+[; ;rfid.c: 364:  } while ((i != 0) && !(n & 0x01) && !(n & waitIRq));
+}
+[e $ && && != -> _i `i -> 0 `i ! != & -> _n `i -> 1 `i -> 0 `i ! != & -> _n `i -> _waitIRq `i -> 0 `i 168  ]
+[e :U 167 ]
+"366
+[; ;rfid.c: 366:  mfrc522ClrBit(0x0D, 0x80);
+[e ( _mfrc522ClrBit (2 , -> -> 13 `i `uc -> -> 128 `i `uc ]
+"368
+[; ;rfid.c: 368:  if (i != 0)
+[e $ ! != -> _i `i -> 0 `i 169  ]
+"369
+[; ;rfid.c: 369:  {
+{
+"370
+[; ;rfid.c: 370:   spiSoftTxCmd(0x06, 1);
+[e ( _spiSoftTxCmd (2 , -> -> 6 `i `uc -> -> 1 `i `uc ]
+"371
+[; ;rfid.c: 371:   a = spiSoftRxDat();
+[e = _a ( _spiSoftRxDat ..  ]
+"372
+[; ;rfid.c: 372:   PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"373
+[; ;rfid.c: 373:   a = a & 0x1B;
+[e = _a -> & -> _a `i -> 27 `i `uc ]
+"375
+[; ;rfid.c: 375:   if (!a)
+[e $ ! ! != -> _a `i -> 0 `i 170  ]
+"376
+[; ;rfid.c: 376:   {
+{
+"377
+[; ;rfid.c: 377:    status = 0;
+[e = _status -> -> 0 `i `uc ]
+"378
+[; ;rfid.c: 378:    if (n & irqEn & 0x01) status = 1;
+[e $ ! != & & -> _n `i -> _irqEn `i -> 1 `i -> 0 `i 171  ]
+[e = _status -> -> 1 `i `uc ]
+[e :U 171 ]
+"380
+[; ;rfid.c: 380:    if (cmd == 0x0C)
+[e $ ! == -> _cmd `i -> 12 `i 172  ]
+"381
+[; ;rfid.c: 381:    {
+{
+"382
+[; ;rfid.c: 382:     spiSoftTxCmd(0x0A, 1);
+[e ( _spiSoftTxCmd (2 , -> -> 10 `i `uc -> -> 1 `i `uc ]
+"383
+[; ;rfid.c: 383:     n = spiSoftRxDat();
+[e = _n ( _spiSoftRxDat ..  ]
+"384
+[; ;rfid.c: 384:     PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"386
+[; ;rfid.c: 386:     spiSoftTxCmd(0x0C, 1);
+[e ( _spiSoftTxCmd (2 , -> -> 12 `i `uc -> -> 1 `i `uc ]
+"387
+[; ;rfid.c: 387:     lastBits = spiSoftRxDat();
+[e = _lastBits ( _spiSoftRxDat ..  ]
+"388
+[; ;rfid.c: 388:     PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"390
+[; ;rfid.c: 390:     lastBits = lastBits & 0x07;
+[e = _lastBits -> & -> _lastBits `i -> 7 `i `uc ]
+"392
+[; ;rfid.c: 392:     if (lastBits) *rlen = (n - 1) * 8 + lastBits;
+[e $ ! != -> _lastBits `i -> 0 `i 173  ]
+[e = *U _rlen -> + * - -> _n `i -> 1 `i -> 8 `i -> _lastBits `i `uc ]
+[e $U 174  ]
+"393
+[; ;rfid.c: 393:     else *rlen = n * 8;
+[e :U 173 ]
+[e = *U _rlen -> * -> _n `i -> 8 `i `uc ]
+[e :U 174 ]
+"395
+[; ;rfid.c: 395:     if (n == 0) n = 1;
+[e $ ! == -> _n `i -> 0 `i 175  ]
+[e = _n -> -> 1 `i `uc ]
+[e :U 175 ]
+"396
+[; ;rfid.c: 396:     if (n > 16) n = 16;
+[e $ ! > -> _n `i -> 16 `i 176  ]
+[e = _n -> -> 16 `i `uc ]
+[e :U 176 ]
+"398
+[; ;rfid.c: 398:     for (i = 0; i < n; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 180  ]
+[e :U 177 ]
+"399
+[; ;rfid.c: 399:     {
+{
+"400
+[; ;rfid.c: 400:      spiSoftTxCmd(0x09, 1);
+[e ( _spiSoftTxCmd (2 , -> -> 9 `i `uc -> -> 1 `i `uc ]
+"401
+[; ;rfid.c: 401:      result[i] = spiSoftRxDat();
+[e = *U + _result * -> _i `ux -> -> # *U _result `ui `ux ( _spiSoftRxDat ..  ]
+"402
+[; ;rfid.c: 402:      PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"403
+[; ;rfid.c: 403:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 180 ]
+[e $ < -> _i `i -> _n `i 177  ]
+[e :U 178 ]
+}
+"404
+[; ;rfid.c: 404:     result[i] = 0;
+[e = *U + _result * -> _i `ux -> -> # *U _result `ui `ux -> -> 0 `i `uc ]
+"405
+[; ;rfid.c: 405:    }
+}
+[e :U 172 ]
+"406
+[; ;rfid.c: 406:   }
+}
+[e $U 181  ]
+"407
+[; ;rfid.c: 407:   else status = 2;
+[e :U 170 ]
+[e = _status -> -> 2 `i `uc ]
+[e :U 181 ]
+"408
+[; ;rfid.c: 408:  }
+}
+[e :U 169 ]
+"409
+[; ;rfid.c: 409:  return (status);
+[e ) _status ]
+[e $UE 155  ]
+"410
+[; ;rfid.c: 410: }
+[e :UE 155 ]
+}
+"412
+[; ;rfid.c: 412: char tagLocalizar(void)
+[v _tagLocalizar `(uc ~T0 @X0 1 ef ]
+"413
+[; ;rfid.c: 413: {
+{
+[e :U _tagLocalizar ]
+[f ]
+"414
+[; ;rfid.c: 414:  char i, y;
+[v _i `uc ~T0 @X0 1 a ]
+[v _y `uc ~T0 @X0 1 a ]
+"416
+[; ;rfid.c: 416:  for (i = 2; i < 126; i = i + 4)
+{
+[e = _i -> -> 2 `i `uc ]
+[e $ < -> _i `i -> 126 `i 183  ]
+[e $U 184  ]
+[e :U 183 ]
+"417
+[; ;rfid.c: 417:  {
+{
+"418
+[; ;rfid.c: 418:   for (y = 0; y < 4; y++)
+{
+[e = _y -> -> 0 `i `uc ]
+[e $ < -> _y `i -> 4 `i 186  ]
+[e $U 187  ]
+[e :U 186 ]
+"419
+[; ;rfid.c: 419:   {
+{
+"420
+[; ;rfid.c: 420:    if (dados_tag[y] != eepromLer(y + i))break;
+[e $ ! != -> *U + &U _dados_tag * -> _y `ux -> -> # *U &U _dados_tag `ui `ux `i -> ( _eepromLer (1 -> + -> _y `i -> _i `i `uc `i 189  ]
+[e $U 187  ]
+[e :U 189 ]
+"422
+[; ;rfid.c: 422:   }
+}
+[e ++ _y -> -> 1 `i `uc ]
+[e $ < -> _y `i -> 4 `i 186  ]
+[e :U 187 ]
+}
+"423
+[; ;rfid.c: 423:   if (y == 4)return i;
+[e $ ! == -> _y `i -> 4 `i 190  ]
+[e ) _i ]
+[e $UE 182  ]
+[e :U 190 ]
+"424
+[; ;rfid.c: 424:  }
+}
+[e = _i -> + -> _i `i -> 4 `i `uc ]
+[e $ < -> _i `i -> 126 `i 183  ]
+[e :U 184 ]
+}
+"425
+[; ;rfid.c: 425:  return i;
+[e ) _i ]
+[e $UE 182  ]
+"426
+[; ;rfid.c: 426: }
+[e :UE 182 ]
+}
+"428
+[; ;rfid.c: 428: void tagMasterWr(void)
+[v _tagMasterWr `(v ~T0 @X0 1 ef ]
+"429
+[; ;rfid.c: 429: {
+{
+[e :U _tagMasterWr ]
+[f ]
+"430
+[; ;rfid.c: 430:  char i;
+[v _i `uc ~T0 @X0 1 a ]
+"431
+[; ;rfid.c: 431:  for (i = 0; i < 4; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 4 `i 192  ]
+[e $U 193  ]
+[e :U 192 ]
+"432
+[; ;rfid.c: 432:  {
+{
+"433
+[; ;rfid.c: 433:   eepromEscrever(i + 2, dados_tag[i]);
+[e ( _eepromEscrever (2 , -> + -> _i `i -> 2 `i `uc *U + &U _dados_tag * -> _i `ux -> -> # *U &U _dados_tag `ui `ux ]
+"434
+[; ;rfid.c: 434:  }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 4 `i 192  ]
+[e :U 193 ]
+}
+"435
+[; ;rfid.c: 435:  eepromEscrever(1, 170);
+[e ( _eepromEscrever (2 , -> -> 1 `i `uc -> -> 170 `i `uc ]
+"436
+[; ;rfid.c: 436:  f_mp = 0;
+[e = _f_mp -> -> 0 `i `uc ]
+"437
+[; ;rfid.c: 437: }
+[e :UE 191 ]
+}
+"439
+[; ;rfid.c: 439: void tagSlaverWr(void)
+[v _tagSlaverWr `(v ~T0 @X0 1 ef ]
+"440
+[; ;rfid.c: 440: {
+{
+[e :U _tagSlaverWr ]
+[f ]
+"441
+[; ;rfid.c: 441:  char a, b;
+[v _a `uc ~T0 @X0 1 a ]
+[v _b `uc ~T0 @X0 1 a ]
+"443
+[; ;rfid.c: 443:  if (f_mp == 1)
+[e $ ! == -> _f_mp `i -> 1 `i 196  ]
+"444
+[; ;rfid.c: 444:  {
+{
+"445
+[; ;rfid.c: 445:   for (a = 2 + 4; a < 126; a = a + 4)
+{
+[e = _a -> + -> 2 `i -> 4 `i `uc ]
+[e $ < -> _a `i -> 126 `i 197  ]
+[e $U 198  ]
+[e :U 197 ]
+"446
+[; ;rfid.c: 446:   {
+{
+"447
+[; ;rfid.c: 447:    for (b = 0; b < 4; b++)
+{
+[e = _b -> -> 0 `i `uc ]
+[e $ < -> _b `i -> 4 `i 200  ]
+[e $U 201  ]
+[e :U 200 ]
+"448
+[; ;rfid.c: 448:    {
+{
+"449
+[; ;rfid.c: 449:     if (eepromLer(a + b) != 0xFF)break;
+[e $ ! != -> ( _eepromLer (1 -> + -> _a `i -> _b `i `uc `i -> 255 `i 203  ]
+[e $U 201  ]
+[e :U 203 ]
+"450
+[; ;rfid.c: 450:    }
+}
+[e ++ _b -> -> 1 `i `uc ]
+[e $ < -> _b `i -> 4 `i 200  ]
+[e :U 201 ]
+}
+"451
+[; ;rfid.c: 451:    if (b == 4)
+[e $ ! == -> _b `i -> 4 `i 204  ]
+"452
+[; ;rfid.c: 452:    {
+{
+"453
+[; ;rfid.c: 453:     for (b = 0; b < 4; b++)
+{
+[e = _b -> -> 0 `i `uc ]
+[e $ < -> _b `i -> 4 `i 205  ]
+[e $U 206  ]
+[e :U 205 ]
+"454
+[; ;rfid.c: 454:     {
+{
+"455
+[; ;rfid.c: 455:      eepromEscrever(a + b, dados_tag[b]);
+[e ( _eepromEscrever (2 , -> + -> _a `i -> _b `i `uc *U + &U _dados_tag * -> _b `ux -> -> # *U &U _dados_tag `ui `ux ]
+"456
+[; ;rfid.c: 456:     }
+}
+[e ++ _b -> -> 1 `i `uc ]
+[e $ < -> _b `i -> 4 `i 205  ]
+[e :U 206 ]
+}
+"457
+[; ;rfid.c: 457:     PORTCbits.RC6 = 1;
+[e = . . _PORTCbits 0 6 -> -> 1 `i `uc ]
+"458
+[; ;rfid.c: 458:     PORTCbits.RC1 = 0;
+[e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
+"459
+[; ;rfid.c: 459:     delay_1seg();
+[e ( _delay_1seg ..  ]
+"460
+[; ;rfid.c: 460:     PORTCbits.RC1 = 1;
+[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
+"461
+[; ;rfid.c: 461:     break;
+[e $U 198  ]
+"462
+[; ;rfid.c: 462:    }
+}
+[e :U 204 ]
+"463
+[; ;rfid.c: 463:   }
+}
+[e = _a -> + -> _a `i -> 4 `i `uc ]
+[e $ < -> _a `i -> 126 `i 197  ]
+[e :U 198 ]
+}
+"464
+[; ;rfid.c: 464:  }
+}
+[e $U 208  ]
+"465
+[; ;rfid.c: 465:  else
+[e :U 196 ]
+"466
+[; ;rfid.c: 466:  {
+{
+"467
+[; ;rfid.c: 467:   PORTCbits.RC1 = 1;
+[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
+"468
+[; ;rfid.c: 468:   PORTCbits.RC6 = 0;
+[e = . . _PORTCbits 0 6 -> -> 0 `i `uc ]
+"469
+[; ;rfid.c: 469:   delay_1seg();
+[e ( _delay_1seg ..  ]
+"470
+[; ;rfid.c: 470:   PORTCbits.RC6 = 1;
+[e = . . _PORTCbits 0 6 -> -> 1 `i `uc ]
+"471
+[; ;rfid.c: 471:  }
+}
+[e :U 208 ]
+"472
+[; ;rfid.c: 472: }
+[e :UE 195 ]
+}
+"474
+[; ;rfid.c: 474: char procura_tag(char modo, char *data)
+[v _procura_tag `(uc ~T0 @X0 1 ef2`uc`*uc ]
+"475
+[; ;rfid.c: 475: {
+{
+[e :U _procura_tag ]
+"474
+[; ;rfid.c: 474: char procura_tag(char modo, char *data)
+[v _modo `uc ~T0 @X0 1 r1 ]
+[v _data `*uc ~T0 @X0 1 r2 ]
+"475
+[; ;rfid.c: 475: {
+[f ]
+"476
+[; ;rfid.c: 476:  char status, len;
+[v _status `uc ~T0 @X0 1 a ]
+[v _len `uc ~T0 @X0 1 a ]
+"478
+[; ;rfid.c: 478:  spiSoftTxCmd(0x0D, 0);
+[e ( _spiSoftTxCmd (2 , -> -> 13 `i `uc -> -> 0 `i `uc ]
+"479
+[; ;rfid.c: 479:  spiSoftTxDat(0x07);
+[e ( _spiSoftTxDat (1 -> -> 7 `i `uc ]
+"480
+[; ;rfid.c: 480:  PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"481
+[; ;rfid.c: 481:  data[0] = modo;
+[e = *U + _data * -> -> 0 `i `x -> -> # *U _data `i `x _modo ]
+"482
+[; ;rfid.c: 482:  status = tagTxCmd(0x0C, data, 1, data, &len);
+[e = _status ( _tagTxCmd (4 , , , , -> -> 12 `i `uc _data -> -> 1 `i `uc _data &U _len ]
+"483
+[; ;rfid.c: 483:  if ((status != 0) || (len != 0x10)) status = 2;
+[e $ ! || != -> _status `i -> 0 `i != -> _len `i -> 16 `i 210  ]
+[e = _status -> -> 2 `i `uc ]
+[e :U 210 ]
+"484
+[; ;rfid.c: 484:  return (status);
+[e ) _status ]
+[e $UE 209  ]
+"485
+[; ;rfid.c: 485: }
+[e :UE 209 ]
+}
+"487
+[; ;rfid.c: 487: char anti_colisao(char *mBuf)
+[v _anti_colisao `(uc ~T0 @X0 1 ef1`*uc ]
+"488
+[; ;rfid.c: 488: {
+{
+[e :U _anti_colisao ]
+"487
+[; ;rfid.c: 487: char anti_colisao(char *mBuf)
+[v _mBuf `*uc ~T0 @X0 1 r1 ]
+"488
+[; ;rfid.c: 488: {
+[f ]
+"489
+[; ;rfid.c: 489:  char status, i, len;
+[v _status `uc ~T0 @X0 1 a ]
+[v _i `uc ~T0 @X0 1 a ]
+[v _len `uc ~T0 @X0 1 a ]
+"490
+[; ;rfid.c: 490:  char checksum = 0x00;
+[v _checksum `uc ~T0 @X0 1 a ]
+[e = _checksum -> -> 0 `i `uc ]
+"493
+[; ;rfid.c: 493:  spiSoftTxCmd(0x0D, 0);
+[e ( _spiSoftTxCmd (2 , -> -> 13 `i `uc -> -> 0 `i `uc ]
+"494
+[; ;rfid.c: 494:  spiSoftTxDat(0x00);
+[e ( _spiSoftTxDat (1 -> -> 0 `i `uc ]
+"495
+[; ;rfid.c: 495:  PORTAbits.RA5 = 1;
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+"497
+[; ;rfid.c: 497:  mBuf[0] = 0x93;
+[e = *U + _mBuf * -> -> 0 `i `x -> -> # *U _mBuf `i `x -> -> 147 `i `uc ]
+"498
+[; ;rfid.c: 498:  mBuf[1] = 0x20;
+[e = *U + _mBuf * -> -> 1 `i `x -> -> # *U _mBuf `i `x -> -> 32 `i `uc ]
+"500
+[; ;rfid.c: 500:  status = tagTxCmd(0x0C, mBuf, 2, mBuf, &len);
+[e = _status ( _tagTxCmd (4 , , , , -> -> 12 `i `uc _mBuf -> -> 2 `i `uc _mBuf &U _len ]
+"502
+[; ;rfid.c: 502:  if (status == 0)
+[e $ ! == -> _status `i -> 0 `i 212  ]
+"503
+[; ;rfid.c: 503:  {
+{
+"504
+[; ;rfid.c: 504:   for (i = 0; i < 4; i++) checksum ^= mBuf[i];
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 4 `i 213  ]
+[e $U 214  ]
+[e :U 213 ]
+[e =^ _checksum -> *U + _mBuf * -> _i `ux -> -> # *U _mBuf `ui `ux `uc ]
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 4 `i 213  ]
+[e :U 214 ]
+}
+"505
+[; ;rfid.c: 505:   if (checksum != mBuf[4]) status = 2;
+[e $ ! != -> _checksum `i -> *U + _mBuf * -> -> 4 `i `x -> -> # *U _mBuf `i `x `i 216  ]
+[e = _status -> -> 2 `i `uc ]
+[e :U 216 ]
+"506
+[; ;rfid.c: 506:  }
+}
+[e :U 212 ]
+"508
+[; ;rfid.c: 508:  return status;
+[e ) _status ]
+[e $UE 211  ]
+"509
+[; ;rfid.c: 509: }
+[e :UE 211 ]
+}
+"511
+[; ;rfid.c: 511: char get_UID(void)
+[v _get_UID `(uc ~T0 @X0 1 ef ]
+"512
+[; ;rfid.c: 512: {
+{
+[e :U _get_UID ]
+[f ]
+"513
+[; ;rfid.c: 513:  char a;
+[v _a `uc ~T0 @X0 1 a ]
+"514
+[; ;rfid.c: 514:  a = anti_colisao(dados_tag);
+[e = _a ( _anti_colisao (1 &U _dados_tag ]
+"515
+[; ;rfid.c: 515:  return a;
+[e ) _a ]
+[e $UE 217  ]
+"516
+[; ;rfid.c: 516: }
+[e :UE 217 ]
+}
+"518
+[; ;rfid.c: 518: char mfrc522Uid(char *vlrAsc)
+[v _mfrc522Uid `(uc ~T0 @X0 1 ef1`*uc ]
+"519
+[; ;rfid.c: 519: {
+{
+[e :U _mfrc522Uid ]
+"518
+[; ;rfid.c: 518: char mfrc522Uid(char *vlrAsc)
+[v _vlrAsc `*uc ~T0 @X0 1 r1 ]
+"519
+[; ;rfid.c: 519: {
+[f ]
+"520
+[; ;rfid.c: 520:  char a;
+[v _a `uc ~T0 @X0 1 a ]
+"521
+[; ;rfid.c: 521:  a = anti_colisao(vlrAsc);
+[e = _a ( _anti_colisao (1 _vlrAsc ]
+"522
+[; ;rfid.c: 522:  return a;
+[e ) _a ]
+[e $UE 218  ]
+"523
+[; ;rfid.c: 523: }
+[e :UE 218 ]
+}
+"525
+[; ;rfid.c: 525: void testa_botao_del(char modo)
+[v _testa_botao_del `(v ~T0 @X0 1 ef1`uc ]
+"526
+[; ;rfid.c: 526: {
+{
+[e :U _testa_botao_del ]
+"525
+[; ;rfid.c: 525: void testa_botao_del(char modo)
+[v _modo `uc ~T0 @X0 1 r1 ]
+"526
+[; ;rfid.c: 526: {
+[f ]
+"527
+[; ;rfid.c: 527:  char t = 0;
+[v _t `uc ~T0 @X0 1 a ]
+[e = _t -> -> 0 `i `uc ]
+"529
+[; ;rfid.c: 529:  while (PORTCbits.RC5)
+[e $U 220  ]
+[e :U 221 ]
+"530
+[; ;rfid.c: 530:  {
+{
+"531
+[; ;rfid.c: 531:   PORTCbits.RC1 = 1;
+[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
+"532
+[; ;rfid.c: 532:   PORTCbits.RC6 = 0;
+[e = . . _PORTCbits 0 6 -> -> 0 `i `uc ]
+"533
+[; ;rfid.c: 533:   _delay((unsigned long)((100)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"534
+[; ;rfid.c: 534:   t++;
+[e ++ _t -> -> 1 `i `uc ]
+"535
+[; ;rfid.c: 535:   if (t >= 100)
+[e $ ! >= -> _t `i -> 100 `i 223  ]
+"536
+[; ;rfid.c: 536:   {
+{
+"537
+[; ;rfid.c: 537:    if (modo == 0)
+[e $ ! == -> _modo `i -> 0 `i 224  ]
+"538
+[; ;rfid.c: 538:    {
+{
+"539
+[; ;rfid.c: 539:     eepromApagar();
+[e ( _eepromApagar ..  ]
+"540
+[; ;rfid.c: 540:     t = 3;
+[e = _t -> -> 3 `i `uc ]
+"541
+[; ;rfid.c: 541:     while (t)
+[e $U 225  ]
+[e :U 226 ]
+"542
+[; ;rfid.c: 542:     {
+{
+"543
+[; ;rfid.c: 543:      delay_piscal();
+[e ( _delay_piscal ..  ]
+"544
+[; ;rfid.c: 544:      PORTCbits.RC6 = 0;
+[e = . . _PORTCbits 0 6 -> -> 0 `i `uc ]
+"545
+[; ;rfid.c: 545:      delay_piscal();
+[e ( _delay_piscal ..  ]
+"546
+[; ;rfid.c: 546:      PORTCbits.RC6 = 1;
+[e = . . _PORTCbits 0 6 -> -> 1 `i `uc ]
+"547
+[; ;rfid.c: 547:      t--;
+[e -- _t -> -> 1 `i `uc ]
+"548
+[; ;rfid.c: 548:     }
+}
+[e :U 225 ]
+"541
+[; ;rfid.c: 541:     while (t)
+[e $ != -> _t `i -> 0 `i 226  ]
+[e :U 227 ]
+"549
+[; ;rfid.c: 549:    } else
+}
+[e $U 228  ]
+[e :U 224 ]
+"550
+[; ;rfid.c: 550:    {
+{
+"551
+[; ;rfid.c: 551:     eepromEscrever(1, 0XFF);
+[e ( _eepromEscrever (2 , -> -> 1 `i `uc -> -> 255 `i `uc ]
+"552
+[; ;rfid.c: 552:     for (t = 0; t < 4; t++)
+{
+[e = _t -> -> 0 `i `uc ]
+[e $ < -> _t `i -> 4 `i 229  ]
+[e $U 230  ]
+[e :U 229 ]
+"553
+[; ;rfid.c: 553:     {
+{
+"554
+[; ;rfid.c: 554:      eepromEscrever(t + 2, 0XFF);
+[e ( _eepromEscrever (2 , -> + -> _t `i -> 2 `i `uc -> -> 255 `i `uc ]
+"555
+[; ;rfid.c: 555:     }
+}
+[e ++ _t -> -> 1 `i `uc ]
+[e $ < -> _t `i -> 4 `i 229  ]
+[e :U 230 ]
+}
+"556
+[; ;rfid.c: 556:     t = 5;
+[e = _t -> -> 5 `i `uc ]
+"557
+[; ;rfid.c: 557:     while (t)
+[e $U 232  ]
+[e :U 233 ]
+"558
+[; ;rfid.c: 558:     {
+{
+"559
+[; ;rfid.c: 559:      delay_piscal();
+[e ( _delay_piscal ..  ]
+"560
+[; ;rfid.c: 560:      PORTCbits.RC6 = 0;
+[e = . . _PORTCbits 0 6 -> -> 0 `i `uc ]
+"561
+[; ;rfid.c: 561:      delay_piscal();
+[e ( _delay_piscal ..  ]
+"562
+[; ;rfid.c: 562:      PORTCbits.RC6 = 1;
+[e = . . _PORTCbits 0 6 -> -> 1 `i `uc ]
+"563
+[; ;rfid.c: 563:      t--;
+[e -- _t -> -> 1 `i `uc ]
+"564
+[; ;rfid.c: 564:     }
+}
+[e :U 232 ]
+"557
+[; ;rfid.c: 557:     while (t)
+[e $ != -> _t `i -> 0 `i 233  ]
+[e :U 234 ]
+"565
+[; ;rfid.c: 565:    }
+}
+[e :U 228 ]
+"566
+[; ;rfid.c: 566:    f_mp = 1;
+[e = _f_mp -> -> 1 `i `uc ]
+"567
+[; ;rfid.c: 567:   }
+}
+[e :U 223 ]
+"568
+[; ;rfid.c: 568:  }
+}
+[e :U 220 ]
+"529
+[; ;rfid.c: 529:  while (PORTCbits.RC5)
+[e $ != -> . . _PORTCbits 0 5 `i -> 0 `i 221  ]
+[e :U 222 ]
+"569
+[; ;rfid.c: 569:  while (!PORTCbits.RC5);
+[e $U 235  ]
+[e :U 236 ]
+[e :U 235 ]
+[e $ ! != -> . . _PORTCbits 0 5 `i -> 0 `i 236  ]
+[e :U 237 ]
+"570
+[; ;rfid.c: 570:  PORTCbits.RC6 = 1;
+[e = . . _PORTCbits 0 6 -> -> 1 `i `uc ]
+"571
+[; ;rfid.c: 571: }
+[e :UE 219 ]
+}
+"573
+[; ;rfid.c: 573: static void MFRC522_Wr(char addr, char value)
+[v _MFRC522_Wr `(v ~T0 @X0 1 sf2`uc`uc ]
+"574
+[; ;rfid.c: 574: {
+{
+[e :U _MFRC522_Wr ]
+"573
+[; ;rfid.c: 573: static void MFRC522_Wr(char addr, char value)
+[v _addr `uc ~T0 @X0 1 r1 ]
+[v _value `uc ~T0 @X0 1 r2 ]
+"574
+[; ;rfid.c: 574: {
+[f ]
+"575
+[; ;rfid.c: 575:  PORTBbits.RB0 = 0;
+[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
+"576
+[; ;rfid.c: 576:  spiSoftTxDat((addr << 1) & 0x7E);
+[e ( _spiSoftTxDat (1 -> & << -> _addr `i -> 1 `i -> 126 `i `uc ]
+"577
+[; ;rfid.c: 577:  spiSoftTxDat(value);
+[e ( _spiSoftTxDat (1 _value ]
+"578
+[; ;rfid.c: 578:  PORTBbits.RB0 = 1;
+[e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
+"579
+[; ;rfid.c: 579: }
+[e :UE 238 ]
+}
+"581
+[; ;rfid.c: 581: static char MFRC522_Rd(char addr)
+[v _MFRC522_Rd `(uc ~T0 @X0 1 sf1`uc ]
+"582
+[; ;rfid.c: 582: {
+{
+[e :U _MFRC522_Rd ]
+"581
+[; ;rfid.c: 581: static char MFRC522_Rd(char addr)
+[v _addr `uc ~T0 @X0 1 r1 ]
+"582
+[; ;rfid.c: 582: {
+[f ]
+"583
+[; ;rfid.c: 583:  char value;
+[v _value `uc ~T0 @X0 1 a ]
+"584
+[; ;rfid.c: 584:  PORTBbits.RB0 = 0;
+[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
+"585
+[; ;rfid.c: 585:  spiSoftTxDat(((addr << 1) & 0x7E) | 0x80);
+[e ( _spiSoftTxDat (1 -> | & << -> _addr `i -> 1 `i -> 126 `i -> 128 `i `uc ]
+"588
+[; ;rfid.c: 588:  value = spiSoftRxDat();
+[e = _value ( _spiSoftRxDat ..  ]
+"589
+[; ;rfid.c: 589:  PORTBbits.RB0 = 1;
+[e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
+"590
+[; ;rfid.c: 590:  return value;
+[e ) _value ]
+[e $UE 239  ]
+"591
+[; ;rfid.c: 591: }
+[e :UE 239 ]
+}
+"593
+[; ;rfid.c: 593: static void MFRC522_Clear_Bit(char addr, char mask)
+[v _MFRC522_Clear_Bit `(v ~T0 @X0 1 sf2`uc`uc ]
+"594
+[; ;rfid.c: 594: {
+{
+[e :U _MFRC522_Clear_Bit ]
+"593
+[; ;rfid.c: 593: static void MFRC522_Clear_Bit(char addr, char mask)
+[v _addr `uc ~T0 @X0 1 r1 ]
+[v _mask `uc ~T0 @X0 1 r2 ]
+"594
+[; ;rfid.c: 594: {
+[f ]
+"595
+[; ;rfid.c: 595:  MFRC522_Wr(addr, MFRC522_Rd(addr) & (~mask));
+[e ( _MFRC522_Wr (2 , _addr -> & -> ( _MFRC522_Rd (1 _addr `i ~ -> _mask `i `uc ]
+"596
+[; ;rfid.c: 596: }
+[e :UE 240 ]
+}
+"598
+[; ;rfid.c: 598: static void MFRC522_Set_Bit(char addr, char mask)
+[v _MFRC522_Set_Bit `(v ~T0 @X0 1 sf2`uc`uc ]
+"599
+[; ;rfid.c: 599: {
+{
+[e :U _MFRC522_Set_Bit ]
+"598
+[; ;rfid.c: 598: static void MFRC522_Set_Bit(char addr, char mask)
+[v _addr `uc ~T0 @X0 1 r1 ]
+[v _mask `uc ~T0 @X0 1 r2 ]
+"599
+[; ;rfid.c: 599: {
+[f ]
+"600
+[; ;rfid.c: 600:  MFRC522_Wr(addr, MFRC522_Rd(addr) | mask);
+[e ( _MFRC522_Wr (2 , _addr -> | -> ( _MFRC522_Rd (1 _addr `i -> _mask `i `uc ]
+"601
+[; ;rfid.c: 601: }
+[e :UE 241 ]
+}
+"603
+[; ;rfid.c: 603: void MFRC522_Reset(void)
+[v _MFRC522_Reset `(v ~T0 @X0 1 ef ]
+"604
+[; ;rfid.c: 604: {
+{
+[e :U _MFRC522_Reset ]
+[f ]
+"605
+[; ;rfid.c: 605:  MFRC522_Wr(0x01, 0x0F);
+[e ( _MFRC522_Wr (2 , -> -> 1 `i `uc -> -> 15 `i `uc ]
+"606
+[; ;rfid.c: 606: }
+[e :UE 242 ]
+}
+"608
+[; ;rfid.c: 608: void MFRC522_AntennaOn(void)
+[v _MFRC522_AntennaOn `(v ~T0 @X0 1 ef ]
+"609
+[; ;rfid.c: 609: {
+{
+[e :U _MFRC522_AntennaOn ]
+[f ]
+"610
+[; ;rfid.c: 610:  MFRC522_Set_Bit(0x14, 0x03);
+[e ( _MFRC522_Set_Bit (2 , -> -> 20 `i `uc -> -> 3 `i `uc ]
+"611
+[; ;rfid.c: 611: }
+[e :UE 243 ]
+}
+"613
+[; ;rfid.c: 613: void MFRC522_AntennaOff(void)
+[v _MFRC522_AntennaOff `(v ~T0 @X0 1 ef ]
+"614
+[; ;rfid.c: 614: {
+{
+[e :U _MFRC522_AntennaOff ]
+[f ]
+"615
+[; ;rfid.c: 615:  MFRC522_Clear_Bit(0x14, 0x03);
+[e ( _MFRC522_Clear_Bit (2 , -> -> 20 `i `uc -> -> 3 `i `uc ]
+"616
+[; ;rfid.c: 616: }
+[e :UE 244 ]
+}
+"619
+[; ;rfid.c: 619: void MFRC522_Init()
+[v _MFRC522_Init `(v ~T0 @X0 1 ef ]
+"620
+[; ;rfid.c: 620: {
+{
+[e :U _MFRC522_Init ]
+[f ]
+"621
+[; ;rfid.c: 621:  TRISBbits.TRISB0 = 0;
+[e = . . _TRISBbits 0 0 -> -> 0 `i `uc ]
+"622
+[; ;rfid.c: 622:  TRISBbits.TRISB4 = 0;
+[e = . . _TRISBbits 0 4 -> -> 0 `i `uc ]
+"623
+[; ;rfid.c: 623:  PORTBbits.RB0 = 1;
+[e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
+"624
+[; ;rfid.c: 624:  PORTBbits.RB4 = 1;
+[e = . . _PORTBbits 0 4 -> -> 1 `i `uc ]
+"626
+[; ;rfid.c: 626:  MFRC522_Reset();
+[e ( _MFRC522_Reset ..  ]
+"628
+[; ;rfid.c: 628:  MFRC522_Wr(0x2A, 0x8D);
+[e ( _MFRC522_Wr (2 , -> -> 42 `i `uc -> -> 141 `i `uc ]
+"629
+[; ;rfid.c: 629:  MFRC522_Wr(0x2B, 0x3E);
+[e ( _MFRC522_Wr (2 , -> -> 43 `i `uc -> -> 62 `i `uc ]
+"630
+[; ;rfid.c: 630:  MFRC522_Wr(0x2D, 30);
+[e ( _MFRC522_Wr (2 , -> -> 45 `i `uc -> -> 30 `i `uc ]
+"631
+[; ;rfid.c: 631:  MFRC522_Wr(0x2C, 0);
+[e ( _MFRC522_Wr (2 , -> -> 44 `i `uc -> -> 0 `i `uc ]
+"633
+[; ;rfid.c: 633:  MFRC522_Wr(0x15, 0x40);
+[e ( _MFRC522_Wr (2 , -> -> 21 `i `uc -> -> 64 `i `uc ]
+"634
+[; ;rfid.c: 634:  MFRC522_Wr(0x11, 0x3D);
+[e ( _MFRC522_Wr (2 , -> -> 17 `i `uc -> -> 61 `i `uc ]
+"640
+[; ;rfid.c: 640:  MFRC522_AntennaOn();
+[e ( _MFRC522_AntennaOn ..  ]
+"641
+[; ;rfid.c: 641: }
+[e :UE 245 ]
+}
+"643
+[; ;rfid.c: 643: char MFRC522_ToCard(char command, char *sendData, char sendLen, char *backData, char *backLen)
+[v _MFRC522_ToCard `(uc ~T0 @X0 1 ef5`uc`*uc`uc`*uc`*uc ]
+"644
+[; ;rfid.c: 644: {
+{
+[e :U _MFRC522_ToCard ]
+"643
+[; ;rfid.c: 643: char MFRC522_ToCard(char command, char *sendData, char sendLen, char *backData, char *backLen)
+[v _command `uc ~T0 @X0 1 r1 ]
+[v _sendData `*uc ~T0 @X0 1 r2 ]
+[v _sendLen `uc ~T0 @X0 1 r3 ]
+[v _backData `*uc ~T0 @X0 1 r4 ]
+[v _backLen `*uc ~T0 @X0 1 r5 ]
+"644
+[; ;rfid.c: 644: {
+[f ]
+"645
+[; ;rfid.c: 645:  char _status = 2;
+[v __status `uc ~T0 @X0 1 a ]
+[e = __status -> -> 2 `i `uc ]
+"646
+[; ;rfid.c: 646:  char irqEn = 0x00;
+[v _irqEn `uc ~T0 @X0 1 a ]
+[e = _irqEn -> -> 0 `i `uc ]
+"647
+[; ;rfid.c: 647:  char waitIRq = 0x00;
+[v _waitIRq `uc ~T0 @X0 1 a ]
+[e = _waitIRq -> -> 0 `i `uc ]
+"648
+[; ;rfid.c: 648:  char lastBits;
+[v _lastBits `uc ~T0 @X0 1 a ]
+"649
+[; ;rfid.c: 649:  char n;
+[v _n `uc ~T0 @X0 1 a ]
+"650
+[; ;rfid.c: 650:  unsigned int i;
+[v _i `ui ~T0 @X0 1 a ]
+"652
+[; ;rfid.c: 652:  switch (command)
+[e $U 248  ]
+"653
+[; ;rfid.c: 653:  {
+{
+"654
+[; ;rfid.c: 654:   case 0x0E:
+[e :U 249 ]
+"655
+[; ;rfid.c: 655:   {
+{
+"656
+[; ;rfid.c: 656:    irqEn = 0x12;
+[e = _irqEn -> -> 18 `i `uc ]
+"657
+[; ;rfid.c: 657:    waitIRq = 0x10;
+[e = _waitIRq -> -> 16 `i `uc ]
+"658
+[; ;rfid.c: 658:    break;
+[e $U 247  ]
+"659
+[; ;rfid.c: 659:   }
+}
+"660
+[; ;rfid.c: 660:   case 0x0C:
+[e :U 250 ]
+"661
+[; ;rfid.c: 661:   {
+{
+"662
+[; ;rfid.c: 662:    irqEn = 0x77;
+[e = _irqEn -> -> 119 `i `uc ]
+"663
+[; ;rfid.c: 663:    waitIRq = 0x30;
+[e = _waitIRq -> -> 48 `i `uc ]
+"664
+[; ;rfid.c: 664:    break;
+[e $U 247  ]
+"665
+[; ;rfid.c: 665:   }
+}
+"666
+[; ;rfid.c: 666:   default:
+[e :U 251 ]
+"667
+[; ;rfid.c: 667:    break;
+[e $U 247  ]
+"668
+[; ;rfid.c: 668:  }
+}
+[e $U 247  ]
+[e :U 248 ]
+[e [\ -> _command `i , $ -> 14 `i 249
+ , $ -> 12 `i 250
+ 251 ]
+[e :U 247 ]
+"671
+[; ;rfid.c: 671:  for (i = 0; i < sendLen; i++) MFRC522_Wr(0x09, sendData[i]);
+{
+[e = _i -> -> 0 `i `ui ]
+[e $U 255  ]
+[e :U 252 ]
+[e ( _MFRC522_Wr (2 , -> -> 9 `i `uc *U + _sendData * -> _i `ux -> -> # *U _sendData `ui `ux ]
+[e ++ _i -> -> 1 `i `ui ]
+[e :U 255 ]
+[e $ < _i -> _sendLen `ui 252  ]
+[e :U 253 ]
+}
+"674
+[; ;rfid.c: 674:  MFRC522_Wr(0x01, command);
+[e ( _MFRC522_Wr (2 , -> -> 1 `i `uc _command ]
+"677
+[; ;rfid.c: 677:  if (command == 0x0C) MFRC522_Set_Bit(0x0D, 0x80);
+[e $ ! == -> _command `i -> 12 `i 256  ]
+[e ( _MFRC522_Set_Bit (2 , -> -> 13 `i `uc -> -> 128 `i `uc ]
+[e :U 256 ]
+"681
+[; ;rfid.c: 681:  i = 0xFFFF;
+[e = _i -> 65535 `ui ]
+"682
+[; ;rfid.c: 682:  do
+[e :U 259 ]
+"683
+[; ;rfid.c: 683:  {
+{
+"686
+[; ;rfid.c: 686:   n = MFRC522_Rd(0x04);
+[e = _n ( _MFRC522_Rd (1 -> -> 4 `i `uc ]
+"687
+[; ;rfid.c: 687:   i--;
+[e -- _i -> -> 1 `i `ui ]
+"688
+[; ;rfid.c: 688:  } while (i && !(n & 0x01) && !(n & waitIRq));
+}
+[e $ && && != _i -> -> 0 `i `ui ! != & -> _n `i -> 1 `i -> 0 `i ! != & -> _n `i -> _waitIRq `i -> 0 `i 259  ]
+[e :U 258 ]
+"690
+[; ;rfid.c: 690:  MFRC522_Clear_Bit(0x0D, 0x80);
+[e ( _MFRC522_Clear_Bit (2 , -> -> 13 `i `uc -> -> 128 `i `uc ]
+"692
+[; ;rfid.c: 692:  if (i != 0)
+[e $ ! != _i -> -> 0 `i `ui 260  ]
+"693
+[; ;rfid.c: 693:  {
+{
+"694
+[; ;rfid.c: 694:   if (!(MFRC522_Rd(0x06) & 0x1B))
+[e $ ! ! != & -> ( _MFRC522_Rd (1 -> -> 6 `i `uc `i -> 27 `i -> 0 `i 261  ]
+"695
+[; ;rfid.c: 695:   {
+{
+"696
+[; ;rfid.c: 696:    _status = 0;
+[e = __status -> -> 0 `i `uc ]
+"697
+[; ;rfid.c: 697:    if (n & irqEn & 0x01) _status = 1;
+[e $ ! != & & -> _n `i -> _irqEn `i -> 1 `i -> 0 `i 262  ]
+[e = __status -> -> 1 `i `uc ]
+[e :U 262 ]
+"699
+[; ;rfid.c: 699:    if (command == 0x0C)
+[e $ ! == -> _command `i -> 12 `i 263  ]
+"700
+[; ;rfid.c: 700:    {
+{
+"701
+[; ;rfid.c: 701:     n = MFRC522_Rd(0x0A);
+[e = _n ( _MFRC522_Rd (1 -> -> 10 `i `uc ]
+"702
+[; ;rfid.c: 702:     lastBits = MFRC522_Rd(0x0C) & 0x07;
+[e = _lastBits -> & -> ( _MFRC522_Rd (1 -> -> 12 `i `uc `i -> 7 `i `uc ]
+"704
+[; ;rfid.c: 704:     if (lastBits) *backLen = (n - 1) * 8 + lastBits;
+[e $ ! != -> _lastBits `i -> 0 `i 264  ]
+[e = *U _backLen -> + * - -> _n `i -> 1 `i -> 8 `i -> _lastBits `i `uc ]
+[e $U 265  ]
+"705
+[; ;rfid.c: 705:     else *backLen = n * 8;
+[e :U 264 ]
+[e = *U _backLen -> * -> _n `i -> 8 `i `uc ]
+[e :U 265 ]
+"707
+[; ;rfid.c: 707:     if (n == 0) n = 1;
+[e $ ! == -> _n `i -> 0 `i 266  ]
+[e = _n -> -> 1 `i `uc ]
+[e :U 266 ]
+"708
+[; ;rfid.c: 708:     if (n > 16) n = 16;
+[e $ ! > -> _n `i -> 16 `i 267  ]
+[e = _n -> -> 16 `i `uc ]
+[e :U 267 ]
+"711
+[; ;rfid.c: 711:     for (i = 0; i < n; i++) backData[i] = MFRC522_Rd(0x09);
+{
+[e = _i -> -> 0 `i `ui ]
+[e $U 271  ]
+[e :U 268 ]
+[e = *U + _backData * -> _i `ux -> -> # *U _backData `ui `ux ( _MFRC522_Rd (1 -> -> 9 `i `uc ]
+[e ++ _i -> -> 1 `i `ui ]
+[e :U 271 ]
+[e $ < _i -> _n `ui 268  ]
+[e :U 269 ]
+}
+"712
+[; ;rfid.c: 712:     backData[i] = 0;
+[e = *U + _backData * -> _i `ux -> -> # *U _backData `ui `ux -> -> 0 `i `uc ]
+"713
+[; ;rfid.c: 713:    }
+}
+[e :U 263 ]
+"714
+[; ;rfid.c: 714:   } else _status = 2;
+}
+[e $U 272  ]
+[e :U 261 ]
+[e = __status -> -> 2 `i `uc ]
+[e :U 272 ]
+"715
+[; ;rfid.c: 715:  }
+}
+[e :U 260 ]
+"720
+[; ;rfid.c: 720:  return (_status);
+[e ) __status ]
+[e $UE 246  ]
+"721
+[; ;rfid.c: 721: }
+[e :UE 246 ]
+}
+"723
+[; ;rfid.c: 723: char MFRC522_Request(char reqMode, char *TagType)
+[v _MFRC522_Request `(uc ~T0 @X0 1 ef2`uc`*uc ]
+"724
+[; ;rfid.c: 724: {
+{
+[e :U _MFRC522_Request ]
+"723
+[; ;rfid.c: 723: char MFRC522_Request(char reqMode, char *TagType)
+[v _reqMode `uc ~T0 @X0 1 r1 ]
+[v _TagType `*uc ~T0 @X0 1 r2 ]
+"724
+[; ;rfid.c: 724: {
+[f ]
+"725
+[; ;rfid.c: 725:  char _status;
+[v __status `uc ~T0 @X0 1 a ]
+"726
+[; ;rfid.c: 726:  char backBits;
+[v _backBits `uc ~T0 @X0 1 a ]
+"727
+[; ;rfid.c: 727:  MFRC522_Wr(0x0D, 0x07);
+[e ( _MFRC522_Wr (2 , -> -> 13 `i `uc -> -> 7 `i `uc ]
+"728
+[; ;rfid.c: 728:  TagType[0] = reqMode;
+[e = *U + _TagType * -> -> 0 `i `x -> -> # *U _TagType `i `x _reqMode ]
+"729
+[; ;rfid.c: 729:  _status = tagTxCmd(0x0C, TagType, 1, TagType, &backBits);
+[e = __status ( _tagTxCmd (4 , , , , -> -> 12 `i `uc _TagType -> -> 1 `i `uc _TagType &U _backBits ]
+"730
+[; ;rfid.c: 730:  if ((_status != 0) || (backBits != 0x10)) _status = 2;
+[e $ ! || != -> __status `i -> 0 `i != -> _backBits `i -> 16 `i 274  ]
+[e = __status -> -> 2 `i `uc ]
+[e :U 274 ]
+"732
+[; ;rfid.c: 732:  return (_status);
+[e ) __status ]
+[e $UE 273  ]
+"733
+[; ;rfid.c: 733: }
+[e :UE 273 ]
+}
+"735
+[; ;rfid.c: 735: void MFRC522_CRC(char *dataIn, char length, char *dataOut)
+[v _MFRC522_CRC `(v ~T0 @X0 1 ef3`*uc`uc`*uc ]
+"736
+[; ;rfid.c: 736: {
+{
+[e :U _MFRC522_CRC ]
+"735
+[; ;rfid.c: 735: void MFRC522_CRC(char *dataIn, char length, char *dataOut)
+[v _dataIn `*uc ~T0 @X0 1 r1 ]
+[v _length `uc ~T0 @X0 1 r2 ]
+[v _dataOut `*uc ~T0 @X0 1 r3 ]
+"736
+[; ;rfid.c: 736: {
+[f ]
+"737
+[; ;rfid.c: 737:  char i, n;
+[v _i `uc ~T0 @X0 1 a ]
+[v _n `uc ~T0 @X0 1 a ]
+"738
+[; ;rfid.c: 738:  mfrc522ClrBit(0x05, 0x04);
+[e ( _mfrc522ClrBit (2 , -> -> 5 `i `uc -> -> 4 `i `uc ]
+"739
+[; ;rfid.c: 739:  mfrc522SetBit(0x0A, 0x80);
+[e ( _mfrc522SetBit (2 , -> -> 10 `i `uc -> -> 128 `i `uc ]
+"741
+[; ;rfid.c: 741:  for (i = 0; i < length; i++) MFRC522_Wr(0x09, *dataIn++);
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 279  ]
+[e :U 276 ]
+[e ( _MFRC522_Wr (2 , -> -> 9 `i `uc *U ++ _dataIn * -> -> 1 `i `x -> -> # *U _dataIn `i `x ]
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 279 ]
+[e $ < -> _i `i -> _length `i 276  ]
+[e :U 277 ]
+}
+"743
+[; ;rfid.c: 743:  MFRC522_Wr(0x01, 0x03);
+[e ( _MFRC522_Wr (2 , -> -> 1 `i `uc -> -> 3 `i `uc ]
+"745
+[; ;rfid.c: 745:  i = 0xFF;
+[e = _i -> -> 255 `i `uc ]
+"746
+[; ;rfid.c: 746:  do
+[e :U 282 ]
+"747
+[; ;rfid.c: 747:  {
+{
+"748
+[; ;rfid.c: 748:   n = MFRC522_Rd(0x05);
+[e = _n ( _MFRC522_Rd (1 -> -> 5 `i `uc ]
+"749
+[; ;rfid.c: 749:   i--;
+[e -- _i -> -> 1 `i `uc ]
+"750
+[; ;rfid.c: 750:  } while (i && !(n & 0x04));
+}
+[e $ && != -> _i `i -> 0 `i ! != & -> _n `i -> 4 `i -> 0 `i 282  ]
+[e :U 281 ]
+"752
+[; ;rfid.c: 752:  dataOut[0] = MFRC522_Rd(0x22);
+[e = *U + _dataOut * -> -> 0 `i `x -> -> # *U _dataOut `i `x ( _MFRC522_Rd (1 -> -> 34 `i `uc ]
+"753
+[; ;rfid.c: 753:  dataOut[1] = MFRC522_Rd(0x21);
+[e = *U + _dataOut * -> -> 1 `i `x -> -> # *U _dataOut `i `x ( _MFRC522_Rd (1 -> -> 33 `i `uc ]
+"754
+[; ;rfid.c: 754: }
+[e :UE 275 ]
+}
+"756
+[; ;rfid.c: 756: char MFRC522_SelectTag(char *serNum)
+[v _MFRC522_SelectTag `(uc ~T0 @X0 1 ef1`*uc ]
+"757
+[; ;rfid.c: 757: {
+{
+[e :U _MFRC522_SelectTag ]
+"756
+[; ;rfid.c: 756: char MFRC522_SelectTag(char *serNum)
+[v _serNum `*uc ~T0 @X0 1 r1 ]
+"757
+[; ;rfid.c: 757: {
+[f ]
+"758
+[; ;rfid.c: 758:  char i;
+[v _i `uc ~T0 @X0 1 a ]
+"759
+[; ;rfid.c: 759:  char _status;
+[v __status `uc ~T0 @X0 1 a ]
+"760
+[; ;rfid.c: 760:  char size;
+[v _size `uc ~T0 @X0 1 a ]
+"761
+[; ;rfid.c: 761:  char recvBits;
+[v _recvBits `uc ~T0 @X0 1 a ]
+"762
+[; ;rfid.c: 762:  char buffer[9];
+[v _buffer `uc ~T0 @X0 -> 9 `i a ]
+"768
+[; ;rfid.c: 768:  buffer[0] = 0x93;
+[e = *U + &U _buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> -> 147 `i `uc ]
+"769
+[; ;rfid.c: 769:  buffer[1] = 0x70;
+[e = *U + &U _buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> -> 112 `i `uc ]
+"771
+[; ;rfid.c: 771:  for (i = 2; i < 7; i++) buffer[i] = *serNum++;
+{
+[e = _i -> -> 2 `i `uc ]
+[e $ < -> _i `i -> 7 `i 284  ]
+[e $U 285  ]
+[e :U 284 ]
+[e = *U + &U _buffer * -> _i `ux -> -> # *U &U _buffer `ui `ux *U ++ _serNum * -> -> 1 `i `x -> -> # *U _serNum `i `x ]
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 7 `i 284  ]
+[e :U 285 ]
+}
+"773
+[; ;rfid.c: 773:  MFRC522_CRC(buffer, 7, &buffer[7]);
+[e ( _MFRC522_CRC (3 , , &U _buffer -> -> 7 `i `uc &U *U + &U _buffer * -> -> -> 7 `i `ui `ux -> -> # *U &U _buffer `ui `ux ]
+"775
+[; ;rfid.c: 775:  _status = tagTxCmd(0x0C, buffer, 9, buffer, &recvBits);
+[e = __status ( _tagTxCmd (4 , , , , -> -> 12 `i `uc &U _buffer -> -> 9 `i `uc &U _buffer &U _recvBits ]
+"777
+[; ;rfid.c: 777:  if ((_status == 0) && (recvBits == 0x18)) size = buffer[0];
+[e $ ! && == -> __status `i -> 0 `i == -> _recvBits `i -> 24 `i 287  ]
+[e = _size *U + &U _buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _buffer `ui `ux ]
+[e $U 288  ]
+"778
+[; ;rfid.c: 778:  else size = 0;
+[e :U 287 ]
+[e = _size -> -> 0 `i `uc ]
+[e :U 288 ]
+"780
+[; ;rfid.c: 780:  return (size);
+[e ) _size ]
+[e $UE 283  ]
+"781
+[; ;rfid.c: 781: }
+[e :UE 283 ]
+}
+"783
+[; ;rfid.c: 783: void MFRC522_Halt()
+[v _MFRC522_Halt `(v ~T0 @X0 1 ef ]
+"784
+[; ;rfid.c: 784: {
+{
+[e :U _MFRC522_Halt ]
+[f ]
+"785
+[; ;rfid.c: 785:  char unLen;
+[v _unLen `uc ~T0 @X0 1 a ]
+"786
+[; ;rfid.c: 786:  char buff[4];
+[v _buff `uc ~T0 @X0 -> 4 `i a ]
+"788
+[; ;rfid.c: 788:  buff[0] = 0x50;
+[e = *U + &U _buff * -> -> -> 0 `i `ui `ux -> -> # *U &U _buff `ui `ux -> -> 80 `i `uc ]
+"789
+[; ;rfid.c: 789:  buff[1] = 0;
+[e = *U + &U _buff * -> -> -> 1 `i `ui `ux -> -> # *U &U _buff `ui `ux -> -> 0 `i `uc ]
+"790
+[; ;rfid.c: 790:  MFRC522_CRC(buff, 2, &buff[2]);
+[e ( _MFRC522_CRC (3 , , &U _buff -> -> 2 `i `uc &U *U + &U _buff * -> -> -> 2 `i `ui `ux -> -> # *U &U _buff `ui `ux ]
+"792
+[; ;rfid.c: 792:  MFRC522_Clear_Bit(0x08, 0x80);
+[e ( _MFRC522_Clear_Bit (2 , -> -> 8 `i `uc -> -> 128 `i `uc ]
+"793
+[; ;rfid.c: 793:  MFRC522_ToCard(0x0C, buff, 4, buff, &unLen);
+[e ( _MFRC522_ToCard (4 , , , , -> -> 12 `i `uc &U _buff -> -> 4 `i `uc &U _buff &U _unLen ]
+"794
+[; ;rfid.c: 794:  MFRC522_Clear_Bit(0x08, 0x08);
+[e ( _MFRC522_Clear_Bit (2 , -> -> 8 `i `uc -> -> 8 `i `uc ]
+"795
+[; ;rfid.c: 795: }
+[e :UE 289 ]
+}
+"797
+[; ;rfid.c: 797: char MFRC522_Auth(char authMode, char BlockAddr, char *Sectorkey, char *serNum)
+[v _MFRC522_Auth `(uc ~T0 @X0 1 ef4`uc`uc`*uc`*uc ]
+"798
+[; ;rfid.c: 798: {
+{
+[e :U _MFRC522_Auth ]
+"797
+[; ;rfid.c: 797: char MFRC522_Auth(char authMode, char BlockAddr, char *Sectorkey, char *serNum)
+[v _authMode `uc ~T0 @X0 1 r1 ]
+[v _BlockAddr `uc ~T0 @X0 1 r2 ]
+[v _Sectorkey `*uc ~T0 @X0 1 r3 ]
+[v _serNum `*uc ~T0 @X0 1 r4 ]
+"798
+[; ;rfid.c: 798: {
+[f ]
+"799
+[; ;rfid.c: 799:  char _status;
+[v __status `uc ~T0 @X0 1 a ]
+"800
+[; ;rfid.c: 800:  char recvBits;
+[v _recvBits `uc ~T0 @X0 1 a ]
+"801
+[; ;rfid.c: 801:  char i;
+[v _i `uc ~T0 @X0 1 a ]
+"802
+[; ;rfid.c: 802:  char buff[12];
+[v _buff `uc ~T0 @X0 -> 12 `i a ]
+"805
+[; ;rfid.c: 805:  buff[0] = authMode;
+[e = *U + &U _buff * -> -> -> 0 `i `ui `ux -> -> # *U &U _buff `ui `ux _authMode ]
+"806
+[; ;rfid.c: 806:  buff[1] = BlockAddr;
+[e = *U + &U _buff * -> -> -> 1 `i `ui `ux -> -> # *U &U _buff `ui `ux _BlockAddr ]
+"808
+[; ;rfid.c: 808:  for (i = 2; i < 8; i++) buff[i] = Sectorkey[i - 2];
+{
+[e = _i -> -> 2 `i `uc ]
+[e $ < -> _i `i -> 8 `i 291  ]
+[e $U 292  ]
+[e :U 291 ]
+[e = *U + &U _buff * -> _i `ux -> -> # *U &U _buff `ui `ux *U + _Sectorkey * -> - -> _i `i -> 2 `i `x -> -> # *U _Sectorkey `i `x ]
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 291  ]
+[e :U 292 ]
+}
+"809
+[; ;rfid.c: 809:  for (i = 8; i < 12; i++) buff[i] = serNum[i - 8];
+{
+[e = _i -> -> 8 `i `uc ]
+[e $ < -> _i `i -> 12 `i 294  ]
+[e $U 295  ]
+[e :U 294 ]
+[e = *U + &U _buff * -> _i `ux -> -> # *U &U _buff `ui `ux *U + _serNum * -> - -> _i `i -> 8 `i `x -> -> # *U _serNum `i `x ]
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 12 `i 294  ]
+[e :U 295 ]
+}
+"811
+[; ;rfid.c: 811:  _status = tagTxCmd(0x0E, buff, 12, buff, &recvBits);
+[e = __status ( _tagTxCmd (4 , , , , -> -> 14 `i `uc &U _buff -> -> 12 `i `uc &U _buff &U _recvBits ]
+"812
+[; ;rfid.c: 812:  if ((_status != 0) || !(MFRC522_Rd(0x08) & 0x08)) _status = 2;
+[e $ ! || != -> __status `i -> 0 `i ! != & -> ( _MFRC522_Rd (1 -> -> 8 `i `uc `i -> 8 `i -> 0 `i 297  ]
+[e = __status -> -> 2 `i `uc ]
+[e :U 297 ]
+"813
+[; ;rfid.c: 813:  return (_status);
+[e ) __status ]
+[e $UE 290  ]
+"814
+[; ;rfid.c: 814: }
+[e :UE 290 ]
+}
+"816
+[; ;rfid.c: 816: char MFRC522_Write(char blockAddr, char *writeData)
+[v _MFRC522_Write `(uc ~T0 @X0 1 ef2`uc`*uc ]
+"817
+[; ;rfid.c: 817: {
+{
+[e :U _MFRC522_Write ]
+"816
+[; ;rfid.c: 816: char MFRC522_Write(char blockAddr, char *writeData)
+[v _blockAddr `uc ~T0 @X0 1 r1 ]
+[v _writeData `*uc ~T0 @X0 1 r2 ]
+"817
+[; ;rfid.c: 817: {
+[f ]
+"818
+[; ;rfid.c: 818:  char _status;
+[v __status `uc ~T0 @X0 1 a ]
+"819
+[; ;rfid.c: 819:  char recvBits;
+[v _recvBits `uc ~T0 @X0 1 a ]
+"820
+[; ;rfid.c: 820:  char i;
+[v _i `uc ~T0 @X0 1 a ]
+"821
+[; ;rfid.c: 821:  char buff[18];
+[v _buff `uc ~T0 @X0 -> 18 `i a ]
+"823
+[; ;rfid.c: 823:  buff[0] = 0xA0;
+[e = *U + &U _buff * -> -> -> 0 `i `ui `ux -> -> # *U &U _buff `ui `ux -> -> 160 `i `uc ]
+"824
+[; ;rfid.c: 824:  buff[1] = blockAddr;
+[e = *U + &U _buff * -> -> -> 1 `i `ui `ux -> -> # *U &U _buff `ui `ux _blockAddr ]
+"826
+[; ;rfid.c: 826:  MFRC522_CRC(buff, 2, &buff[2]);
+[e ( _MFRC522_CRC (3 , , &U _buff -> -> 2 `i `uc &U *U + &U _buff * -> -> -> 2 `i `ui `ux -> -> # *U &U _buff `ui `ux ]
+"827
+[; ;rfid.c: 827:  _status = tagTxCmd(0x0C, buff, 4, buff, &recvBits);
+[e = __status ( _tagTxCmd (4 , , , , -> -> 12 `i `uc &U _buff -> -> 4 `i `uc &U _buff &U _recvBits ]
+"829
+[; ;rfid.c: 829:  if ((_status != 0) || (recvBits != 4) || ((buff[0] & 0x0F) != 0x0A)) _status = 2;
+[e $ ! || || != -> __status `i -> 0 `i != -> _recvBits `i -> 4 `i != & -> *U + &U _buff * -> -> -> 0 `i `ui `ux -> -> # *U &U _buff `ui `ux `i -> 15 `i -> 10 `i 299  ]
+[e = __status -> -> 2 `i `uc ]
+[e :U 299 ]
+"831
+[; ;rfid.c: 831:  if (_status == 0)
+[e $ ! == -> __status `i -> 0 `i 300  ]
+"832
+[; ;rfid.c: 832:  {
+{
+"833
+[; ;rfid.c: 833:   for (i = 0; i < 16; i++) buff[i] = writeData[i];
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 16 `i 301  ]
+[e $U 302  ]
+[e :U 301 ]
+[e = *U + &U _buff * -> _i `ux -> -> # *U &U _buff `ui `ux *U + _writeData * -> _i `ux -> -> # *U _writeData `ui `ux ]
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 16 `i 301  ]
+[e :U 302 ]
+}
+"835
+[; ;rfid.c: 835:   MFRC522_CRC(buff, 16, &buff[16]);
+[e ( _MFRC522_CRC (3 , , &U _buff -> -> 16 `i `uc &U *U + &U _buff * -> -> -> 16 `i `ui `ux -> -> # *U &U _buff `ui `ux ]
+"836
+[; ;rfid.c: 836:   _status = tagTxCmd(0x0C, buff, 18, buff, &recvBits);
+[e = __status ( _tagTxCmd (4 , , , , -> -> 12 `i `uc &U _buff -> -> 18 `i `uc &U _buff &U _recvBits ]
+"838
+[; ;rfid.c: 838:   if ((_status != 0) || (recvBits != 4) || ((buff[0] & 0x0F) != 0x0A)) _status = 2;
+[e $ ! || || != -> __status `i -> 0 `i != -> _recvBits `i -> 4 `i != & -> *U + &U _buff * -> -> -> 0 `i `ui `ux -> -> # *U &U _buff `ui `ux `i -> 15 `i -> 10 `i 304  ]
+[e = __status -> -> 2 `i `uc ]
+[e :U 304 ]
+"839
+[; ;rfid.c: 839:  }
+}
+[e :U 300 ]
+"841
+[; ;rfid.c: 841:  return (_status);
+[e ) __status ]
+[e $UE 298  ]
+"842
+[; ;rfid.c: 842: }
+[e :UE 298 ]
+}
+"844
+[; ;rfid.c: 844: char MFRC522_Read(char blockAddr, char *recvData)
+[v _MFRC522_Read `(uc ~T0 @X0 1 ef2`uc`*uc ]
+"845
+[; ;rfid.c: 845: {
+{
+[e :U _MFRC522_Read ]
+"844
+[; ;rfid.c: 844: char MFRC522_Read(char blockAddr, char *recvData)
+[v _blockAddr `uc ~T0 @X0 1 r1 ]
+[v _recvData `*uc ~T0 @X0 1 r2 ]
+"845
+[; ;rfid.c: 845: {
+[f ]
+"846
+[; ;rfid.c: 846:  char _status;
+[v __status `uc ~T0 @X0 1 a ]
+"847
+[; ;rfid.c: 847:  char unLen;
+[v _unLen `uc ~T0 @X0 1 a ]
+"849
+[; ;rfid.c: 849:  recvData[0] = 0x30;
+[e = *U + _recvData * -> -> 0 `i `x -> -> # *U _recvData `i `x -> -> 48 `i `uc ]
+"850
+[; ;rfid.c: 850:  recvData[1] = blockAddr;
+[e = *U + _recvData * -> -> 1 `i `x -> -> # *U _recvData `i `x _blockAddr ]
+"852
+[; ;rfid.c: 852:  MFRC522_CRC(recvData, 2, &recvData[2]);
+[e ( _MFRC522_CRC (3 , , _recvData -> -> 2 `i `uc &U *U + _recvData * -> -> 2 `i `x -> -> # *U _recvData `i `x ]
+"853
+[; ;rfid.c: 853:  _status = tagTxCmd(0x0C, recvData, 4, recvData, &unLen);
+[e = __status ( _tagTxCmd (4 , , , , -> -> 12 `i `uc _recvData -> -> 4 `i `uc _recvData &U _unLen ]
+"855
+[; ;rfid.c: 855:  if ((_status != 0) || (unLen != 0x90)) _status = 2;
+[e $ ! || != -> __status `i -> 0 `i != -> _unLen `i -> 144 `i 306  ]
+[e = __status -> -> 2 `i `uc ]
+[e :U 306 ]
+"857
+[; ;rfid.c: 857:  return (_status);
+[e ) __status ]
+[e $UE 305  ]
+"858
+[; ;rfid.c: 858: }
+[e :UE 305 ]
+}
+"860
+[; ;rfid.c: 860: char MFRC522_AntiColl(char *serNum)
+[v _MFRC522_AntiColl `(uc ~T0 @X0 1 ef1`*uc ]
+"861
+[; ;rfid.c: 861: {
+{
+[e :U _MFRC522_AntiColl ]
+"860
+[; ;rfid.c: 860: char MFRC522_AntiColl(char *serNum)
+[v _serNum `*uc ~T0 @X0 1 r1 ]
+"861
+[; ;rfid.c: 861: {
+[f ]
+"862
+[; ;rfid.c: 862:  char _status;
+[v __status `uc ~T0 @X0 1 a ]
+"863
+[; ;rfid.c: 863:  char i;
+[v _i `uc ~T0 @X0 1 a ]
+"864
+[; ;rfid.c: 864:  char serNumCheck = 0;
+[v _serNumCheck `uc ~T0 @X0 1 a ]
+[e = _serNumCheck -> -> 0 `i `uc ]
+"865
+[; ;rfid.c: 865:  char unLen;
+[v _unLen `uc ~T0 @X0 1 a ]
+"867
+[; ;rfid.c: 867:  MFRC522_Wr(0x0D, 0x00);
+[e ( _MFRC522_Wr (2 , -> -> 13 `i `uc -> -> 0 `i `uc ]
+"869
+[; ;rfid.c: 869:  serNum[0] = 0x93;
+[e = *U + _serNum * -> -> 0 `i `x -> -> # *U _serNum `i `x -> -> 147 `i `uc ]
+"870
+[; ;rfid.c: 870:  serNum[1] = 0x20;
+[e = *U + _serNum * -> -> 1 `i `x -> -> # *U _serNum `i `x -> -> 32 `i `uc ]
+"871
+[; ;rfid.c: 871:  MFRC522_Clear_Bit(0x08, 0x08);
+[e ( _MFRC522_Clear_Bit (2 , -> -> 8 `i `uc -> -> 8 `i `uc ]
+"872
+[; ;rfid.c: 872:  _status = MFRC522_ToCard(0x0C, serNum, 2, serNum, &unLen);
+[e = __status ( _MFRC522_ToCard (4 , , , , -> -> 12 `i `uc _serNum -> -> 2 `i `uc _serNum &U _unLen ]
+"874
+[; ;rfid.c: 874:  if (_status == 0)
+[e $ ! == -> __status `i -> 0 `i 308  ]
+"875
+[; ;rfid.c: 875:  {
+{
+"876
+[; ;rfid.c: 876:   for (i = 0; i < 4; i++) serNumCheck ^= serNum[i];
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 4 `i 309  ]
+[e $U 310  ]
+[e :U 309 ]
+[e =^ _serNumCheck -> *U + _serNum * -> _i `ux -> -> # *U _serNum `ui `ux `uc ]
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 4 `i 309  ]
+[e :U 310 ]
+}
+"877
+[; ;rfid.c: 877:   if (serNumCheck != serNum[4])_status = 2;
+[e $ ! != -> _serNumCheck `i -> *U + _serNum * -> -> 4 `i `x -> -> # *U _serNum `i `x `i 312  ]
+[e = __status -> -> 2 `i `uc ]
+[e :U 312 ]
+"878
+[; ;rfid.c: 878:  }
+}
+[e :U 308 ]
+"880
+[; ;rfid.c: 880:  return (_status);
+[e ) __status ]
+[e $UE 307  ]
+"881
+[; ;rfid.c: 881: }
+[e :UE 307 ]
+}
+"889
+[; ;rfid.c: 889: char MFRC522_isCard(char *TagType)
+[v _MFRC522_isCard `(uc ~T0 @X0 1 ef1`*uc ]
+"890
+[; ;rfid.c: 890: {
+{
+[e :U _MFRC522_isCard ]
+"889
+[; ;rfid.c: 889: char MFRC522_isCard(char *TagType)
+[v _TagType `*uc ~T0 @X0 1 r1 ]
+"890
+[; ;rfid.c: 890: {
+[f ]
+"891
+[; ;rfid.c: 891:  if (MFRC522_Request(0x26, TagType) == 0) return (1);
+[e $ ! == -> ( _MFRC522_Request (2 , -> -> 38 `i `uc _TagType `i -> 0 `i 314  ]
+[e ) -> -> 1 `i `uc ]
+[e $UE 313  ]
+[e $U 315  ]
+"892
+[; ;rfid.c: 892:  else return (0);
+[e :U 314 ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 313  ]
+[e :U 315 ]
+"893
+[; ;rfid.c: 893: }
+[e :UE 313 ]
+}
+"895
+[; ;rfid.c: 895: char MFRC522_ReadCardSerial(char *str)
+[v _MFRC522_ReadCardSerial `(uc ~T0 @X0 1 ef1`*uc ]
+"896
+[; ;rfid.c: 896: {
+{
+[e :U _MFRC522_ReadCardSerial ]
+"895
+[; ;rfid.c: 895: char MFRC522_ReadCardSerial(char *str)
+[v _str `*uc ~T0 @X0 1 r1 ]
+"896
+[; ;rfid.c: 896: {
+[f ]
+"897
+[; ;rfid.c: 897:  char _status;
+[v __status `uc ~T0 @X0 1 a ]
+"898
+[; ;rfid.c: 898:  _status = MFRC522_AntiColl(str);
+[e = __status ( _MFRC522_AntiColl (1 _str ]
+"899
+[; ;rfid.c: 899:  str[5] = 0;
+[e = *U + _str * -> -> 5 `i `x -> -> # *U _str `i `x -> -> 0 `i `uc ]
+"900
+[; ;rfid.c: 900:  if (_status == 0) return (1);
+[e $ ! == -> __status `i -> 0 `i 317  ]
+[e ) -> -> 1 `i `uc ]
+[e $UE 316  ]
+[e $U 318  ]
+"901
+[; ;rfid.c: 901:  else return (0);
+[e :U 317 ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 316  ]
+[e :U 318 ]
+"902
+[; ;rfid.c: 902: }
+[e :UE 316 ]
+}
+"904
+[; ;rfid.c: 904: void hex2Ascii(char *strIn, char *strOut, char cntDig)
+[v _hex2Ascii `(v ~T0 @X0 1 ef3`*uc`*uc`uc ]
+"905
+[; ;rfid.c: 905: {
+{
+[e :U _hex2Ascii ]
+"904
+[; ;rfid.c: 904: void hex2Ascii(char *strIn, char *strOut, char cntDig)
+[v _strIn `*uc ~T0 @X0 1 r1 ]
+[v _strOut `*uc ~T0 @X0 1 r2 ]
+[v _cntDig `uc ~T0 @X0 1 r3 ]
+"905
+[; ;rfid.c: 905: {
+[f ]
+"906
+[; ;rfid.c: 906:  char a,b,uni,dez;
+[v _a `uc ~T0 @X0 1 a ]
+[v _b `uc ~T0 @X0 1 a ]
+[v _uni `uc ~T0 @X0 1 a ]
+[v _dez `uc ~T0 @X0 1 a ]
+"907
+[; ;rfid.c: 907:  for(a=0;a<cntDig;a++)
+{
+[e = _a -> -> 0 `i `uc ]
+[e $U 323  ]
+[e :U 320 ]
+"908
+[; ;rfid.c: 908:  {
+{
+"909
+[; ;rfid.c: 909:   b=a*2;
+[e = _b -> * -> _a `i -> 2 `i `uc ]
+"910
+[; ;rfid.c: 910:   uni= strIn[a] & 0x0F;
+[e = _uni -> & -> *U + _strIn * -> _a `ux -> -> # *U _strIn `ui `ux `i -> 15 `i `uc ]
+"911
+[; ;rfid.c: 911:   dez=(strIn[a] & 0xF0)>>4;
+[e = _dez -> >> & -> *U + _strIn * -> _a `ux -> -> # *U _strIn `ui `ux `i -> 240 `i -> 4 `i `uc ]
+"912
+[; ;rfid.c: 912:   if (uni <10) uni += '0';
+[e $ ! < -> _uni `i -> 10 `i 324  ]
+[e =+ _uni -> -> 48 `ui `uc ]
+[e :U 324 ]
+"913
+[; ;rfid.c: 913:   if (uni > 9 && uni < 16) uni += 0x37;
+[e $ ! && > -> _uni `i -> 9 `i < -> _uni `i -> 16 `i 325  ]
+[e =+ _uni -> -> 55 `i `uc ]
+[e :U 325 ]
+"914
+[; ;rfid.c: 914:   if (dez <10) dez += '0';
+[e $ ! < -> _dez `i -> 10 `i 326  ]
+[e =+ _dez -> -> 48 `ui `uc ]
+[e :U 326 ]
+"915
+[; ;rfid.c: 915:   if (dez > 9 && dez < 16) dez += 0x37;
+[e $ ! && > -> _dez `i -> 9 `i < -> _dez `i -> 16 `i 327  ]
+[e =+ _dez -> -> 55 `i `uc ]
+[e :U 327 ]
+"916
+[; ;rfid.c: 916:   strOut[b]=dez;
+[e = *U + _strOut * -> _b `ux -> -> # *U _strOut `ui `ux _dez ]
+"917
+[; ;rfid.c: 917:   strOut[b+1]=uni;
+[e = *U + _strOut * -> + -> _b `i -> 1 `i `x -> -> # *U _strOut `i `x _uni ]
+"918
+[; ;rfid.c: 918:  }
+}
+[e ++ _a -> -> 1 `i `uc ]
+[e :U 323 ]
+[e $ < -> _a `i -> _cntDig `i 320  ]
+[e :U 321 ]
+}
+"919
+[; ;rfid.c: 919: }
+[e :UE 319 ]
+}
+"921
+[; ;rfid.c: 921: char matEeprom[]=
+[v _matEeprom `uc ~T0 @X0 -> 55 `i e ]
+[i _matEeprom
+:U ..
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+..
+]
+"936
+[; ;rfid.c: 936: void eepromLoad(void)
+[v _eepromLoad `(v ~T0 @X0 1 ef ]
+"937
+[; ;rfid.c: 937: {
+{
+[e :U _eepromLoad ]
+[f ]
+"938
+[; ;rfid.c: 938:  char x,y;
+[v _x `uc ~T0 @X0 1 a ]
+[v _y `uc ~T0 @X0 1 a ]
+"939
+[; ;rfid.c: 939:  for(x=0;x<55;x+=5)
+{
+[e = _x -> -> 0 `i `uc ]
+[e $ < -> _x `i -> 55 `i 329  ]
+[e $U 330  ]
+[e :U 329 ]
+"940
+[; ;rfid.c: 940:  {
+{
+"941
+[; ;rfid.c: 941:   for(y=0;y<5;y++)matEeprom[x+y]=eepromLer(x+y);
+{
+[e = _y -> -> 0 `i `uc ]
+[e $ < -> _y `i -> 5 `i 332  ]
+[e $U 333  ]
+[e :U 332 ]
+[e = *U + &U _matEeprom * -> -> + -> _x `i -> _y `i `ui `ux -> -> # *U &U _matEeprom `ui `ux ( _eepromLer (1 -> + -> _x `i -> _y `i `uc ]
+[e ++ _y -> -> 1 `i `uc ]
+[e $ < -> _y `i -> 5 `i 332  ]
+[e :U 333 ]
+}
+"942
+[; ;rfid.c: 942:  }
+}
+[e =+ _x -> -> 5 `i `uc ]
+[e $ < -> _x `i -> 55 `i 329  ]
+[e :U 330 ]
+}
+"943
+[; ;rfid.c: 943: }
+[e :UE 328 ]
+}
+"945
+[; ;rfid.c: 945: char tagSearch(char *tagVlr)
+[v _tagSearch `(uc ~T0 @X0 1 ef1`*uc ]
+"946
+[; ;rfid.c: 946: {
+{
+[e :U _tagSearch ]
+"945
+[; ;rfid.c: 945: char tagSearch(char *tagVlr)
+[v _tagVlr `*uc ~T0 @X0 1 r1 ]
+"946
+[; ;rfid.c: 946: {
+[f ]
+"947
+[; ;rfid.c: 947:  char a=0, b=0, c=0;
+[v _a `uc ~T0 @X0 1 a ]
+[e = _a -> -> 0 `i `uc ]
+[v _b `uc ~T0 @X0 1 a ]
+[e = _b -> -> 0 `i `uc ]
+[v _c `uc ~T0 @X0 1 a ]
+[e = _c -> -> 0 `i `uc ]
+"948
+[; ;rfid.c: 948:  while(a<55)
+[e $U 336  ]
+[e :U 337 ]
+"949
+[; ;rfid.c: 949:  {
+{
+"950
+[; ;rfid.c: 950:   for(b=0;b<5;b++)
+{
+[e = _b -> -> 0 `i `uc ]
+[e $ < -> _b `i -> 5 `i 339  ]
+[e $U 340  ]
+[e :U 339 ]
+"951
+[; ;rfid.c: 951:   {
+{
+"952
+[; ;rfid.c: 952:    if(tagVlr[a+b]==matEeprom[a+b])c=1;
+[e $ ! == -> *U + _tagVlr * -> + -> _a `i -> _b `i `x -> -> # *U _tagVlr `i `x `i -> *U + &U _matEeprom * -> -> + -> _a `i -> _b `i `ui `ux -> -> # *U &U _matEeprom `ui `ux `i 342  ]
+[e = _c -> -> 1 `i `uc ]
+[e $U 343  ]
+"953
+[; ;rfid.c: 953:    else c=0;
+[e :U 342 ]
+[e = _c -> -> 0 `i `uc ]
+[e :U 343 ]
+"954
+[; ;rfid.c: 954:   }
+}
+[e ++ _b -> -> 1 `i `uc ]
+[e $ < -> _b `i -> 5 `i 339  ]
+[e :U 340 ]
+}
+"955
+[; ;rfid.c: 955:   if(c==1)break;
+[e $ ! == -> _c `i -> 1 `i 344  ]
+[e $U 338  ]
+[e :U 344 ]
+"956
+[; ;rfid.c: 956:   a +=5;
+[e =+ _a -> -> 5 `i `uc ]
+"957
+[; ;rfid.c: 957:  }
+}
+[e :U 336 ]
+"948
+[; ;rfid.c: 948:  while(a<55)
+[e $ < -> _a `i -> 55 `i 337  ]
+[e :U 338 ]
+"958
+[; ;rfid.c: 958:  return(a);
+[e ) _a ]
+[e $UE 335  ]
+"959
+[; ;rfid.c: 959: }
+[e :UE 335 ]
+}
